@@ -1,10 +1,13 @@
-<script setup></script>
+<script setup>
+import { ref } from "vue";
+const isActive = ref(true);
+</script>
 
 <template>
   <div class="peons-row">
-    <div class="peon-color"></div>
-    <div class="peon-color"></div>
-    <div class="peon-color"></div>
+    <div class="peon-choice" v-bind:class="{ redColor: isActive }"></div>
+    <div class="peon-choice"></div>
+    <div class="peon-choice"></div>
   </div>
 </template>
 
@@ -17,10 +20,13 @@
   height: 5vw;
   margin: 2vw;
 }
-.peon-color {
+.peon-choice {
   border: black 1px solid;
   width: 3.5vw;
   height: 3.5vw;
   border-radius: 50%;
+}
+.redColor {
+  background-color: red;
 }
 </style>
