@@ -1,11 +1,13 @@
-<script setup></script>
-
 <template>
   <div class="peons-row">
-    <div class="peon-color-red"></div>
+    <button @click="$emit('redColor')" class="peon-color-red"></button>
     <div class="peon-color-blue"></div>
   </div>
 </template>
+
+<script setup>
+const emit = defineEmits(["redColor"]);
+</script>
 
 <style scoped>
 .peons-row {

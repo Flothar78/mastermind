@@ -1,11 +1,15 @@
 <script setup>
 import { ref } from "vue";
-const isActive = ref(true);
+const redIsActive = ref(false);
 </script>
 
 <template>
   <div class="peons-row">
-    <div class="peon-choice" v-bind:class="{ redColor: isActive }"></div>
+    <div
+      class="peon-choice"
+      :class="{ redcolor: redIsActive }"
+      @redColor="redIsActive = true"
+    ></div>
     <div class="peon-choice"></div>
     <div class="peon-choice"></div>
   </div>
@@ -26,7 +30,7 @@ const isActive = ref(true);
   height: 3.5vw;
   border-radius: 50%;
 }
-.redColor {
+.redcolor {
   background-color: red;
 }
 </style>
