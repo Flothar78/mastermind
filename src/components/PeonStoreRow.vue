@@ -1,19 +1,27 @@
 <template>
   <div class="peons-row">
-    <button class="peon-color-red"></button>
-    <div class="peon-color-blue"></div>
+    <div v-on:click="redChoice" class="peon-color-red"></div>
+    <div v-on:click="blueChoice" class="peon-color-blue"></div>
   </div>
 </template>
 
 <script>
 import { reactive } from "vue";
-export const peonColor = reactive({
-  red: 'class="redcolor"',
-  blue: 'class="bluecolor"',
-});
+export const peonColor = reactive([]);
 </script>
 
-<script setup></script>
+<script setup>
+const redChoice = () => {
+  peonColor.length = 0;
+  peonColor.push("redcolor");
+  console.log(peonColor);
+};
+const blueChoice = () => {
+  peonColor.length = 0;
+  peonColor.push("bluecolor");
+  console.log(peonColor);
+};
+</script>
 
 <style scoped>
 .peons-row {
