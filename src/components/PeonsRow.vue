@@ -1,34 +1,19 @@
 <script setup>
-import { ref } from "vue";
+import { computed, h } from "vue";
 import { peonColor } from "@/components/PeonStoreRow.vue";
-
-const redIsActive = ref(false);
-const blueIsActive = ref(false);
+let truc;
 const colorChoice = () => {
   console.log(String(Object.values(peonColor)));
-  String(Object.values(peonColor)) === "redcolor"
-    ? (redIsActive.value = true)
-    : (blueIsActive.value = true);
+
+  truc = String(Object.values(peonColor));
 };
 </script>
 
 <template>
   <div class="peons-row">
-    <div
-      class="peon-choice"
-      @click="colorChoice"
-      :class="{ redcolor: redIsActive, bluecolor: blueIsActive }"
-    ></div>
-    <div
-      class="peon-choice"
-      @click="colorChoice"
-      :class="{ redcolor: redIsActive, bluecolor: blueIsActive }"
-    ></div>
-    <div
-      class="peon-choice"
-      @click="colorChoice"
-      :class="{ redcolor: redIsActive, bluecolor: blueIsActive }"
-    ></div>
+    <div class="peon-choice" @click="colorChoice" :class="truc"></div>
+    <div class="peon-choice"></div>
+    <div class="peon-choice"></div>
   </div>
 </template>
 
