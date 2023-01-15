@@ -1,15 +1,23 @@
 <script setup>
 import { ref } from "vue";
-const redIsActive = ref(false);
+import { peonColor } from "@/components/PeonStoreRow.vue";
+const isRed = ref(false);
+const isBlue = ref(false);
+if (peonColor.red) {
+  isRed.value = true;
+} else if (peonColor.blue) {
+  isBlue.value = true;
+}
+console.log(peonColor.red, peonColor.blue);
 </script>
 
 <template>
   <div class="peons-row">
     <div
       class="peon-choice"
-      :class="{ redcolor: redIsActive }"
-      @redColor="redIsActive = true"
+      :class="{ redcolor: isRed, bluecolor: isBlue }"
     ></div>
+
     <div class="peon-choice"></div>
     <div class="peon-choice"></div>
   </div>
@@ -32,5 +40,8 @@ const redIsActive = ref(false);
 }
 .redcolor {
   background-color: red;
+}
+.bluecolor {
+  background-color: blue;
 }
 </style>

@@ -1,13 +1,19 @@
 <template>
   <div class="peons-row">
-    <button @click="$emit('redColor')" class="peon-color-red"></button>
+    <button class="peon-color-red"></button>
     <div class="peon-color-blue"></div>
   </div>
 </template>
 
-<script setup>
-const emit = defineEmits(["redColor"]);
+<script>
+import { reactive } from "vue";
+export const peonColor = reactive({
+  red: 'class="redcolor"',
+  blue: 'class="bluecolor"',
+});
 </script>
+
+<script setup></script>
 
 <style scoped>
 .peons-row {
