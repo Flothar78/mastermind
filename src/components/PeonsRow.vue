@@ -1,12 +1,9 @@
 <script setup>
-import { ref, reactive } from "vue";
 import { peonColor } from "@/components/PeonStoreRow.vue";
-
-console.log(peonColor);
 </script>
 
 <template>
-  <div class="peons-row" @click="colorChoice">
+  <div class="peons-row">
     <div
       v-for="color in peonColor"
       :key="color"
@@ -30,11 +27,5 @@ console.log(peonColor);
   width: 3.5vw;
   height: 3.5vw;
   border-radius: 50%;
-}
-.redcolor {
-  background-color: red;
-}
-.bluecolor {
-  background-color: blue;
 }
 </style>
