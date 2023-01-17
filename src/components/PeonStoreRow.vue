@@ -12,13 +12,11 @@ export const peonColor = reactive([]);
 
 <script setup>
 const redChoice = () => {
-  peonColor.length = 0;
-  peonColor.push("redcolor");
+  peonColor.length < 3 ? peonColor.push("red") : (peonColor.length = 0);
   console.log(peonColor);
 };
 const blueChoice = () => {
-  peonColor.length = 0;
-  peonColor.push("bluecolor");
+  peonColor.length < 3 ? peonColor.push("blue") : (peonColor.length = 0);
   console.log(peonColor);
 };
 </script>

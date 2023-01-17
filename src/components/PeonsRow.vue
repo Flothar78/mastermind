@@ -1,21 +1,18 @@
 <script setup>
-import { computed, reactive, h } from "vue";
+import { ref, reactive } from "vue";
 import { peonColor } from "@/components/PeonStoreRow.vue";
-let classColor = reactive([]);
 
-const colorChoice = () => {
-  console.log(String(Object.values(peonColor)));
-
-  classColor.push(String(Object.values(peonColor)));
-};
-console.log(classColor);
+console.log(peonColor);
 </script>
 
 <template>
-  <div class="peons-row">
-    <div class="peon-choice" @click="colorChoice" :class="classColor"></div>
-    <div class="peon-choice" @click="colorChoice" :class="classColor"></div>
-    <div class="peon-choice" @click="colorChoice" :class="classColor"></div>
+  <div class="peons-row" @click="colorChoice">
+    <div
+      v-for="color in peonColor"
+      :key="color"
+      class="peoncolor"
+      :style="{ backgroundColor: color }"
+    ></div>
   </div>
 </template>
 
@@ -28,7 +25,7 @@ console.log(classColor);
   height: 5vw;
   margin: 2vw;
 }
-.peon-choice {
+.peoncolor {
   border: black 1px solid;
   width: 3.5vw;
   height: 3.5vw;
