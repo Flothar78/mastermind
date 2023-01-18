@@ -1,5 +1,6 @@
 <script setup>
 import { peonColor } from "@/components/PeonStoreRow.vue";
+console.log(peonColor.length);
 </script>
 
 <template>
