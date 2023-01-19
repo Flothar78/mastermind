@@ -1,8 +1,6 @@
 <script setup>
 import PeonsRow from "@/components/PeonsRow.vue";
-import peonColor from "@/components/PeonStoreRow.vue";
 import { ref } from "vue";
-console.log(peonColor);
 </script>
 <template>
   <div class="board-play"><PeonsRow /></div>

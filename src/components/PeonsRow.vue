@@ -1,16 +1,17 @@
 <script setup>
-import { peonColor } from "@/components/PeonStoreRow.vue";
-console.log(peonColor.length);
+import { PeonColor } from "@/components/PeonStoreRow.vue";
 </script>
 
 <template>
   <div class="peons-row">
     <div
-      v-for="color in peonColor"
+      v-for="color in PeonColor"
       :key="color"
       class="peoncolor"
       :style="{ backgroundColor: color }"
-    ></div>
+    >
+      
+    </div>
   </div>
 </template>
 
@@ -24,7 +25,6 @@ console.log(peonColor.length);
   margin: 2vw;
 }
 .peoncolor {
-  border: black 1px solid;
   width: 3.5vw;
   height: 3.5vw;
   border-radius: 50%;

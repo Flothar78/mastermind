@@ -7,25 +7,19 @@
 
 <script>
 import { reactive } from "vue";
-export const peonColor = reactive([]);
+export const PeonColor = reactive([]);
 </script>
 
 <script setup>
 const redChoice = () => {
-  if (peonColor.length < 3) {
-    peonColor.push("red");
-  } else {
-    peonColor.length = 0;
-    peonColor.push("red");
-  }
+  PeonColor.length < 3
+    ? PeonColor.push("red")
+    : ((PeonColor.length = 0), PeonColor.push("red"));
 };
 const blueChoice = () => {
-  if (peonColor.length < 3) {
-    peonColor.push("blue");
-  } else {
-    peonColor.length = 0;
-    peonColor.push("blue");
-  }
+  PeonColor.length < 3
+    ? PeonColor.push("blue")
+    : ((PeonColor.length = 0), PeonColor.push("blue"));
 };
 </script>
 
