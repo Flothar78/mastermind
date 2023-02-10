@@ -1,13 +1,13 @@
 <script setup>
 import GameSolution from "@/components/GameSolution.vue";
-import BoardPlay from "@/components/BoardPlay.vue";
+import PlayGround from "@/components/PlayGround.vue";
 import PeonStore from "@/components/PeonStore.vue";
 </script>
 
 <template>
   <div class="play-ground">
     <GameSolution />
-    <BoardPlay />
+    <PlayGround />
     <PeonStore />
   </div>
 </template>

@@ -1,18 +1,20 @@
 <script setup>
-import { PeonColor } from "@/components/PeonStoreRow.vue";
+import PeonOccurence from "@/components/PeonOccurence.vue";
 </script>
 
 <template>
   <div class="peons-row">
-    <div
+    <PeonOccurence />
+    <PeonOccurence />
+    <PeonOccurence />
+  </div>
+
+  <!--<div
       v-for="color in PeonColor"
       :key="color"
       class="peoncolor"
       :style="{ backgroundColor: color }"
-    >
-      
-    </div>
-  </div>
+    ></div> -->
 </template>
 
 <style scoped>
@@ -25,6 +27,7 @@ import { PeonColor } from "@/components/PeonStoreRow.vue";
   margin: 2vw;
 }
 .peoncolor {
+  background-color: black;
   width: 3.5vw;
   height: 3.5vw;
   border-radius: 50%;

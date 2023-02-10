@@ -1,10 +1,12 @@
-<script setup></script>
+<script setup>
+import PeonOccurence from "@/components/PeonOccurence.vue";
+</script>
 
 <template>
   <div class="peons-row">
-    <div class="peon-choice"></div>
-    <div class="peon-choice"></div>
-    <div class="peon-choice"></div>
+    <PeonOccurence />
+    <PeonOccurence />
+    <PeonOccurence />
   </div>
 </template>
 

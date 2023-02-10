@@ -1,16 +1,39 @@
-<script setup>
-import PeonStoreRow from "@/components/PeonStoreRow.vue";
-</script>
-
 <template>
-  <div class="peon-store">
-    <PeonStoreRow />
+  <div>PeonStore.vue</div>
+  <div class="peons-row">
+    <PeonOccurence class="red-color" />
+    <PeonOccurence class="blue-color" />
   </div>
 </template>
 
+<script>
+import PeonOccurence from "@/components/PeonOccurence.vue";
+
+// import { reactive } from "vue";
+// export const PeonColor = reactive([]);
+//
+</script>
+// //
+<script setup>
+// const redChoice = () => {
+//   PeonColor.length < 3
+//     ? PeonColor.push("red")
+//     : ((PeonColor.length = 0), PeonColor.push("red"));
+// };
+// const blueChoice = () => {
+//   PeonColor.length < 3
+//     ? PeonColor.push("blue")
+//     : ((PeonColor.length = 0), PeonColor.push("blue"));
+// };
+</script>
+
 <style scoped>
-.peon-store {
+.peons-row {
   border: black 1px solid;
-  height: 15vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 5vw;
+  margin: 2vw;
 }
 </style>

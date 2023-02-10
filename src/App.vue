@@ -1,12 +1,12 @@
 <script setup>
-import PlayGround from "@/views/PlayGround.vue";
-import TryResult from "@/views/TryResult.vue";
+import PlayView from "@/views/PlayView.vue";
+import ResultView from "@/views/ResultView.vue";
 </script>
 
 <template>
   <div class="wrapper">
-    <PlayGround />
-    <TryResult />
+    <PlayView />
+    <ResultView />
   </div>
 </template>
 

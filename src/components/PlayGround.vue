@@ -1,9 +1,13 @@
 <script setup>
-import PeonsRow from "@/components/PeonsRow.vue";
 import { ref } from "vue";
+import PeonsRow from "@/components/PeonsRow.vue";
 </script>
+
 <template>
-  <div class="board-play"><PeonsRow /></div>
+  <div class="board-play">
+    <div>PlayGround.vue</div>
+    <PeonsRow />
+  </div>
 </template>
 
 <style scoped>
