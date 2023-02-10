@@ -5,7 +5,6 @@ import PeonsRow from "@/components/PeonsRow.vue";
 
 <template>
   <div class="board-play">
-    <div>PlayGround.vue</div>
     <PeonsRow />
   </div>
 </template>

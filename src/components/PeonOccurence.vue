@@ -11,13 +11,13 @@
   height: 3.5vw;
   border-radius: 50%;
 }
-.red-color {
+.red {
   background-color: red;
   width: 3.5vw;
   height: 3.5vw;
   border-radius: 50%;
 }
-.blue-color {
+.blue {
   background-color: blue;
   width: 3.5vw;
   height: 3.5vw;

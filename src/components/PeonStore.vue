@@ -1,20 +1,24 @@
 <template>
   <div>PeonStore.vue</div>
   <div class="peons-row">
-    <PeonOccurence class="red-color" />
-    <PeonOccurence class="blue-color" />
+    <PeonOccurence class="red" v-on:click="redToStore()" />
+    <PeonOccurence class="blue" v-on:click="blueToStore()" />
   </div>
 </template>
 
-<script>
-import PeonOccurence from "@/components/PeonOccurence.vue";
-
-// import { reactive } from "vue";
-// export const PeonColor = reactive([]);
-//
-</script>
-// //
 <script setup>
+import PeonOccurence from "@/components/PeonOccurence.vue";
+import { useColorStore } from "@/stores/colorStore.js";
+
+const color_store = useColorStore();
+
+function redToStore() {
+  color_store.add("red");
+}
+function blueToStore() {
+  color_store.add("blue");
+}
+
 // const redChoice = () => {
 //   PeonColor.length < 3
 //     ? PeonColor.push("red")
