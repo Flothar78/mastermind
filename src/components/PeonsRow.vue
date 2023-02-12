@@ -1,32 +1,27 @@
 <script setup>
 import PeonOccurence from "@/components/PeonOccurence.vue";
-import { useColorStore } from "@/stores/colorStore.js";
+import { useColorStore } from "@/stores/ColorStore.js";
 import { ref } from "vue";
+import { storeToRefs } from "pinia";
 
 const color_store = useColorStore();
-let classColor1 = ref("");
-let classColor2 = ref("");
-let classColor3 = ref("");
-
-function getColor1FromStore() {
-  classColor1.value = Object.values(color_store.choiceOfColor).join``;
-  return classColor1;
-}
-function getColor2FromStore() {
-  classColor2.value = Object.values(color_store.choiceOfColor).join``;
-  return classColor2;
-}
-function getColor3FromStore() {
-  classColor3.value = Object.values(color_store.choiceOfColor).join``;
-  return classColor3;
-}
+const { classColor1, classColor2, classColor3 } = storeToRefs(color_store);
 </script>
 
 <template>
   <div class="peons-row">
-    <PeonOccurence @click="getColor1FromStore()" :class="classColor1" />
-    <PeonOccurence @click="getColor2FromStore()" :class="classColor2" />
-    <PeonOccurence @click="getColor3FromStore()" :class="classColor3" />
+    <PeonOccurence
+      @click="color_store.getColor1FromStore()"
+      :class="classColor1"
+    />
+    <PeonOccurence
+      @click="color_store.getColor2FromStore()"
+      :class="classColor2"
+    />
+    <PeonOccurence
+      @click="color_store.getColor3FromStore()"
+      :class="classColor3"
+    />
   </div>
 </template>
 

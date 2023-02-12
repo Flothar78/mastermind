@@ -8,27 +8,16 @@
 
 <script setup>
 import PeonOccurence from "@/components/PeonOccurence.vue";
-import { useColorStore } from "@/stores/colorStore.js";
+import { useColorStore } from "@/stores/ColorStore.js";
 
 const color_store = useColorStore();
 
-function redToStore() {
-  color_store.add("red");
-}
-function blueToStore() {
-  color_store.add("blue");
-}
-
-// const redChoice = () => {
-//   PeonColor.length < 3
-//     ? PeonColor.push("red")
-//     : ((PeonColor.length = 0), PeonColor.push("red"));
-// };
-// const blueChoice = () => {
-//   PeonColor.length < 3
-//     ? PeonColor.push("blue")
-//     : ((PeonColor.length = 0), PeonColor.push("blue"));
-// };
+const redToStore = () => {
+  color_store.addColorToStore("red");
+};
+const blueToStore = () => {
+  color_store.addColorToStore("blue");
+};
 </script>
 
 <style scoped>
