@@ -1,5 +1,4 @@
 <template>
-  <div>PeonStore.vue</div>
   <div class="peons-row">
     <PeonOccurence class="red" v-on:click="redToStore()" />
     <PeonOccurence class="blue" v-on:click="blueToStore()" />

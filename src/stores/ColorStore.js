@@ -9,7 +9,6 @@ export const useColorStore = defineStore("ColorStore", {
       classColor3: ref([]),
     };
   },
-
   actions: {
     addColorToStore(className) {
       this.choiceOfColor.length = 0;

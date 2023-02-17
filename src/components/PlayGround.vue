@@ -1,11 +1,17 @@
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import PeonsRow from "@/components/PeonsRow.vue";
+import { useRowStore } from "@/stores/RowStore.js";
+import { storeToRefs } from "pinia";
+
+const row_store = useRowStore();
+const rows = computed(() => Object.values(row_store.rowsOneByOne));
+console.log(rows.value);
 </script>
 
 <template>
   <div class="board-play">
-    <PeonsRow />
+    <PeonsRow v-for="row in rows" :key="row.id" />
   </div>
 </template>
 

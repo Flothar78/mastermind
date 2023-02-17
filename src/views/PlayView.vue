@@ -1,14 +1,14 @@
 <script setup>
 import GameSolution from "@/components/GameSolution.vue";
 import PlayGround from "@/components/PlayGround.vue";
-import PeonStore from "@/components/PeonStore.vue";
+import AvailableColors from "@/components/AvailableColors.vue";
 </script>
 
 <template>
   <div class="play-ground">
     <GameSolution />
     <PlayGround />
-    <PeonStore />
+    <AvailableColors />
   </div>
 </template>
 
