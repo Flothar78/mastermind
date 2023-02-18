@@ -18,9 +18,8 @@ export const useRowStore = defineStore("RowStore", {
   },
 
   actions: {
-    getRowsOneByOne() {
-      this.rowsOneByOne = "testPahrse bidule ";
-      console.log(this.rowsOneByOne);
+    getRowsOneByOne(id) {
+      console.log(id);
     },
   },
 });

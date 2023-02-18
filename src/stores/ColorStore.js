@@ -17,17 +17,14 @@ export const useColorStore = defineStore("ColorStore", {
     getColor1FromStore() {
       this.classColor1.length = 0;
       this.classColor1.push(Object.values(this.choiceOfColor));
-      return this.classColor1.join``;
     },
     getColor2FromStore() {
       this.classColor2.length = 0;
       this.classColor2.push(Object.values(this.choiceOfColor));
-      return this.classColor2.join``;
     },
     getColor3FromStore() {
       this.classColor3.length = 0;
       this.classColor3.push(Object.values(this.choiceOfColor));
-      return this.classColor3.join``;
     },
   },
 });
