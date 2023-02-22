@@ -5,25 +5,25 @@ export const useColorStore = defineStore("ColorStore", {
     return {
       rows: ref([
         {
-          peons: {
-            1: { id: 0, class: "" },
-            2: { id: 1, class: "" },
-            3: { id: 2, class: "" },
-          },
+          peons: [
+            { id: 0, class: "" },
+            { id: 1, class: "" },
+            { id: 2, class: "" },
+          ],
         },
         {
-          peons: {
-            1: { id: 0, class: "" },
-            2: { id: 1, class: "" },
-            3: { id: 2, class: "" },
-          },
+          peons: [
+            { id: 0, class: "" },
+            { id: 1, class: "" },
+            { id: 2, class: "" },
+          ],
         },
         {
-          peons: {
-            1: { id: 0, class: "" },
-            2: { id: 1, class: "" },
-            3: { id: 2, class: "" },
-          },
+          peons: [
+            { id: 0, class: "" },
+            { id: 1, class: "" },
+            { id: 2, class: "" },
+          ],
         },
       ]),
       choiceOfColor: [],

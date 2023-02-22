@@ -10,12 +10,7 @@ const { classColor, peons, rows } = storeToRefs(color_store);
 
 <template>
   <div v-for="row in rows" :key="row.id" class="withinRow">
-    <PeonOccurence
-      v-for="peon in peons"
-      :key="peon.id"
-      @click="color_store.getColorFromStore(row.id)"
-      :class="peon.class"
-    />
+    <PeonOccurence v-for="peon in peons" :key="peon.id" />
   </div>
 </template>
 
