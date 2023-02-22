@@ -9,8 +9,14 @@ const { classColor, peons, rows } = storeToRefs(color_store);
 </script>
 
 <template>
+  <div class="betweenRows"></div>
   <div v-for="row in rows" :key="row.id" class="withinRow">
-    <PeonOccurence v-for="peon in peons" :key="peon.id" />
+    <PeonOccurence
+      v-for="peon in peons"
+      :key="peon.id"
+      @click="color_store.getColorFromStore(row.id, peon.id)"
+      :class="peon.class"
+    />
   </div>
 </template>
 
@@ -22,5 +28,9 @@ const { classColor, peons, rows } = storeToRefs(color_store);
   align-items: center;
   height: 5vw;
   margin: 2vw;
+}
+.betweenRows {
+  display: flex;
+  flex-direction: column-reverse;
 }
 </style>

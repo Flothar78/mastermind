@@ -4,6 +4,7 @@ import PeonOccurence from "@/components/PeonOccurence.vue";
 
 <template>
   <div class="peons-row">
+    GAME SOLUTION
     <PeonOccurence />
     <PeonOccurence />
     <PeonOccurence />
