@@ -3,28 +3,42 @@ import { ref } from "vue";
 export const useColorStore = defineStore("ColorStore", {
   state: () => {
     return {
+      rows: ref([
+        {
+          peons: {
+            1: { id: 0, class: "" },
+            2: { id: 1, class: "" },
+            3: { id: 2, class: "" },
+          },
+        },
+        {
+          peons: {
+            1: { id: 0, class: "" },
+            2: { id: 1, class: "" },
+            3: { id: 2, class: "" },
+          },
+        },
+        {
+          peons: {
+            1: { id: 0, class: "" },
+            2: { id: 1, class: "" },
+            3: { id: 2, class: "" },
+          },
+        },
+      ]),
       choiceOfColor: [],
-      classColor1: ref([]),
-      classColor2: ref([]),
-      classColor3: ref([]),
     };
   },
   actions: {
-    addColorToStore(className) {
+    addColorToStore(color) {
       this.choiceOfColor.length = 0;
-      this.choiceOfColor.push(className);
+      this.choiceOfColor.push(color);
+      console.log(this.choiceOfColor);
     },
-    getColor1FromStore() {
-      this.classColor1.length = 0;
-      this.classColor1.push(Object.values(this.choiceOfColor));
-    },
-    getColor2FromStore() {
-      this.classColor2.length = 0;
-      this.classColor2.push(Object.values(this.choiceOfColor));
-    },
-    getColor3FromStore() {
-      this.classColor3.length = 0;
-      this.classColor3.push(Object.values(this.choiceOfColor));
+    getColorFromStore(rowId, peonId) {
+      this.peons[peonId].class = Object.values(this.choiceOfColor);
+      console.log(this.peons);
+      console.log(this.rows);
     },
   },
 });
