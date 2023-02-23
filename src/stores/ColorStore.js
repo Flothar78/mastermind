@@ -10,6 +10,7 @@ export const useColorStore = defineStore("ColorStore", {
         { id: 2, class: "" },
       ],
       choiceOfColor: [],
+      arrayOfPeons: [],
     };
   },
   actions: {
@@ -19,7 +20,17 @@ export const useColorStore = defineStore("ColorStore", {
       console.log(this.choiceOfColor);
     },
     getColorFromStore(rowId, peonId) {
-      this.peons[rowId].class = Object.values(this.choiceOfColor);
+      this.peons[peonId].class = Object.values(this.choiceOfColor);
+      console.log(this.rows[rowId].id, this.peons[peonId].id);
+
+      this.peons[peonId].class !== ""
+        ? this.arrayOfPeons.push(this.peons[rowId])
+        : "";
+      console.log(this.arrayOfPeons);
+      //this.arrayOfPeons.map((x) => {
+      //  console.log(x[rowId]);
+      //});
     },
   },
+  getters: {},
 });

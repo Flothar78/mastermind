@@ -9,14 +9,15 @@ const { classColor, peons, rows } = storeToRefs(color_store);
 </script>
 
 <template>
-  <div class="betweenRows"></div>
-  <div v-for="row in rows" :key="row.id" class="withinRow">
-    <PeonOccurence
-      v-for="peon in peons"
-      :key="peon.id"
-      @click="color_store.getColorFromStore(row.id, peon.id)"
-      :class="peon.class"
-    />
+  <div class="betweenRows">
+    <div v-for="row in rows" :key="row.id" class="withinRow">
+      <PeonOccurence
+        v-for="peon in peons"
+        :key="peon.id"
+        @click="color_store.getColorFromStore(row.id, peon.id)"
+        :class="peon.class"
+      />
+    </div>
   </div>
 </template>
 
