@@ -1,13 +1,14 @@
 <script setup>
 import PeonOccurence from "@/components/PeonOccurence.vue";
+import { useColorStore } from "@/stores/ColorStore.js";
+const color_store = useColorStore();
 </script>
 
 <template>
   <div class="peons-row">
-    GAME SOLUTION
-    <PeonOccurence />
-    <PeonOccurence />
-    <PeonOccurence />
+    <PeonOccurence :class="color_store.getRandomColor()" />
+    <PeonOccurence :class="color_store.getRandomColor()" />
+    <PeonOccurence :class="color_store.getRandomColor()" />
   </div>
 </template>
 

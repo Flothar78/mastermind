@@ -8,6 +8,7 @@ export const useColorStore = defineStore("ColorStore", {
         [{ class: "" }, { class: "" }, { class: "" }],
         [{ class: "" }, { class: "" }, { class: "" }],
       ]),
+      colorsArray: ["red", "blue"],
       choiceOfColor: [],
     };
   },
@@ -21,6 +22,11 @@ export const useColorStore = defineStore("ColorStore", {
       this.rows[indexOfChosenRow][indexOfChosenPeon].class = Object.values(
         this.choiceOfColor
       );
+    },
+    getRandomColor() {
+      return this.colorsArray[
+        Math.floor(Math.random() * this.colorsArray.length)
+      ];
     },
   },
 });
