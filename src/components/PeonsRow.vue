@@ -14,7 +14,7 @@ const { classColor, peons, rows } = storeToRefs(color_store);
       <PeonOccurence
         v-for="peon in row"
         :key="row.indexOf(peon)"
-        @click="color_store.pushCoordonatesInArray(row, row.indexOf(peon))"
+        @click="color_store.getColorFromStore(row, row.indexOf(peon))"
         :class="row[row.indexOf(peon)].class"
       />
     </div>

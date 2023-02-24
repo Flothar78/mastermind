@@ -16,7 +16,7 @@ export const useColorStore = defineStore("ColorStore", {
       this.choiceOfColor.length = 0;
       this.choiceOfColor.push(color);
     },
-    pushCoordonatesInArray(chosenRow, indexOfChosenPeon) {
+    getColorFromStore(chosenRow, indexOfChosenPeon) {
       let indexOfChosenRow = this.rows.indexOf(chosenRow);
       this.rows[indexOfChosenRow][indexOfChosenPeon].class = Object.values(
         this.choiceOfColor
