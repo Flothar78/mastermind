@@ -12,10 +12,10 @@ const { classColor, peons, rows } = storeToRefs(color_store);
   <div class="betweenRows">
     <div v-for="row in rows" :key="row.id" class="withinRow">
       <PeonOccurence
-        v-for="peon in peons"
-        :key="peon.id"
-        @click="color_store.getColorFromStore(row.id, peon.id)"
-        :class="peon.class"
+        v-for="peon in row"
+        :key="row.indexOf(peon)"
+        @click="color_store.pushCoordonatesInArray(row, row.indexOf(peon))"
+        :class="row[row.indexOf(peon)].class"
       />
     </div>
   </div>
