@@ -17,13 +17,27 @@ export const useColorStore = defineStore("ColorStore", {
       this.choiceOfColor.length = 0;
       this.choiceOfColor.push(color);
     },
-    getColorFromStore(chosenRow, indexOfChosenPeon) {
-      console.log(toRaw(chosenRow), toRaw(indexOfChosenPeon));
-      let indexOfChosenRow = this.rows.indexOf(chosenRow);
-      this.rows[indexOfChosenRow][indexOfChosenPeon].class = Object.values(
+    getColorFromStore(chosenRow, chosenPeon) {
+      const arrayOfChosenPeons = [];
+      let rowFillingMonitor = toRaw(this.rows[chosenRow]);
+      this.rows[chosenRow][chosenPeon].class = Object.values(
         this.choiceOfColor
       );
+      rowFillingMonitor.map((x) => {
+        let peonColorValueCheck = toRaw(Object.values(x)).join``;
+        peonColorValueCheck !== ""
+          ? arrayOfChosenPeons.push(peonColorValueCheck)
+          : "";
+      });
+      arrayOfChosenPeons.length == this.rows[0].length
+        ? this.tryAndSolutionComparison()
+        : "";
     },
+
+    tryAndSolutionComparison() {
+      console.log("tryAndSolutionComparison");
+    },
+
     getRandomColor() {
       return this.colorsArray[
         Math.floor(Math.random() * this.colorsArray.length)
