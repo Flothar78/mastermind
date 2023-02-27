@@ -1,9 +1,9 @@
 import { defineStore } from "pinia";
-import { ref } from "vue";
+import { reactive, toRaw } from "vue";
 export const useColorStore = defineStore("ColorStore", {
   state: () => {
     return {
-      rows: ref([
+      rows: reactive([
         [{ class: "" }, { class: "" }, { class: "" }],
         [{ class: "" }, { class: "" }, { class: "" }],
         [{ class: "" }, { class: "" }, { class: "" }],
@@ -18,6 +18,7 @@ export const useColorStore = defineStore("ColorStore", {
       this.choiceOfColor.push(color);
     },
     getColorFromStore(chosenRow, indexOfChosenPeon) {
+      console.log(toRaw(chosenRow), toRaw(indexOfChosenPeon));
       let indexOfChosenRow = this.rows.indexOf(chosenRow);
       this.rows[indexOfChosenRow][indexOfChosenPeon].class = Object.values(
         this.choiceOfColor
