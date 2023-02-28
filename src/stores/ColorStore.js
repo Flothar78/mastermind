@@ -30,18 +30,21 @@ export const useColorStore = defineStore("ColorStore", {
           : "";
       });
       arrayOfChosenPeons.length == this.rows[0].length
-        ? this.tryAndSolutionComparison()
+        ? this.tryAndSolutionComparison
         : "";
     },
-
-    tryAndSolutionComparison() {
-      console.log("tryAndSolutionComparison");
-    },
-
     getRandomColor() {
       return this.colorsArray[
         Math.floor(Math.random() * this.colorsArray.length)
       ];
+    },
+  },
+  getters: {
+    numberOfPeons() {
+      return toRaw(this.rows).flat().length / toRaw(this.rows).length;
+    },
+    tryAndSolutionComparison() {
+      console.log("tryAndSolutionComparison");
     },
   },
 });

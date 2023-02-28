@@ -1,14 +1,18 @@
 <script setup>
 import PeonOccurence from "@/components/PeonOccurence.vue";
+import { storeToRefs } from "pinia";
 import { useColorStore } from "@/stores/ColorStore.js";
 const color_store = useColorStore();
+const numberOfPeons = color_store.numberOfPeons;
 </script>
 
 <template>
   <div class="peons-row">
-    <PeonOccurence :class="color_store.getRandomColor()" />
-    <PeonOccurence :class="color_store.getRandomColor()" />
-    <PeonOccurence :class="color_store.getRandomColor()" />
+    <PeonOccurence
+      v-for="number in numberOfPeons"
+      :key="number"
+      :class="color_store.getRandomColor()"
+    />
   </div>
 </template>
 
