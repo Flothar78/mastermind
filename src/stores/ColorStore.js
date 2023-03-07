@@ -10,6 +10,8 @@ export const useColorStore = defineStore("ColorStore", {
       ]),
       colorsArray: ["red", "blue"],
       choiceOfColor: [],
+      arrayOfChosenPeons: reactive([]),
+      solutionColors: reactive([]),
     };
   },
   actions: {
@@ -18,7 +20,6 @@ export const useColorStore = defineStore("ColorStore", {
       this.choiceOfColor.push(color);
     },
     getColorFromStore(chosenRow, chosenPeon) {
-      const arrayOfChosenPeons = [];
       let rowFillingMonitor = toRaw(this.rows[chosenRow]);
       this.rows[chosenRow][chosenPeon].class = Object.values(
         this.choiceOfColor
@@ -26,25 +27,27 @@ export const useColorStore = defineStore("ColorStore", {
       rowFillingMonitor.map((x) => {
         let peonColorValueCheck = toRaw(Object.values(x)).join``;
         peonColorValueCheck !== ""
-          ? arrayOfChosenPeons.push(peonColorValueCheck)
+          ? this.arrayOfChosenPeons.push(peonColorValueCheck)
           : "";
       });
-      arrayOfChosenPeons.length == this.rows[0].length
-        ? this.tryAndSolutionComparison
-        : "";
+      this.arrayOfChosenPeons.length == this.rows[0].length
+        ? this.tryAndSolutionComparison()
+        : (this.arrayOfChosenPeons.length = 0);
     },
-    getRandomColor() {
-      return this.colorsArray[
-        Math.floor(Math.random() * this.colorsArray.length)
-      ];
+    tryAndSolutionComparison() {
+      console.log(toRaw(this.arrayOfChosenPeons));
+      console.log(toRaw(this.solutionColors));
+    },
+    getRandomColors(number) {
+      this.solutionColors.push(
+        this.colorsArray[Math.floor(Math.random() * this.colorsArray.length)]
+      );
+      return this.solutionColors[number];
     },
   },
   getters: {
     numberOfPeons() {
       return toRaw(this.rows).flat().length / toRaw(this.rows).length;
-    },
-    tryAndSolutionComparison() {
-      console.log("tryAndSolutionComparison");
     },
   },
 });
