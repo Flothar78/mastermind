@@ -15,6 +15,12 @@ export const useColorStore = defineStore("ColorStore", {
     };
   },
   actions: {
+    getRandomColors(number) {
+      this.solutionColors.push(
+        this.colorsArray[Math.floor(Math.random() * this.colorsArray.length)]
+      );
+      return this.solutionColors[number];
+    },
     addColorToStore(color) {
       this.choiceOfColor.length = 0;
       this.choiceOfColor.push(color);
@@ -35,14 +41,15 @@ export const useColorStore = defineStore("ColorStore", {
         : (this.arrayOfChosenPeons.length = 0);
     },
     tryAndSolutionComparison() {
-      console.log(toRaw(this.arrayOfChosenPeons));
-      console.log(toRaw(this.solutionColors));
-    },
-    getRandomColors(number) {
-      this.solutionColors.push(
-        this.colorsArray[Math.floor(Math.random() * this.colorsArray.length)]
+      let choicePlayer = toRaw(this.arrayOfChosenPeons);
+      let solutionCombination = toRaw(this.solutionColors);
+      console.log(choicePlayer);
+      console.log(solutionCombination);
+
+      let resultColors = choicePlayer.map((x, i) =>
+        solutionCombination[i].includes(x) ? "black" : ""
       );
-      return this.solutionColors[number];
+      console.log(resultColors);
     },
   },
   getters: {
