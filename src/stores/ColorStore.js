@@ -4,11 +4,13 @@ export const useColorStore = defineStore("ColorStore", {
   state: () => {
     return {
       rows: reactive([
-        [{ class: "" }, { class: "" }, { class: "" }],
-        [{ class: "" }, { class: "" }, { class: "" }],
-        [{ class: "" }, { class: "" }, { class: "" }],
+        [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
+        [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
+        [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
+        [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
+        [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
       ]),
-      colorsArray: ["red", "blue"],
+      colorsArray: ["red", "blue", "green"],
       choiceOfColor: [],
       arrayOfChosenPeons: reactive([]),
       solutionColors: reactive([]),
@@ -37,15 +39,12 @@ export const useColorStore = defineStore("ColorStore", {
           : "";
       });
       this.arrayOfChosenPeons.length == this.rows[0].length
-        ? this.samePlaceAndColor()
+        ? this.checkColorsPlaces()
         : (this.arrayOfChosenPeons.length = 0);
     },
-    samePlaceAndColor() {
+    checkColorsPlaces() {
       const choicePlayer = toRaw(this.arrayOfChosenPeons);
       const solutionCombination = toRaw(this.solutionColors);
-
-      console.log(choicePlayer);
-      console.log(solutionCombination);
       let resultColors = choicePlayer.map((x, i) => {
         if (solutionCombination[i].includes(x)) {
           return "black";
@@ -53,14 +52,13 @@ export const useColorStore = defineStore("ColorStore", {
           !solutionCombination[i].includes(x) &&
           solutionCombination.includes(x)
         ) {
+          console.log(solutionCombination.filter((y) => y == x));
           return "white";
         } else {
           return "none";
         }
       });
-
       console.log(resultColors);
-      console.log(resultColors.filter((y) => y == "black").length);
     },
   },
   getters: {

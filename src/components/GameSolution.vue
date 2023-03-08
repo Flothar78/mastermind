@@ -7,18 +7,21 @@ const numberOfPeons = color_store.numberOfPeons;
 </script>
 
 <template>
-  <div class="peons-row">
-    <PeonOccurence
-      v-for="number in numberOfPeons"
-      :key="number"
-      :class="color_store.getRandomColors(number - 1)"
-    />
+  <div class="game-solution">
+    <div class="peons-row">
+      <PeonOccurence
+        v-for="number in numberOfPeons"
+        :key="number"
+        :class="color_store.getRandomColors(number - 1)"
+      />
+    </div>
   </div>
 </template>
 
 <style scoped>
 .game-solution {
-  border: black 1px solid;
+  border: black 5px solid;
+  background-color: #e6e6e6;
   height: 15vw;
 }
 .peons-row {
