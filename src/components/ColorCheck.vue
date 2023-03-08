@@ -2,7 +2,7 @@
 import { useColorStore } from "@/stores/ColorStore.js";
 const color_store = useColorStore();
 const numberOfPeons = color_store.numberOfPeons;
-const tryAndSolutionComparison = color_store.tryAndSolutionComparison();
+const samePlaceAndColor = color_store.samePlaceAndColor();
 </script>
 
 <template>
@@ -11,7 +11,7 @@ const tryAndSolutionComparison = color_store.tryAndSolutionComparison();
       v-for="number in numberOfPeons"
       :key="number"
       class="color-check"
-      :class="tryAndSolutionComparison"
+      :class="samePlaceAndColor"
     ></div>
   </div>
 </template>

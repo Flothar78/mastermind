@@ -2,6 +2,7 @@
   <div class="peons-row">
     <PeonOccurence class="red" v-on:click="redToStore()" />
     <PeonOccurence class="blue" v-on:click="blueToStore()" />
+    <PeonOccurence class="green" v-on:click="greenToStore()" />
   </div>
 </template>
 
@@ -16,6 +17,9 @@ const redToStore = () => {
 };
 const blueToStore = () => {
   color_store.addColorToStore("blue");
+};
+const greenToStore = () => {
+  color_store.addColorToStore("green");
 };
 </script>
 

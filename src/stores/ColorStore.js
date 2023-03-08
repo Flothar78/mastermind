@@ -37,19 +37,30 @@ export const useColorStore = defineStore("ColorStore", {
           : "";
       });
       this.arrayOfChosenPeons.length == this.rows[0].length
-        ? this.tryAndSolutionComparison()
+        ? this.samePlaceAndColor()
         : (this.arrayOfChosenPeons.length = 0);
     },
-    tryAndSolutionComparison() {
-      let choicePlayer = toRaw(this.arrayOfChosenPeons);
-      let solutionCombination = toRaw(this.solutionColors);
+    samePlaceAndColor() {
+      const choicePlayer = toRaw(this.arrayOfChosenPeons);
+      const solutionCombination = toRaw(this.solutionColors);
+
       console.log(choicePlayer);
       console.log(solutionCombination);
+      let resultColors = choicePlayer.map((x, i) => {
+        if (solutionCombination[i].includes(x)) {
+          return "black";
+        } else if (
+          !solutionCombination[i].includes(x) &&
+          solutionCombination.includes(x)
+        ) {
+          return "white";
+        } else {
+          return "none";
+        }
+      });
 
-      let resultColors = choicePlayer.map((x, i) =>
-        solutionCombination[i].includes(x) ? "black" : ""
-      );
       console.log(resultColors);
+      console.log(resultColors.filter((y) => y == "black").length);
     },
   },
   getters: {

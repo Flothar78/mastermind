@@ -17,4 +17,7 @@
 .blue {
   background-color: blue;
 }
+.green {
+  background-color: green;
+}
 </style>
