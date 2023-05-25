@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 import PeonOccurence from "@/components/PeonOccurence.vue";
 import { storeToRefs } from "pinia";
 import { useColorStore } from "@/stores/ColorStore.js";
@@ -19,23 +19,25 @@ const numberOfPeons = color_store.numberOfPeons;
 </template>
 
 <style scoped>
-.game-solution {
-  border: black 5px solid;
-  background-color: #e6e6e6;
-  height: 15vw;
-}
-.peons-row {
-  border: black 1px solid;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  height: 5vw;
-  margin: 2vw;
-}
-.peon-choice {
-  border: black 1px solid;
-  width: 3.5vw;
-  height: 3.5vw;
-  border-radius: 50%;
+@media screen and (min-width: 1250px) {
+  .game-solution {
+    border: black 2.5px solid;
+    background-color: #e6e6e6;
+    height: 7.5vw;
+  }
+  .peons-row {
+    border: black 0.5px solid;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 4vw;
+    margin: 1vw;
+  }
+  .peon-choice {
+    border: black 0.5px solid;
+    width: 1.75vw;
+    height: 1.75vw;
+    border-radius: 50%;
+  }
 }
 </style>

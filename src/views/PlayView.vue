@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import GameSolution from "@/components/GameSolution.vue";
 import PeonsRow from "@/components/PeonsRow.vue";
 import AvailableColors from "@/components/AvailableColors.vue";
@@ -13,14 +13,16 @@ import AvailableColors from "@/components/AvailableColors.vue";
 </template>
 
 <style scoped>
-.play-ground {
-  border: black 1px solid;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  height: 65vw;
-  width: 70vw;
-  padding-left: 3vw;
-  padding-right: 3vw;
+@media screen and (min-width: 1250px) {
+  .play-ground {
+    border: black 0.5px solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 40vw;
+    min-width: 45vw;
+    padding-left: 1.5vw;
+    padding-right: 1.5vw;
+  }
 }
 </style>

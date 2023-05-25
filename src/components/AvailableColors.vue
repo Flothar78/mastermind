@@ -24,13 +24,15 @@ const greenToStore = () => {
 </script>
 
 <style scoped>
-.peons-row {
-  border: black 5px solid;
-  background-color: #e6e6e6;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  height: 15vw;
-  margin: 2vw;
+@media screen and (min-width: 1250px) {
+  .peons-row {
+    border: black 2.5px solid;
+    background-color: #e6e6e6;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 5vw;
+    margin: 1vw;
+  }
 }
 </style>

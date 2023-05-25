@@ -2,22 +2,22 @@
   <div class="peon-shape"></div>
 </template>
 
-<script setup></script>
-
 <style scoped>
-.peon-shape {
-  border: 1px solid black;
-  width: 3.5vw;
-  height: 3.5vw;
-  border-radius: 50%;
-}
-.red {
-  background-color: red;
-}
-.blue {
-  background-color: blue;
-}
-.green {
-  background-color: green;
+@media screen and (min-width: 1250px) {
+  .peon-shape {
+    border: 0.5px solid black;
+    width: 2.5vw;
+    height: 2.5vw;
+    border-radius: 50%;
+  }
+  .red {
+    background-color: red;
+  }
+  .blue {
+    background-color: blue;
+  }
+  .green {
+    background-color: green;
+  }
 }
 </style>

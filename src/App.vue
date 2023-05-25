@@ -11,7 +11,10 @@ import ResultView from "@/views/ResultView.vue";
 </template>
 
 <style scoped>
-.wrapper {
-  display: flex;
+@media screen and (min-width: 1250px) {
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 </style>

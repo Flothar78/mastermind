@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "outDir": "/home/flothar78/Developpement/projetsPersos/Mastermind/src/stores",
+    "target": "esnext",
+    "moduleResolution": "nodenext",
+    "lib": ["esnext", "dom"],
+    "noEmitOnError": true,
+    "strict": true,
+    "sourceMap": true,
+    "skipLibCheck": true
+  },
+
+  "files": [
+    "/home/flothar78/Developpement/projetsPersos/Mastermind/dist/ColorStore.ts"
+  ]
+}

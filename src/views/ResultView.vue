@@ -13,9 +13,12 @@ const numberOfRows = rows;
 </template>
 
 <style scoped>
-.try-result {
-  border: black 1px solid;
-  margin-left: 7vw;
-  padding-top: 12vw;
+@media screen and (min-width: 1250px) {
+  .try-result {
+    border: black 0.5px solid;
+
+    margin-left: 10vw;
+    padding-top: 6vw;
+  }
 }
 </style>

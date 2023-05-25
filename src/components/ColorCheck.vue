@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { useColorStore } from "@/stores/ColorStore.js";
 const color_store = useColorStore();
 const numberOfPeons = color_store.numberOfPeons;
