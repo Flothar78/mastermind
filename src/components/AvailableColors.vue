@@ -24,7 +24,7 @@ const greenToStore = () => {
 </script>
 
 <style scoped>
-@media screen and (min-width: 1250px) {
+@media screen and (min-width: 950px) {
   .peons-row {
     border: black 2.5px solid;
     background-color: #e6e6e6;

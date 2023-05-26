@@ -35,8 +35,8 @@ const checkColorsPlaces = color_store.checkColorsPlaces();
 .black {
   background-color: black;
 }
-.white {
-  background-color: white;
+.grey {
+  background-color: grey;
 }
 .none {
   background-color: grey;

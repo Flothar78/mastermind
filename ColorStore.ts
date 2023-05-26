@@ -49,13 +49,13 @@ export const useColorStore = defineStore("ColorStore", {
       console.log(solutionCombination);
       const resultColors = choicePlayer.map((x, i) => {
         if (solutionCombination[i].includes(x)) {
-          return "black";
+          return ("black");
         } else if (
           !solutionCombination[i].includes(x) &&
           solutionCombination.includes(x)
         ) {
           console.log(solutionCombination.filter((y) => y == x));
-          return "white";
+          return "grey";
         } else {
           return "none";
         }
