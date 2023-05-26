@@ -3,6 +3,7 @@ import { useColorStore } from "@/stores/ColorStore.js";
 const color_store = useColorStore();
 const numberOfPeons = color_store.numberOfPeons;
 const checkColorsPlaces = color_store.checkColorsPlaces();
+console.log(checkColorsPlaces);
 </script>
 
 <template>
@@ -39,6 +40,6 @@ const checkColorsPlaces = color_store.checkColorsPlaces();
   background-color: grey;
 }
 .none {
-  background-color: grey;
+  background-color: red;
 }
 </style>

@@ -44,23 +44,17 @@ export const useColorStore = defineStore("ColorStore", {
     },
     checkColorsPlaces() {
       const choicePlayer = toRaw(this.arrayOfChosenPeons);
-      console.log(choicePlayer);
       const solutionCombination = toRaw(this.solutionColors);
-      console.log(solutionCombination);
       const resultColors = choicePlayer.map((x, i) => {
-        if (solutionCombination[i].includes(x)) {
-          return ("black");
-        } else if (
-          !solutionCombination[i].includes(x) &&
-          solutionCombination.includes(x)
-        ) {
-          console.log(solutionCombination.filter((y) => y == x));
+        if (solutionCombination[i] === x) {
+          return "black";
+        } else if (solutionCombination.includes(x)) {
           return "grey";
         } else {
           return "none";
         }
       });
-      console.log(resultColors);
+      return resultColors;
     },
   },
   getters: {
