@@ -14,6 +14,7 @@ export const useColorStore = defineStore("ColorStore", {
             choiceOfColor: [],
             arrayOfChosenPeons: reactive([]),
             solutionColors: reactive([]),
+            resultColors: reactive([]),
         };
     },
     actions: {
@@ -41,18 +42,19 @@ export const useColorStore = defineStore("ColorStore", {
         checkColorsPlaces() {
             const choicePlayer = toRaw(this.arrayOfChosenPeons);
             const solutionCombination = toRaw(this.solutionColors);
-            const resultColors = choicePlayer.map((x, i) => {
+            choicePlayer.map((x, i) => {
                 if (solutionCombination[i] === x) {
-                    return "black";
+                    this.resultColors.push("black");
                 }
                 else if (solutionCombination.includes(x)) {
-                    return "grey";
+                    this.resultColors.push("grey");
                 }
                 else {
-                    return "none";
+                    this.resultColors.push("none");
                 }
             });
-            return resultColors;
+            console.log(this.resultColors);
+            return this.resultColors;
         },
     },
     getters: {

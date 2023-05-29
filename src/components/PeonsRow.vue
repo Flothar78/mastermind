@@ -23,13 +23,13 @@ const { rows } = storeToRefs(color_store);
 </template>
 
 <style scoped>
-@media screen and (min-width: 1250px) {
+@media screen and (min-width: 950px) {
   .withinRow {
     border: black 0.5px solid;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 3vw;
+    height: 5vw;
     margin: 1vw;
   }
   .betweenRows {
