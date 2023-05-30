@@ -47,8 +47,9 @@ export const useColorStore = defineStore("ColorStore", {
                     this.resultColors.push("black");
                 }
                 else if (this.solutionColors.includes(x)) {
-                    this.solutionColors.filter((y) => y === x).length ===
-                        a.filter((y) => y === x).length
+                    this.solutionColors.filter((y) => y === x).length >=
+                        a.filter((z) => z === x).length -
+                            a.filter((s) => s === this.solutionColors[i]).length
                         ? this.resultColors.push("grey")
                         : this.resultColors.push("none");
                 }
@@ -56,8 +57,8 @@ export const useColorStore = defineStore("ColorStore", {
                     this.resultColors.push("none");
                 }
             });
-            console.log(this.resultColors.sort());
-            return this.resultColors.sort();
+            console.log(this.resultColors);
+            return this.resultColors;
         },
     },
     getters: {
