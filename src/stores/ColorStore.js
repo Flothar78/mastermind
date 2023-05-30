@@ -27,7 +27,6 @@ export const useColorStore = defineStore("ColorStore", {
             this.choiceOfColor.push(color);
         },
         getColorFromStore(chosenRow, chosenPeon) {
-            console.log(this.choiceOfColor);
             const rowFillingMonitor = toRaw(this.rows[chosenRow]);
             this.rows[chosenRow][chosenPeon].class = Object.values(this.choiceOfColor).toString();
             rowFillingMonitor.map((x) => {
@@ -42,12 +41,16 @@ export const useColorStore = defineStore("ColorStore", {
         },
         checkColorsPlaces() {
             this.resultColors.length = 0;
-            this.arrayOfChosenPeons.map((x, i) => {
+            this.arrayOfChosenPeons.map((x, i, a) => {
+                console.log(x);
                 if (this.solutionColors[i] === x) {
                     this.resultColors.push("black");
                 }
                 else if (this.solutionColors.includes(x)) {
-                    this.resultColors.push("grey");
+                    this.solutionColors.filter((y) => y === x).length ===
+                        a.filter((y) => y === x).length
+                        ? this.resultColors.push("grey")
+                        : this.resultColors.push("none");
                 }
                 else {
                     this.resultColors.push("none");
