@@ -53,8 +53,8 @@ export const useColorStore = defineStore("ColorStore", {
                     this.resultColors.push("none");
                 }
             });
-            console.log(this.resultColors);
-            return this.resultColors;
+            console.log(this.resultColors.sort());
+            return this.resultColors.sort();
         },
     },
     getters: {
