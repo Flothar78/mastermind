@@ -3,18 +3,17 @@ import PeonOccurence from "@/components/PeonOccurence.vue";
 import { useColorStore } from "@/stores/ColorStore.js";
 import { storeToRefs } from "pinia";
 const color_store = useColorStore();
-const { rows, numberOfPeons } = storeToRefs(color_store);
+const { rows } = storeToRefs(color_store);
 const checkColorsPlaces = color_store.checkColorsPlaces();
-console.log(checkColorsPlaces);
 </script>
 <template>
   <div class="try-result">
     <div v-for="row in rows" :key="row.id" class="color-check-container">
       <PeonOccurence
-        v-for="number in numberOfPeons"
-        :key="number"
+        v-for="peon in row"
+        :key="row.indexOf(peon)"
+        :class="checkColorsPlaces[row.indexOf(peon)]"
         class="peonsInCheckRows"
-        :class="checkColorsPlaces"
       />
     </div>
   </div>

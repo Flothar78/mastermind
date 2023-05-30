@@ -13,7 +13,7 @@ export const useColorStore = defineStore("ColorStore", {
             colorsArray: ["red", "blue", "green"],
             choiceOfColor: [],
             arrayOfChosenPeons: reactive([]),
-            solutionColors: reactive([]),
+            solutionColors: [],
             resultColors: reactive([]),
         };
     },
@@ -27,6 +27,7 @@ export const useColorStore = defineStore("ColorStore", {
             this.choiceOfColor.push(color);
         },
         getColorFromStore(chosenRow, chosenPeon) {
+            console.log(this.choiceOfColor);
             const rowFillingMonitor = toRaw(this.rows[chosenRow]);
             this.rows[chosenRow][chosenPeon].class = Object.values(this.choiceOfColor).toString();
             rowFillingMonitor.map((x) => {
@@ -35,18 +36,17 @@ export const useColorStore = defineStore("ColorStore", {
                     ? this.arrayOfChosenPeons.push(peonColorValueCheck)
                     : "";
             });
-            this.arrayOfChosenPeons.length == this.rows[0].length
+            this.arrayOfChosenPeons.length == this.numberOfPeons
                 ? this.checkColorsPlaces()
                 : (this.arrayOfChosenPeons.length = 0);
         },
         checkColorsPlaces() {
-            const choicePlayer = toRaw(this.arrayOfChosenPeons);
-            const solutionCombination = toRaw(this.solutionColors);
-            choicePlayer.map((x, i) => {
-                if (solutionCombination[i] === x) {
+            this.resultColors.length = 0;
+            this.arrayOfChosenPeons.map((x, i) => {
+                if (this.solutionColors[i] === x) {
                     this.resultColors.push("black");
                 }
-                else if (solutionCombination.includes(x)) {
+                else if (this.solutionColors.includes(x)) {
                     this.resultColors.push("grey");
                 }
                 else {
