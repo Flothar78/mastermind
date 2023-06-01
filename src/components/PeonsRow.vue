@@ -23,7 +23,7 @@ const { rows } = storeToRefs(color_store);
 </template>
 
 <style scoped>
-@media screen and (min-width: 950px) {
+@media screen and (min-width: 800px) {
   .withinRow {
     border: black 0.5px solid;
     display: flex;
