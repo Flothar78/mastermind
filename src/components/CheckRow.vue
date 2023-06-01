@@ -5,9 +5,11 @@ import { storeToRefs } from "pinia";
 const color_store = useColorStore();
 const { numberOfPeons, rows } = storeToRefs(color_store);
 const checkColorsPlaces = color_store.checkColorsPlaces();
+defineProps({ rowNumber: Number });
 </script>
 <template>
   <div>
+    <p>{{ rowNumber }}</p>
     <PeonOccurence
       v-for="peon in numberOfPeons"
       :key="peon - 1"

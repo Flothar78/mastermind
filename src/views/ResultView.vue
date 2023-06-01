@@ -8,6 +8,7 @@ const { rows } = storeToRefs(color_store);
 <template>
   <div class="try-result">
     <CheckRow
+      :rowNumber="rows.indexOf(row)"
       v-for="row in rows"
       :key="rows.indexOf(row)"
       class="color-check-container"
@@ -19,16 +20,10 @@ const { rows } = storeToRefs(color_store);
 @media screen and (min-width: 800px) {
   .try-result {
     border: black 0.5px solid;
+    display: flex;
+    flex-direction: column-reverse;
     width: 20vw;
     margin-left: 20vw;
-  }
-  .color-check-container {
-    border: red 1px solid;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 5vw;
-    margin: 2vw;
   }
   .color-check-container {
     border: red 1px solid;
