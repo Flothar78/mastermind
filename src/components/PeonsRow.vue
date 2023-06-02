@@ -2,7 +2,6 @@
 import PeonOccurence from "@/components/PeonOccurence.vue";
 import { useColorStore } from "@/stores/ColorStore.js";
 import { storeToRefs } from "pinia";
-
 const color_store = useColorStore();
 const { rows } = storeToRefs(color_store);
 </script>

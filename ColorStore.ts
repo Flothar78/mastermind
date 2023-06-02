@@ -14,7 +14,7 @@ export const useColorStore = defineStore("ColorStore", {
       choiceOfColor: <string[]>[],
       arrayOfChosenPeons: reactive(<string[]>[]),
       solutionColors: <string[]>[],
-      resultColors: reactive(<string[]>[]),
+      resultColors: <string[][]>[[], [], [], [], []],
     };
   },
   actions: {
@@ -28,7 +28,11 @@ export const useColorStore = defineStore("ColorStore", {
       this.choiceOfColor.length = 0;
       this.choiceOfColor.push(color);
     },
-    getColorFromStore(chosenRow: number, chosenPeon: number) {
+    getColorFromStore(
+      chosenRow: number,
+      chosenPeon: number,
+      checkColorsPlaces: Function
+    ) {
       const rowFillingMonitor = toRaw(this.rows[chosenRow]);
       this.rows[chosenRow][chosenPeon].class = Object.values(
         this.choiceOfColor
@@ -40,24 +44,24 @@ export const useColorStore = defineStore("ColorStore", {
           : "";
       });
       this.arrayOfChosenPeons.length == this.numberOfPeons
-        ? this.checkColorsPlaces()
+        ? this.checkColorsPlaces(chosenRow)
         : (this.arrayOfChosenPeons.length = 0);
     },
-    checkColorsPlaces() {
-      this.resultColors.length = 0;
+    checkColorsPlaces(chosenRow: number) {
       this.arrayOfChosenPeons.map((x, i, a) => {
         if (this.solutionColors[i] === x) {
-          this.resultColors.push("black");
+          this.resultColors[chosenRow].push("black");
         } else if (this.solutionColors.includes(x)) {
           this.solutionColors.filter((y) => y === x).length >=
           a.filter((z) => z === x).length -
             a.filter((s) => s === this.solutionColors[i]).length
-            ? this.resultColors.push("grey")
-            : this.resultColors.push("none");
+            ? this.resultColors[chosenRow].push("grey")
+            : this.resultColors[chosenRow].push("none");
         } else {
-          this.resultColors.push("none");
+          this.resultColors[chosenRow].push("none");
         }
       });
+      console.log(this.resultColors[chosenRow]);
       console.log(this.resultColors);
       return this.resultColors;
     },
