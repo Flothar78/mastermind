@@ -12,42 +12,41 @@ export const useColorStore = defineStore("ColorStore", {
             ]),
             colorsArray: ["red", "blue", "green"],
             choiceOfColor: [],
-            arrayOfChosenPeons: reactive([]),
-            solutionColors: [],
+            chosenPeons: reactive([]),
+            solution: [],
             resultColors: [[], [], [], [], []],
         };
     },
     actions: {
         getRandomColors(number) {
-            this.solutionColors.push(this.colorsArray[Math.floor(Math.random() * this.colorsArray.length)]);
-            return this.solutionColors[number];
+            this.solution.push(this.colorsArray[Math.floor(Math.random() * this.colorsArray.length)]);
+            return this.solution[number];
         },
         addColorToStore(color) {
             this.choiceOfColor.length = 0;
             this.choiceOfColor.push(color);
         },
         getColorFromStore(chosenRow, chosenPeon, checkColorsPlaces) {
-            const rowFillingMonitor = toRaw(this.rows[chosenRow]);
-            this.rows[chosenRow][chosenPeon].class = Object.values(this.choiceOfColor).toString();
-            rowFillingMonitor.map((x) => {
-                const peonColorValueCheck = toRaw(Object.values(x)).join("");
-                peonColorValueCheck !== ""
-                    ? this.arrayOfChosenPeons.push(peonColorValueCheck)
-                    : "";
+            const rowMonitor = this.rows[chosenRow];
+            const chosenPeons = this.chosenPeons;
+            rowMonitor[chosenPeon].class = Object.values(this.choiceOfColor).toString();
+            rowMonitor.map((x) => {
+                const peonCheck = Object.values(x).join("");
+                peonCheck !== "" ? chosenPeons.push(peonCheck) : "";
             });
-            this.arrayOfChosenPeons.length == this.numberOfPeons
+            chosenPeons.length == this.numberOfPeons
                 ? this.checkColorsPlaces(chosenRow)
-                : (this.arrayOfChosenPeons.length = 0);
+                : (chosenPeons.length = 0);
         },
         checkColorsPlaces(chosenRow) {
-            this.arrayOfChosenPeons.map((x, i, a) => {
-                if (this.solutionColors[i] === x) {
+            this.chosenPeons.map((x, i, a) => {
+                if (this.solution[i] === x) {
                     this.resultColors[chosenRow].push("black");
                 }
-                else if (this.solutionColors.includes(x)) {
-                    this.solutionColors.filter((y) => y === x).length >=
+                else if (this.solution.includes(x)) {
+                    this.solution.filter((y) => y === x).length >=
                         a.filter((z) => z === x).length -
-                            a.filter((s) => s === this.solutionColors[i]).length
+                            a.filter((s) => s === this.solution[i]).length
                         ? this.resultColors[chosenRow].push("grey")
                         : this.resultColors[chosenRow].push("none");
                 }
@@ -55,8 +54,6 @@ export const useColorStore = defineStore("ColorStore", {
                     this.resultColors[chosenRow].push("none");
                 }
             });
-            console.log(this.resultColors[chosenRow]);
-            console.log(this.resultColors);
             return this.resultColors;
         },
     },
