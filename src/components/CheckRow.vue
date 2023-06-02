@@ -9,7 +9,6 @@ defineProps({ rowNumber: Number });
 </script>
 <template>
   <div>
-    <p>{{ rowNumber }}</p>
     <PeonOccurence
       v-for="peon in numberOfPeons"
       :key="peon - 1"
