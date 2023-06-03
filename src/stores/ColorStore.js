@@ -61,7 +61,17 @@ export const useColorStore = defineStore("ColorStore", {
                     this.resultColors[chosenRow].push("none");
                 }
             });
+            this.endOfGame();
             return this.resultColors;
+        },
+        endOfGame() {
+            if (this.resultColors
+                .flat()
+                .slice(-4)
+                .filter((x) => x === "black").length == this.numberOfPeons) {
+                console.log("You win !");
+                this.playRowId = 10000;
+            }
         },
     },
     getters: {
