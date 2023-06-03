@@ -29,6 +29,7 @@ export const useColorStore = defineStore("ColorStore", {
         getColorFromStore(chosenRow, chosenPeon, checkColorsPlaces) {
             const rowMonitor = this.rows[chosenRow];
             const chosenPeons = this.chosenPeons;
+            const trucTestArray = Object.values(toRaw(this.rows)[chosenRow]);
             rowMonitor[chosenPeon].class = Object.values(this.choiceOfColor).toString();
             rowMonitor.map((x) => {
                 const peonCheck = Object.values(x).join("");
@@ -37,6 +38,7 @@ export const useColorStore = defineStore("ColorStore", {
             chosenPeons.length == this.numberOfPeons
                 ? this.checkColorsPlaces(chosenRow)
                 : (chosenPeons.length = 0);
+            console.log(trucTestArray.flat().every((x) => Object.values(x).toString() !== ""));
         },
         checkColorsPlaces(chosenRow) {
             this.chosenPeons.map((x, i, a) => {
