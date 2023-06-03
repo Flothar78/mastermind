@@ -15,6 +15,7 @@ export const useColorStore = defineStore("ColorStore", {
             chosenPeons: reactive([]),
             solution: [],
             resultColors: [[], [], [], [], []],
+            playRowId: 0,
         };
     },
     actions: {
@@ -27,6 +28,7 @@ export const useColorStore = defineStore("ColorStore", {
             this.choiceOfColor.push(color);
         },
         getColorFromStore(chosenRow, chosenPeon, checkColorsPlaces) {
+            chosenRow = this.playRowId;
             const rowMonitor = this.rows[chosenRow];
             const chosenPeons = this.chosenPeons;
             const trucTestArray = Object.values(toRaw(this.rows)[chosenRow]);
@@ -35,10 +37,12 @@ export const useColorStore = defineStore("ColorStore", {
                 const peonCheck = Object.values(x).join("");
                 peonCheck !== "" ? chosenPeons.push(peonCheck) : "";
             });
+            trucTestArray.flat().every((x) => Object.values(x).toString() !== "")
+                ? this.playRowId++
+                : "";
             chosenPeons.length == this.numberOfPeons
                 ? this.checkColorsPlaces(chosenRow)
                 : (chosenPeons.length = 0);
-            console.log(trucTestArray.flat().every((x) => Object.values(x).toString() !== ""));
         },
         checkColorsPlaces(chosenRow) {
             this.chosenPeons.map((x, i, a) => {
