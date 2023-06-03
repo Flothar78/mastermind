@@ -28,21 +28,22 @@ export const useColorStore = defineStore("ColorStore", {
             this.choiceOfColor.push(color);
         },
         getColorFromStore(chosenRow, chosenPeon, checkColorsPlaces) {
-            chosenRow = this.playRowId;
-            const rowMonitor = this.rows[chosenRow];
-            const chosenPeons = this.chosenPeons;
-            const peonClassArray = Object.values(toRaw(this.rows)[chosenRow]);
-            rowMonitor[chosenPeon].class = Object.values(this.choiceOfColor).toString();
-            rowMonitor.map((x) => {
-                const peonCheck = Object.values(x).join("");
-                peonCheck !== "" ? chosenPeons.push(peonCheck) : "";
-            });
-            peonClassArray.flat().every((x) => Object.values(x).toString() !== "")
-                ? this.playRowId++
-                : "";
-            chosenPeons.length == this.numberOfPeons
-                ? this.checkColorsPlaces(chosenRow)
-                : (chosenPeons.length = 0);
+            if (chosenRow === this.playRowId) {
+                const rowMonitor = this.rows[chosenRow];
+                const chosenPeons = this.chosenPeons;
+                const peonClassArray = Object.values(toRaw(this.rows)[chosenRow]);
+                rowMonitor[chosenPeon].class = Object.values(this.choiceOfColor).toString();
+                rowMonitor.map((x) => {
+                    const peonCheck = Object.values(x).join("");
+                    peonCheck !== "" ? chosenPeons.push(peonCheck) : "";
+                });
+                peonClassArray.flat().every((x) => Object.values(x).toString() !== "")
+                    ? this.playRowId++
+                    : "";
+                chosenPeons.length == this.numberOfPeons
+                    ? this.checkColorsPlaces(chosenRow)
+                    : (chosenPeons.length = 0);
+            }
         },
         checkColorsPlaces(chosenRow) {
             this.chosenPeons.map((x, i, a) => {
