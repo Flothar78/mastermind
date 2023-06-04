@@ -16,6 +16,8 @@ export const useColorStore = defineStore("ColorStore", {
       solution: <string[]>[],
       resultColors: <string[][]>[[], [], [], [], []],
       playRowId: 0,
+      score: 0,
+      winOrLoseMessage: "Wait for result",
     };
   },
   actions: {
@@ -38,6 +40,10 @@ export const useColorStore = defineStore("ColorStore", {
         const rowMonitor = this.rows[chosenRow];
         const chosenPeons = this.chosenPeons;
         const peonClassArray = Object.values(toRaw(this.rows)[chosenRow]);
+        const peonClassArrayIsFull = peonClassArray
+          .flat()
+          .every((x) => Object.values(x).toString() !== "");
+
         rowMonitor[chosenPeon].class = Object.values(
           this.choiceOfColor
         ).toString();
@@ -48,6 +54,9 @@ export const useColorStore = defineStore("ColorStore", {
         peonClassArray.flat().every((x) => Object.values(x).toString() !== "")
           ? this.playRowId++
           : "";
+        peonClassArray
+          .flat()
+          .every((x) => Object.values(x).toString() !== "") &&
         chosenPeons.length == this.numberOfPeons
           ? this.checkColorsPlaces(chosenRow)
           : (chosenPeons.length = 0);
@@ -77,8 +86,9 @@ export const useColorStore = defineStore("ColorStore", {
           .slice(-4)
           .filter((x) => x === "black").length == this.numberOfPeons
       ) {
-        console.log("You win !");
         this.playRowId = 10000;
+        console.log("You win !");
+        this.winOrLoseMessage = "You win !";
       }
     },
   },
