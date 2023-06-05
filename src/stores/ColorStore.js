@@ -75,6 +75,7 @@ export const useColorStore = defineStore("ColorStore", {
                 }
             });
             this.endOfGame();
+            console.log(this.resultColors.flat().sort());
             return this.resultColors;
         },
         endOfGame() {
@@ -92,6 +93,15 @@ export const useColorStore = defineStore("ColorStore", {
     getters: {
         numberOfPeons() {
             return toRaw(this.rows).flat().length / toRaw(this.rows).length;
+        },
+        clickReplay() {
+            //console.log(
+            //  toRaw(this.rows)
+            //    .flat()
+            //    .map((x) => x)
+            //);
+            console.log(toRaw(this.resultColors));
+            console.log(this.resultColors.length);
         },
     },
 });
