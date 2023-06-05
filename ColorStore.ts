@@ -9,15 +9,20 @@ export const useColorStore = defineStore("ColorStore", {
         [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
         [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
         [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
+        [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
+        [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
+        [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
+        [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
+        [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
       ]),
-      colorsArray: ["red", "blue", "green"],
+      colorsArray: ["red", "blue", "green", "yellow", "orange", "black"],
       choiceOfColor: <string[]>[],
       chosenPeons: reactive(<string[]>[]),
       solution: <string[]>[],
-      resultColors: <string[][]>[[], [], [], [], []],
+      resultColors: <string[][]>[[], [], [], [], [], [], [], [], [], []],
       playRowId: 0,
       score: 0,
-      winOrLoseMessage: "Wait for result",
+      winLoseMessage: "Have a game !",
     };
   },
   actions: {
@@ -87,8 +92,9 @@ export const useColorStore = defineStore("ColorStore", {
           .filter((x) => x === "black").length == this.numberOfPeons
       ) {
         this.playRowId = 10000;
+        this.score++;
         console.log("You win !");
-        this.winOrLoseMessage = "You win !";
+        this.winLoseMessage = "You win !";
       }
     },
   },

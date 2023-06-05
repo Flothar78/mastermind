@@ -5,18 +5,21 @@ import ScoreView from "@/views/ScoreView.vue";
 </script>
 
 <template>
-  <div>
+  <div class="score-wrapper">
     <ScoreView />
-  </div>
-  <div class="wrapper">
-    <PlayView />
-    <ResultView />
+
+    <div class="play-and-result-wrapper">
+      <PlayView />
+      <ResultView />
+    </div>
   </div>
 </template>
 
 <style scoped>
 @media screen and (min-width: 800px) {
-  .wrapper {
+  .score-wrapper {
+  }
+  .play-and-result-wrapper {
     display: flex;
     justify-content: space-between;
   }

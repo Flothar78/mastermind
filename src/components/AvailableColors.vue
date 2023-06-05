@@ -3,6 +3,9 @@
     <PeonOccurence class="red" v-on:click="redToStore()" />
     <PeonOccurence class="blue" v-on:click="blueToStore()" />
     <PeonOccurence class="green" v-on:click="greenToStore()" />
+    <PeonOccurence class="yellow" v-on:click="yellowToStore()" />
+    <PeonOccurence class="orange" v-on:click="orangeToStore()" />
+    <PeonOccurence class="black" v-on:click="blackToStore()" />
   </div>
 </template>
 
@@ -20,6 +23,15 @@ const blueToStore = () => {
 };
 const greenToStore = () => {
   color_store.addColorToStore("green");
+};
+const yellowToStore = () => {
+  color_store.addColorToStore("yellow");
+};
+const orangeToStore = () => {
+  color_store.addColorToStore("orange");
+};
+const blackToStore = () => {
+  color_store.addColorToStore("black");
 };
 </script>
 

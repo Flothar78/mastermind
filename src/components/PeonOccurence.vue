@@ -19,5 +19,14 @@
   .green {
     background-color: green;
   }
+  .yellow {
+    background-color: yellow;
+  }
+  .orange {
+    background-color: orange;
+  }
+  .black {
+    background-color: black;
+  }
 }
 </style>
