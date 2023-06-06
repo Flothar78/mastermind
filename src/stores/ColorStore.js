@@ -1,20 +1,21 @@
 import { defineStore } from "pinia";
 import { reactive, toRaw } from "vue";
+const defaultRows = [
+    [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
+    [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
+    [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
+    [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
+    [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
+    [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
+    [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
+    [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
+    [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
+    [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
+];
 export const useColorStore = defineStore("ColorStore", {
     state: () => {
         return {
-            rows: reactive([
-                [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
-                [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
-                [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
-                [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
-                [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
-                [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
-                [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
-                [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
-                [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
-                [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
-            ]),
+            rows: { ...defaultRows },
             colorsArray: reactive([
                 "red",
                 "blue",
@@ -23,7 +24,7 @@ export const useColorStore = defineStore("ColorStore", {
                 "orange",
                 "black",
             ]),
-            choiceOfColor: [],
+            choiceOfColor: reactive([]),
             chosenPeons: reactive([]),
             solution: [],
             resultColors: [[], [], [], [], [], [], [], [], [], []],
@@ -44,7 +45,7 @@ export const useColorStore = defineStore("ColorStore", {
             console.log(this.choiceOfColor);
         },
         getColorFromStore(chosenRow, chosenPeon, checkColorsPlaces) {
-            console.log("getColorFromStore");
+            console.log(chosenRow, this.playRowId);
             if (chosenRow === this.playRowId) {
                 const rowMonitor = this.rows[chosenRow];
                 const chosenPeons = this.chosenPeons;
@@ -52,6 +53,7 @@ export const useColorStore = defineStore("ColorStore", {
                 const peonClassArrayIsFull = peonClassArray
                     .flat()
                     .every((x) => Object.values(x).toString() !== "");
+                console.log(Object.values(this.choiceOfColor).toString());
                 rowMonitor[chosenPeon].class = Object.values(this.choiceOfColor).toString();
                 rowMonitor.map((x) => {
                     const peonCheck = Object.values(x).join("");
@@ -66,6 +68,9 @@ export const useColorStore = defineStore("ColorStore", {
                     chosenPeons.length == this.numberOfPeons
                     ? this.checkColorsPlaces(chosenRow)
                     : (chosenPeons.length = 0);
+            }
+            else {
+                console.log("if marche pas ici");
             }
         },
         checkColorsPlaces(chosenRow) {
@@ -101,10 +106,11 @@ export const useColorStore = defineStore("ColorStore", {
     },
     getters: {
         numberOfPeons() {
-            return toRaw(this.rows).flat().length / toRaw(this.rows).length;
+            return (Object.values(this.rows).flat().length / Object.values(this.rows).length);
         },
         clickReplay() {
             const rows = toRaw(this.rows);
+            console.log(rows);
             const rowsCleaning = rows.map((x) => x.map((y) => (y.class = "")));
             //console.log(this.resultColors.length);
         },

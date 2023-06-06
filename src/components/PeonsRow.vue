@@ -4,6 +4,8 @@ import { useColorStore } from "@/stores/ColorStore.js";
 import { storeToRefs } from "pinia";
 const color_store = useColorStore();
 const { rows } = storeToRefs(color_store);
+const arrayOfRows = Object.values(rows.value);
+console.log(arrayOfRows);
 </script>
 
 <template>
@@ -13,7 +15,10 @@ const { rows } = storeToRefs(color_store);
         v-for="peon in row"
         :key="row.indexOf(peon)"
         @click="
-          color_store.getColorFromStore(rows.indexOf(row), row.indexOf(peon))
+          color_store.getColorFromStore(
+            arrayOfRows.indexOf(row),
+            row.indexOf(peon)
+          )
         "
         :class="row[row.indexOf(peon)].class"
       />
