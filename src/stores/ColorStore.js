@@ -15,7 +15,14 @@ export const useColorStore = defineStore("ColorStore", {
                 [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
                 [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
             ]),
-            colorsArray: ["red", "blue", "green", "yellow", "orange", "black"],
+            colorsArray: reactive([
+                "red",
+                "blue",
+                "green",
+                "yellow",
+                "orange",
+                "black",
+            ]),
             choiceOfColor: [],
             chosenPeons: reactive([]),
             solution: [],
@@ -31,10 +38,13 @@ export const useColorStore = defineStore("ColorStore", {
             return this.solution[number];
         },
         addColorToStore(color) {
+            console.log("addColorToStore");
             this.choiceOfColor.length = 0;
             this.choiceOfColor.push(color);
+            console.log(this.choiceOfColor);
         },
         getColorFromStore(chosenRow, chosenPeon, checkColorsPlaces) {
+            console.log("getColorFromStore");
             if (chosenRow === this.playRowId) {
                 const rowMonitor = this.rows[chosenRow];
                 const chosenPeons = this.chosenPeons;
@@ -74,8 +84,8 @@ export const useColorStore = defineStore("ColorStore", {
                     this.resultColors[chosenRow].push("none");
                 }
             });
+            console.log("checkColorsPlaces");
             this.endOfGame();
-            console.log(this.resultColors.flat().sort());
             return this.resultColors;
         },
         endOfGame() {
@@ -85,7 +95,6 @@ export const useColorStore = defineStore("ColorStore", {
                 .filter((x) => x === "black").length == this.numberOfPeons) {
                 this.playRowId = 10000;
                 this.score++;
-                console.log("You win !");
                 this.winLoseMessage = "You win !";
             }
         },
@@ -95,13 +104,9 @@ export const useColorStore = defineStore("ColorStore", {
             return toRaw(this.rows).flat().length / toRaw(this.rows).length;
         },
         clickReplay() {
-            //console.log(
-            //  toRaw(this.rows)
-            //    .flat()
-            //    .map((x) => x)
-            //);
-            console.log(toRaw(this.resultColors));
-            console.log(this.resultColors.length);
+            const rows = toRaw(this.rows);
+            const rowsCleaning = rows.map((x) => x.map((y) => (y.class = "")));
+            //console.log(this.resultColors.length);
         },
     },
 });

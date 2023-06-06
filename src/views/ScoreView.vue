@@ -18,7 +18,7 @@ const { score, clickReplay } = storeToRefs(color_store);
           type="button"
           @click="clickReplay"
         >
-          Play Again !
+          Play Again ?
         </button>
       </div>
     </div>

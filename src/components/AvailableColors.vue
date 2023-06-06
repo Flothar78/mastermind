@@ -1,39 +1,22 @@
-<template>
-  <div class="peons-row">
-    <PeonOccurence class="red" v-on:click="redToStore()" />
-    <PeonOccurence class="blue" v-on:click="blueToStore()" />
-    <PeonOccurence class="green" v-on:click="greenToStore()" />
-    <PeonOccurence class="yellow" v-on:click="yellowToStore()" />
-    <PeonOccurence class="orange" v-on:click="orangeToStore()" />
-    <PeonOccurence class="black" v-on:click="blackToStore()" />
-  </div>
-</template>
-
 <script setup>
 import PeonOccurence from "@/components/PeonOccurence.vue";
+import { reactive, computed } from "vue";
 import { useColorStore } from "@/stores/ColorStore.js";
-
+import { storeToRefs } from "pinia";
 const color_store = useColorStore();
-
-const redToStore = () => {
-  color_store.addColorToStore("red");
-};
-const blueToStore = () => {
-  color_store.addColorToStore("blue");
-};
-const greenToStore = () => {
-  color_store.addColorToStore("green");
-};
-const yellowToStore = () => {
-  color_store.addColorToStore("yellow");
-};
-const orangeToStore = () => {
-  color_store.addColorToStore("orange");
-};
-const blackToStore = () => {
-  color_store.addColorToStore("black");
-};
+const { colorsArray, addColorToStore } = storeToRefs(color_store);
 </script>
+
+<template>
+  <div class="peons-row">
+    <PeonOccurence
+      v-for="(color, index) in colorsArray"
+      :key="index"
+      :class="colorsArray[index]"
+      @click="color_store.addColorToStore(colorsArray[index])"
+    />
+  </div>
+</template>
 
 <style scoped>
 @media screen and (min-width: 800px) {
