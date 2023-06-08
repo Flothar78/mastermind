@@ -1,9 +1,9 @@
 import { defineStore } from "pinia";
-import { reactive, ref, toRaw } from "vue";
+import { toRaw } from "vue";
 export const useColorStore = defineStore("ColorStore", {
     state: () => {
         return {
-            rows: reactive([
+            rows: [
                 [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
                 [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
                 [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
@@ -14,32 +14,14 @@ export const useColorStore = defineStore("ColorStore", {
                 [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
                 [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
                 [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
-            ]),
-            colorsArray: reactive([
-                "red",
-                "blue",
-                "green",
-                "yellow",
-                "orange",
-                "black",
-            ]),
-            choiceOfColor: reactive([]),
-            chosenPeons: reactive([]),
-            solution: reactive([]),
-            resultColors: reactive([
-                [],
-                [],
-                [],
-                [],
-                [],
-                [],
-                [],
-                [],
-                [],
-                [],
-            ]),
-            playRowId: ref(0),
-            winLoseMessage: ref(""),
+            ],
+            colorsArray: ["red", "blue", "green", "yellow", "orange", "black"],
+            choiceOfColor: [],
+            chosenPeons: [],
+            solution: [],
+            resultColors: [[], [], [], [], [], [], [], [], [], []],
+            playRowId: 0,
+            winLoseMessage: "",
         };
     },
     actions: {
@@ -108,7 +90,7 @@ export const useColorStore = defineStore("ColorStore", {
                 .slice(-4)
                 .filter((x) => x === "black").length == this.numberOfPeons) {
                 this.playRowId = 10000;
-                this.winLoseMessage = "You earned one more point !";
+                this.winLoseMessage = "You win !";
             }
         },
     },
