@@ -1,11 +1,9 @@
 import { defineStore } from "pinia";
-//import { useScoreStore } from "@/stores/ScoreStore.js";
 import { reactive, ref, toRaw } from "vue";
 
 export const useColorStore = defineStore("ColorStore", {
   state: () => {
     return {
-      // score_store: useScoreStore(),
       rows: reactive([
         [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
         [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
@@ -110,7 +108,7 @@ export const useColorStore = defineStore("ColorStore", {
         }
       });
       console.log("checkColorsPlaces");
-      //this.score_store.increment();
+
       this.endOfGame();
       return this.resultColors;
     },
@@ -125,10 +123,6 @@ export const useColorStore = defineStore("ColorStore", {
         this.winLoseMessage = "You win !";
       }
     },
-    //clickReplay() {
-    //
-    //  //console.log(this.resultColors.length);
-    //},
   },
   getters: {
     numberOfPeons(): number {

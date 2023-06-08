@@ -6,18 +6,18 @@ import { storeToRefs } from "pinia";
 import { ref, toRaw, watch } from "vue";
 const color_store = useColorStore();
 const score_store = useScoreStore();
+defineProps({ rowNumber: Number });
 const { numberOfPeons, rows, chosenRow } = storeToRefs(color_store);
 const checkColorsPlaces = color_store.checkColorsPlaces(chosenRow);
-const refCheckColorsPlaces = ref(Object.values(checkColorsPlaces));
-defineProps({ rowNumber: Number });
-console.log(toRaw(refCheckColorsPlaces));
-watch(refCheckColorsPlaces, () => {
-  if (
-    refCheckColorsPlaces.slice(-4).every((x) => x === "black")
-  ) {
-    score_store.increment();
-  }
-});
+//const refCheckColorsPlaces = ref(Object.values(checkColorsPlaces));
+//console.log(toRaw(refCheckColorsPlaces));
+//watch(refCheckColorsPlaces, () => {
+//  if (//
+//    refCheckColorsPlaces.slice(-4).every((x) => x === "black")
+//  ) {
+//    score_store.increment();
+//  }
+//});
 </script>
 <template>
   <div>

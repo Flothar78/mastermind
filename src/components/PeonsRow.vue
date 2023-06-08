@@ -5,7 +5,6 @@ import { storeToRefs } from "pinia";
 const color_store = useColorStore();
 const { rows } = storeToRefs(color_store);
 const arrayOfRows = Object.values(rows.value);
-console.log(arrayOfRows);
 </script>
 
 <template>
