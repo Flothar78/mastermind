@@ -1,21 +1,22 @@
 import { defineStore } from "pinia";
-import { reactive, toRaw } from "vue";
-const defaultRows = [
-    [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
-    [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
-    [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
-    [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
-    [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
-    [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
-    [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
-    [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
-    [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
-    [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
-];
+//import { useScoreStore } from "@/stores/ScoreStore.js";
+import { reactive, ref, toRaw } from "vue";
 export const useColorStore = defineStore("ColorStore", {
     state: () => {
         return {
-            rows: { ...defaultRows },
+            // score_store: useScoreStore(),
+            rows: reactive([
+                [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
+                [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
+                [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
+                [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
+                [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
+                [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
+                [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
+                [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
+                [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
+                [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
+            ]),
             colorsArray: reactive([
                 "red",
                 "blue",
@@ -26,11 +27,21 @@ export const useColorStore = defineStore("ColorStore", {
             ]),
             choiceOfColor: reactive([]),
             chosenPeons: reactive([]),
-            solution: [],
-            resultColors: [[], [], [], [], [], [], [], [], [], []],
-            playRowId: 0,
-            score: 0,
-            winLoseMessage: "Have a game !",
+            solution: reactive([]),
+            resultColors: reactive([
+                [],
+                [],
+                [],
+                [],
+                [],
+                [],
+                [],
+                [],
+                [],
+                [],
+            ]),
+            playRowId: ref(0),
+            winLoseMessage: ref("Have a game !"),
         };
     },
     actions: {
@@ -90,6 +101,7 @@ export const useColorStore = defineStore("ColorStore", {
                 }
             });
             console.log("checkColorsPlaces");
+            //this.score_store.increment();
             this.endOfGame();
             return this.resultColors;
         },
@@ -99,20 +111,17 @@ export const useColorStore = defineStore("ColorStore", {
                 .slice(-4)
                 .filter((x) => x === "black").length == this.numberOfPeons) {
                 this.playRowId = 10000;
-                this.score++;
                 this.winLoseMessage = "You win !";
             }
         },
+        //clickReplay() {
+        //
+        //  //console.log(this.resultColors.length);
+        //},
     },
     getters: {
         numberOfPeons() {
             return (Object.values(this.rows).flat().length / Object.values(this.rows).length);
-        },
-        clickReplay() {
-            const rows = toRaw(this.rows);
-            console.log(rows);
-            const rowsCleaning = rows.map((x) => x.map((y) => (y.class = "")));
-            //console.log(this.resultColors.length);
         },
     },
 });

@@ -1,8 +1,15 @@
 <script setup>
 import { useColorStore } from "@/stores/ColorStore.js";
+import { useScoreStore } from "@/stores/ScoreStore.js";
 import { storeToRefs } from "pinia";
 const color_store = useColorStore();
-const { score, clickReplay } = storeToRefs(color_store);
+const score_store = useScoreStore();
+const { rows } = storeToRefs(color_store);
+const { score } = storeToRefs(score_store);
+
+const clickReplay = () => {
+  color_store.$reset();
+};
 </script>
 
 <template>

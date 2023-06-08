@@ -1,11 +1,23 @@
 <script setup>
 import PeonOccurence from "@/components/PeonOccurence.vue";
 import { useColorStore } from "@/stores/ColorStore.js";
+import { useScoreStore } from "@/stores/ScoreStore.js";
 import { storeToRefs } from "pinia";
+import { ref, toRaw, watch } from "vue";
 const color_store = useColorStore();
+const score_store = useScoreStore();
 const { numberOfPeons, rows, chosenRow } = storeToRefs(color_store);
 const checkColorsPlaces = color_store.checkColorsPlaces(chosenRow);
+const refCheckColorsPlaces = ref(Object.values(checkColorsPlaces));
 defineProps({ rowNumber: Number });
+console.log(toRaw(refCheckColorsPlaces));
+watch(refCheckColorsPlaces, () => {
+  if (
+    refCheckColorsPlaces.slice(-4).every((x) => x === "black")
+  ) {
+    score_store.increment();
+  }
+});
 </script>
 <template>
   <div>
