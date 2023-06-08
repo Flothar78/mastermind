@@ -39,7 +39,7 @@ export const useColorStore = defineStore("ColorStore", {
                 [],
             ]),
             playRowId: ref(0),
-            winLoseMessage: ref("Have a game !"),
+            winLoseMessage: ref(""),
         };
     },
     actions: {
@@ -108,7 +108,7 @@ export const useColorStore = defineStore("ColorStore", {
                 .slice(-4)
                 .filter((x) => x === "black").length == this.numberOfPeons) {
                 this.playRowId = 10000;
-                this.winLoseMessage = "You win !";
+                this.winLoseMessage = "You earned one more point !";
             }
         },
     },

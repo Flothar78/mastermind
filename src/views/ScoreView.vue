@@ -7,9 +7,10 @@ const color_store = useColorStore();
 const score_store = useScoreStore();
 const { rows, playRowId } = storeToRefs(color_store);
 let { score } = storeToRefs(score_store);
-
+watch(playRowId, (newPlayRowId) => {
+  newPlayRowId == 10000 ? score_store.increment() : "";
+});
 const clickReplay = () => {
-  score_store.increment();
   color_store.$reset();
 };
 </script>
@@ -17,13 +18,15 @@ const clickReplay = () => {
 <template>
   <div class="score-container">
     <div>
-      <div>{{ color_store.winLoseMessage }}</div>
-    </div>
-    <div class="score-replay-container">
-      At this point, your score is: {{ score }}
-      <div>
+      <div class="score-replay-container">
+        SCORE: {{ score }}
+        <div>
+          <br />
+          <div>{{ color_store.winLoseMessage }}</div>
+        </div>
+
         <button
-          v-if="color_store.winLoseMessage !== 'Have a game !'"
+          v-if="color_store.winLoseMessage !== ''"
           type="button"
           @click="clickReplay"
         >
@@ -44,8 +47,8 @@ const clickReplay = () => {
   display: flex;
 }
 button {
-  min-height: 3vw;
-  min-width: 10vw;
+  height: 3vw;
+  width: 14vw;
   margin-left: 3vw;
 }
 </style>

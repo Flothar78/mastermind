@@ -40,7 +40,7 @@ export const useColorStore = defineStore("ColorStore", {
         [],
       ]),
       playRowId: ref(0),
-      winLoseMessage: ref("Have a game !"),
+      winLoseMessage: ref(""),
     };
   },
   actions: {
@@ -90,7 +90,7 @@ export const useColorStore = defineStore("ColorStore", {
           ? this.checkColorsPlaces(chosenRow)
           : (chosenPeons.length = 0);
       } else {
-        console.log("if marche pas ici");
+        console.log("if marche pas ici", );
       }
     },
     checkColorsPlaces(chosenRow: number) {
@@ -120,7 +120,7 @@ export const useColorStore = defineStore("ColorStore", {
           .filter((x) => x === "black").length == this.numberOfPeons
       ) {
         this.playRowId = 10000;
-        this.winLoseMessage = "You win !";
+        this.winLoseMessage = "You earned one more point !";
       }
     },
   },
