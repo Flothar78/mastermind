@@ -2,14 +2,15 @@
 import { useColorStore } from "@/stores/ColorStore.js";
 import { useScoreStore } from "@/stores/ScoreStore.js";
 import { storeToRefs } from "pinia";
-import { watch, computed, ref } from "vue";
+import { watch, toRaw } from "vue";
 const color_store = useColorStore();
 const score_store = useScoreStore();
-const { rows, playRowId } = storeToRefs(color_store);
+const { rows, playRowId, resultColors } = storeToRefs(color_store);
 let { score } = storeToRefs(score_store);
 watch(playRowId, (newPlayRowId) => {
   newPlayRowId == 10000 ? score_store.increment() : "";
 });
+
 const clickReplay = () => {
   color_store.$reset();
 };

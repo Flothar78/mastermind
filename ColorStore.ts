@@ -43,7 +43,8 @@ export const useColorStore = defineStore("ColorStore", {
       chosenPeon: number,
       checkColorsPlaces: Function
     ) {
-      console.log(chosenRow, this.playRowId);
+      console.log("chosenRow:", chosenRow);
+      console.log("playRowId", this.playRowId);
 
       if (chosenRow === this.playRowId) {
         const rowMonitor = this.rows[chosenRow];
