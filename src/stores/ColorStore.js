@@ -1,19 +1,18 @@
 import { defineStore } from "pinia";
-import { toRaw } from "vue";
 export const useColorStore = defineStore("ColorStore", {
     state: () => {
         return {
             rows: [
-                [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
-                [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
-                [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
-                [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
-                [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
-                [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
-                [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
-                [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
-                [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
-                [{ class: "" }, { class: "" }, { class: "" }, { class: "" }],
+                ["", "", "", ""],
+                ["", "", "", ""],
+                ["", "", "", ""],
+                ["", "", "", ""],
+                ["", "", "", ""],
+                ["", "", "", ""],
+                ["", "", "", ""],
+                ["", "", "", ""],
+                ["", "", "", ""],
+                ["", "", "", ""],
             ],
             colorsArray: ["red", "blue", "green", "yellow", "orange", "black"],
             choiceOfColor: [],
@@ -37,26 +36,19 @@ export const useColorStore = defineStore("ColorStore", {
         },
         getColorFromStore(chosenRow, chosenPeon, checkColorsPlaces) {
             console.log("chosenRow:", chosenRow);
+            console.log("chosenPeon:", chosenPeon);
             console.log("playRowId", this.playRowId);
             if (chosenRow === this.playRowId) {
-                const rowMonitor = this.rows[chosenRow];
+                const row = this.rows[chosenRow];
                 const chosenPeons = this.chosenPeons;
-                const peonClassArray = Object.values(toRaw(this.rows)[chosenRow]);
-                const peonClassArrayIsFull = peonClassArray
-                    .flat()
-                    .every((x) => Object.values(x).toString() !== "");
-                console.log(Object.values(this.choiceOfColor).toString());
-                rowMonitor[chosenPeon].class = Object.values(this.choiceOfColor).toString();
-                rowMonitor.map((x) => {
-                    const peonCheck = Object.values(x).join("");
-                    peonCheck !== "" ? chosenPeons.push(peonCheck) : "";
+                const peonClassArray = this.rows[chosenRow];
+                console.log(this.choiceOfColor[0]);
+                row[chosenPeon] = this.choiceOfColor[0];
+                row.map((x) => {
+                    x !== "" ? chosenPeons.push(x) : "";
                 });
-                peonClassArray.flat().every((x) => Object.values(x).toString() !== "")
-                    ? this.playRowId++
-                    : "";
-                peonClassArray
-                    .flat()
-                    .every((x) => Object.values(x).toString() !== "") &&
+                peonClassArray.every((x) => x !== "") ? this.playRowId++ : "";
+                peonClassArray.every((x) => x !== "") &&
                     chosenPeons.length == this.numberOfPeons
                     ? this.checkColorsPlaces(chosenRow)
                     : (chosenPeons.length = 0);

@@ -10,8 +10,8 @@ const { rows } = storeToRefs(color_store);
   <div class="try-result">
     <CheckRow
       v-for="row in rows"
-      :rowNumber="Object.values(rows).indexOf(row)"
-      :key="Object.values(rows).indexOf(row)"
+      :rowNumber="rows.indexOf(row)"
+      :key="rows.indexOf(row)"
       class="color-check-container"
     />
   </div>
