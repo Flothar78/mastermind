@@ -2,20 +2,22 @@
 import PeonOccurence from "@/components/PeonOccurence.vue";
 import { useColorStore } from "@/stores/ColorStore.js";
 import { storeToRefs } from "pinia";
-import { toRaw } from "vue";
+import { watch } from "vue";
 const color_store = useColorStore();
 const { rows, choiceOfColor } = storeToRefs(color_store);
-const rawRows = rows.value;
+watch(rows, (rowsIndex) => {
+  rowsIndex == rows.length - 1 ? console.log("test") : "";
+});
 </script>
 
 <template>
   <div class="betweenRows">
-    <div v-for="row in rawRows" :key="rawRows.indexOf(row)" class="withinRow">
+    <div v-for="row in rows" :key="rows.indexOf(row)" class="withinRow">
       <PeonOccurence
         v-for="(peon, index) in row"
         :key="index"
-        @click="color_store.getColorFromStore(rawRows.indexOf(row), index)"
-        :class="rawRows[rawRows.indexOf(row)][index]"
+        @click="color_store.getColorFromStore(rows.indexOf(row), index)"
+        :class="rows[rows.indexOf(row)][index]"
       />
     </div>
   </div>

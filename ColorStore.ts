@@ -3,7 +3,7 @@ import { reactive } from "vue";
 export const useColorStore = defineStore("ColorStore", {
   state: () => {
     return {
-      rows: [
+      rows: <string[][]>[
         ["", "", "", ""],
         ["", "", "", ""],
         ["", "", "", ""],

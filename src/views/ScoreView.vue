@@ -12,19 +12,9 @@ watch(playRowId, (newPlayRowId) => {
 });
 
 const clickReplay = () => {
+  console.log(color_store.rows);
   color_store.$reset();
-  color_store.rows = [
-    ["", "", "", ""],
-    ["", "", "", ""],
-    ["", "", "", ""],
-    ["", "", "", ""],
-    ["", "", "", ""],
-    ["", "", "", ""],
-    ["", "", "", ""],
-    ["", "", "", ""],
-    ["", "", "", ""],
-    ["", "", "", ""],
-  ];
+  console.log(color_store.rows);
 };
 </script>
 
