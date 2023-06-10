@@ -8,16 +8,10 @@ let { rows, solution, winLooseMessage, numberOfPeons, playRowId } =
   storeToRefs(color_store);
 
 const arrayRows = Object.values(rows.value);
-watch(arrayRows, () => {
-  arrayRows[arrayRows.length - 1].filter((x) => x == "").length === 0
-    ? looseMessage()
-    : "";
+watch(playRowId, (playRowId) => {
+  playRowId == 10 ? looseMessage() : "";
 });
 const looseMessage = () => {
-  console.log("looseMessage");
-  console.log(JSON.stringify(arrayRows[arrayRows.length - 1]));
-  console.log(JSON.stringify(solution.value));
-
   if (
     JSON.stringify(arrayRows[arrayRows.length - 1]) !==
     JSON.stringify(solution.value)

@@ -24,7 +24,7 @@ const clickReplay = () => {
   <div class="score-container">
     <div>
       <div class="score-replay-container">
-        SCORE: {{ score }} {{ playRowId }}
+        SCORE: {{ score }}
         <div>
           <br />
           <div>{{ winLooseMessage }}</div>

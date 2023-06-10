@@ -32,28 +32,19 @@ export const useColorStore = defineStore("ColorStore", {
       return this.solution[number];
     },
     addColorToStore(color: string) {
-      console.log("addColorToStore");
       this.choiceOfColor.length = 0;
       this.choiceOfColor.push(color);
-      console.log(this.choiceOfColor);
     },
     getColorFromStore(
       chosenRow: number,
       chosenPeon: number,
       checkColorsPlaces: Function
     ) {
-      console.log("chosenRow:", chosenRow);
-      console.log("chosenPeon:", chosenPeon);
-      console.log("playRowId", this.playRowId);
-
       if (chosenRow === this.playRowId) {
         const row = this.rows[chosenRow];
         const chosenPeons = this.chosenPeons;
         const peonClassArray = this.rows[chosenRow];
-        console.log(this.choiceOfColor[0]);
-
         row[chosenPeon] = this.choiceOfColor[0];
-
         row.map((x: string) => {
           x !== "" ? chosenPeons.push(x) : "";
         });
@@ -63,7 +54,6 @@ export const useColorStore = defineStore("ColorStore", {
           ? this.checkColorsPlaces(chosenRow)
           : (chosenPeons.length = 0);
       } else {
-        console.log("if marche pas ici");
       }
     },
     checkColorsPlaces(chosenRow: number) {
@@ -80,7 +70,6 @@ export const useColorStore = defineStore("ColorStore", {
           this.resultColors[chosenRow].push("none");
         }
       });
-      console.log("checkColorsPlaces");
 
       this.endOfGame();
       return this.resultColors;
