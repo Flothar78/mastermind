@@ -4,10 +4,30 @@ import { useColorStore } from "@/stores/ColorStore.js";
 import { storeToRefs } from "pinia";
 import { watch } from "vue";
 const color_store = useColorStore();
-const { rows, choiceOfColor } = storeToRefs(color_store);
-watch(rows, (rowsIndex) => {
-  rowsIndex == rows.length - 1 ? console.log("test") : "";
+let { rows, solution, winLooseMessage, numberOfPeons, playRowId } =
+  storeToRefs(color_store);
+
+const arrayRows = Object.values(rows.value);
+watch(arrayRows, () => {
+  arrayRows[arrayRows.length - 1].filter((x) => x == "").length === 0
+    ? looseMessage()
+    : "";
 });
+const looseMessage = () => {
+  console.log("looseMessage");
+  console.log(JSON.stringify(arrayRows[arrayRows.length - 1]));
+  console.log(JSON.stringify(solution.value));
+
+  if (
+    JSON.stringify(arrayRows[arrayRows.length - 1]) !==
+    JSON.stringify(solution.value)
+  ) {
+    color_store.winLooseMessage = "You loose !";
+    color_store.playRowId = 10000;
+    console.log(color_store.winLooseMessage);
+    console.log(color_store.playRowId);
+  }
+};
 </script>
 
 <template>

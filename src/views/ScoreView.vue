@@ -5,16 +5,18 @@ import { storeToRefs } from "pinia";
 import { watch, toRaw } from "vue";
 const color_store = useColorStore();
 const score_store = useScoreStore();
-const { rows, playRowId, resultColors } = storeToRefs(color_store);
+const { rows, playRowId, resultColors, winLooseMessage } =
+  storeToRefs(color_store);
 let { score } = storeToRefs(score_store);
-watch(playRowId, (newPlayRowId) => {
-  newPlayRowId == 10000 ? score_store.increment() : "";
+//watch(playRowId, (newPlayRowId) => {
+//  newPlayRowId == 10000 ? score_store.increment() : "";
+//});
+watch(winLooseMessage, (newWinLooseMessage) => {
+  newWinLooseMessage == "You win !" ? score_store.increment() : "";
 });
 
 const clickReplay = () => {
-  console.log(color_store.rows);
   color_store.$reset();
-  console.log(color_store.rows);
 };
 </script>
 
@@ -22,14 +24,14 @@ const clickReplay = () => {
   <div class="score-container">
     <div>
       <div class="score-replay-container">
-        SCORE: {{ score }}
+        SCORE: {{ score }} {{ playRowId }}
         <div>
           <br />
-          <div>{{ color_store.winLoseMessage }}</div>
+          <div>{{ winLooseMessage }}</div>
         </div>
 
         <button
-          v-if="color_store.winLoseMessage !== ''"
+          v-if="color_store.playRowId === 10000"
           type="button"
           @click="clickReplay"
         >

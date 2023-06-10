@@ -21,7 +21,7 @@ export const useColorStore = defineStore("ColorStore", {
       solution: <string[]>[],
       resultColors: <string[][]>[[], [], [], [], [], [], [], [], [], []],
       playRowId: 0,
-      winLoseMessage: "",
+      winLooseMessage: "",
     };
   },
   actions: {
@@ -93,7 +93,7 @@ export const useColorStore = defineStore("ColorStore", {
           .filter((x) => x === "black").length == this.numberOfPeons
       ) {
         this.playRowId = 10000;
-        this.winLoseMessage = "You win !";
+        this.winLooseMessage = "You win !";
       }
     },
   },
