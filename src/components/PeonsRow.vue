@@ -16,10 +16,9 @@ const looseMessage = () => {
     JSON.stringify(arrayRows[arrayRows.length - 1]) !==
     JSON.stringify(solution.value)
   ) {
+    console.log(solution);
     color_store.winLooseMessage = "You loose !";
     color_store.playRowId = 10000;
-    console.log(color_store.winLooseMessage);
-    console.log(color_store.playRowId);
   }
 };
 </script>
