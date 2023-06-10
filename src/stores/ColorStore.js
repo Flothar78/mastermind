@@ -25,12 +25,11 @@ export const useColorStore = defineStore("ColorStore", {
     },
     actions: {
         getRandomColors(number) {
+            console.log("getRandomColors");
             this.solution.push(this.colorsArray[Math.floor(Math.random() * this.colorsArray.length)]);
-            console.log(this.solution);
             return this.solution[number];
         },
         addColorToStore(color) {
-            console.log("addColorToStore");
             this.choiceOfColor.length = 0;
             this.choiceOfColor.push(color);
         },
@@ -52,9 +51,7 @@ export const useColorStore = defineStore("ColorStore", {
             }
         },
         checkColorsPlaces(chosenRow) {
-            console.log("checkColorsPlaces");
-            console.log(this.chosenPeons);
-            console.log(this.solution.slice(0, 5));
+            console.log(this.solution);
             const slicedSolution = this.solution.slice(0, 5);
             this.chosenPeons.map((x, i, a) => {
                 if (slicedSolution[i] === x) {
