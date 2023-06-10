@@ -52,7 +52,6 @@ export const useColorStore = defineStore("ColorStore", {
         },
         checkColorsPlaces(chosenRow) {
             const solution = this.solution;
-            console.log(solution);
             this.chosenPeons.map((x, i, a) => {
                 if (solution[i] === x) {
                     this.resultColors[chosenRow].push("black");
