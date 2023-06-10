@@ -51,25 +51,25 @@ export const useColorStore = defineStore("ColorStore", {
             }
         },
         checkColorsPlaces(chosenRow) {
-            console.log(this.solution);
-            const slicedSolution = this.solution.slice(0, 5);
+            const solution = this.solution;
+            console.log(solution);
             this.chosenPeons.map((x, i, a) => {
-                if (slicedSolution[i] === x) {
+                if (solution[i] === x) {
                     this.resultColors[chosenRow].push("black");
                 }
-                else if (slicedSolution.includes(x)) {
-                    if (slicedSolution.filter((y) => y === x).length >=
+                else if (solution.includes(x)) {
+                    solution.filter((y) => y === x).length >=
                         a.filter((z) => z === x).length -
-                            a.filter((s) => s === slicedSolution[i]).length) {
-                        this.resultColors[chosenRow].push("grey");
-                    }
+                            a.filter((s) => s === solution[i]).length
+                        ? this.resultColors[chosenRow].push("grey")
+                        : this.resultColors[chosenRow].push("none");
                 }
                 else {
                     this.resultColors[chosenRow].push("none");
                 }
             });
             this.endOfGame();
-            return this.resultColors;
+            return this.resultColors.map((x) => x.sort());
         },
         endOfGame() {
             if (this.resultColors

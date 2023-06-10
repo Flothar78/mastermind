@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { reactive } from "vue";
+import { reactive, toRaw } from "vue";
 export const useColorStore = defineStore("ColorStore", {
   state: () => {
     return {
@@ -64,20 +64,19 @@ export const useColorStore = defineStore("ColorStore", {
         if (solution[i] === x) {
           this.resultColors[chosenRow].push("black");
         } else if (solution.includes(x)) {
-          if (
-            solution.filter((y) => y === x).length >=
-            a.filter((z) => z === x).length -
-              a.filter((s) => s === solution[i]).length
-          ) {
-            this.resultColors[chosenRow].push("grey");
-          }
+          solution.filter((y) => y === x).length >=
+          a.filter((z) => z === x).length -
+            a.filter((s) => s === solution[i]).length
+            ? this.resultColors[chosenRow].push("grey")
+            : this.resultColors[chosenRow].push("none");
         } else {
           this.resultColors[chosenRow].push("none");
         }
       });
 
       this.endOfGame();
-      return this.resultColors;
+
+      return this.resultColors.map((x) => x.sort());
     },
     endOfGame() {
       if (
