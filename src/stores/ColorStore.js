@@ -25,16 +25,17 @@ export const useColorStore = defineStore("ColorStore", {
     },
     actions: {
         getRandomColors(number) {
-            const oneColor = this.colorsArray[Math.floor(Math.random() * this.colorsArray.length)];
-            this.solution.push(oneColor);
+            this.solution.push(this.colorsArray[Math.floor(Math.random() * this.colorsArray.length)]);
             console.log(this.solution);
             return this.solution[number];
         },
         addColorToStore(color) {
+            console.log("addColorToStore");
             this.choiceOfColor.length = 0;
             this.choiceOfColor.push(color);
         },
         getColorFromStore(chosenRow, chosenPeon, checkColorsPlaces) {
+            console.log("getColorFromStore");
             if (chosenRow === this.playRowId) {
                 const row = this.rows[chosenRow];
                 const chosenPeons = this.chosenPeons;
@@ -51,16 +52,20 @@ export const useColorStore = defineStore("ColorStore", {
             }
         },
         checkColorsPlaces(chosenRow) {
+            console.log("checkColorsPlaces");
+            console.log(this.chosenPeons);
+            console.log(this.solution.slice(0, 5));
+            const slicedSolution = this.solution.slice(0, 5);
             this.chosenPeons.map((x, i, a) => {
-                if (this.solution[i] === x) {
+                if (slicedSolution[i] === x) {
                     this.resultColors[chosenRow].push("black");
                 }
-                else if (this.solution.includes(x)) {
-                    this.solution.filter((y) => y === x).length >=
+                else if (slicedSolution.includes(x)) {
+                    if (slicedSolution.filter((y) => y === x).length >=
                         a.filter((z) => z === x).length -
-                            a.filter((s) => s === this.solution[i]).length
-                        ? this.resultColors[chosenRow].push("grey")
-                        : this.resultColors[chosenRow].push("none");
+                            a.filter((s) => s === slicedSolution[i]).length) {
+                        this.resultColors[chosenRow].push("grey");
+                    }
                 }
                 else {
                     this.resultColors[chosenRow].push("none");
