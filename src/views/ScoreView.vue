@@ -8,9 +8,7 @@ const score_store = useScoreStore();
 const { rows, playRowId, resultColors, winLooseMessage } =
   storeToRefs(color_store);
 let { score } = storeToRefs(score_store);
-//watch(playRowId, (newPlayRowId) => {
-//  newPlayRowId == 10000 ? score_store.increment() : "";
-//});
+
 watch(winLooseMessage, (newWinLooseMessage) => {
   newWinLooseMessage == "You win !" ? score_store.increment() : "";
 });

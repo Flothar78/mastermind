@@ -27,9 +27,12 @@ export const useColorStore = defineStore("ColorStore", {
   actions: {
     getRandomColors(number: number) {
       console.log("getRandomColors");
-      this.solution.push(
-        this.colorsArray[Math.floor(Math.random() * this.colorsArray.length)]
-      );
+      if (this.solution.length < this.numberOfPeons) {
+        this.solution.push(
+          this.colorsArray[Math.floor(Math.random() * this.colorsArray.length)]
+        );
+      }
+
       console.log(this.solution);
 
       return this.solution[number];
@@ -47,14 +50,12 @@ export const useColorStore = defineStore("ColorStore", {
       if (chosenRow === this.playRowId) {
         const row = this.rows[chosenRow];
         const chosenPeons = this.chosenPeons;
-        const peonClassArray = this.rows[chosenRow];
         row[chosenPeon] = this.choiceOfColor[0];
         row.map((x: string) => {
           x !== "" ? chosenPeons.push(x) : "";
         });
-        peonClassArray.every((x) => x !== "") ? this.playRowId++ : "";
-        peonClassArray.every((x) => x !== "") &&
-        chosenPeons.length == this.numberOfPeons
+        row.every((x) => x !== "") ? this.playRowId++ : "";
+        row.every((x) => x !== "") && chosenPeons.length == this.numberOfPeons
           ? this.checkColorsPlaces(chosenRow)
           : (chosenPeons.length = 0);
       }
