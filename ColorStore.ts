@@ -30,6 +30,8 @@ export const useColorStore = defineStore("ColorStore", {
       this.solution.push(
         this.colorsArray[Math.floor(Math.random() * this.colorsArray.length)]
       );
+      console.log(this.solution);
+
       return this.solution[number];
     },
     addColorToStore(color: string) {
