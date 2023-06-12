@@ -7,11 +7,10 @@ import ScoreView from "@/views/ScoreView.vue";
 <template>
   <div class="score-wrapper">
     <ScoreView />
-
-    <div class="play-and-result-wrapper">
-      <PlayView />
-      <ResultView />
-    </div>
+  </div>
+  <div class="play-and-result-wrapper">
+    <PlayView />
+    <ResultView />
   </div>
 </template>
 

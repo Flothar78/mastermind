@@ -18,7 +18,7 @@ const { rows } = storeToRefs(color_store);
 </template>
 
 <style scoped>
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 800px)  {
   .try-result {
     border: black 0.5px solid;
     display: flex;
