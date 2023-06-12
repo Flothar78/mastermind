@@ -24,7 +24,6 @@ const { rows } = storeToRefs(color_store);
     display: flex;
     flex-direction: column-reverse;
     width: 20vw;
-    margin-left: 20vw;
   }
   .color-check-container {
     border: red 1px solid;

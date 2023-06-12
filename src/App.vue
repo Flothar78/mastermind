@@ -21,7 +21,7 @@ import ScoreView from "@/views/ScoreView.vue";
   }
   .play-and-result-wrapper {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
   }
 }
 </style>
