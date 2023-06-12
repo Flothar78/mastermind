@@ -21,18 +21,20 @@ const checkColorsPlaces = color_store.checkColorsPlaces(chosenRow);
 </template>
 
 <style scoped>
-.peon-in-check-row {
-  width: 1.5vw;
-  height: 1.5vw;
-  border-radius: 50%;
-}
-.black {
-  background-color: black;
-}
-.grey {
-  background-color: grey;
-}
-.none {
-  background-color: red;
+@media screen and (min-width: 400px) {
+  .peon-in-check-row {
+    width: 1.5vw;
+    height: 1.5vw;
+    border-radius: 50%;
+  }
+  .black {
+    background-color: black;
+  }
+  .grey {
+    background-color: grey;
+  }
+  .none {
+    background-color: red;
+  }
 }
 </style>

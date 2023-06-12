@@ -19,7 +19,7 @@ const { colorsArray, addColorToStore } = storeToRefs(color_store);
 </template>
 
 <style scoped>
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 400px) {
   .peons-row {
     border: black 2.5px solid;
     background-color: #e6e6e6;

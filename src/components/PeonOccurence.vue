@@ -3,7 +3,7 @@
 </template>
 
 <style scoped>
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 400px) {
   .peon-shape {
     border: 0.5px solid black;
     width: 5vw;

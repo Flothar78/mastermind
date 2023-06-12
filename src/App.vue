@@ -15,12 +15,12 @@ import ScoreView from "@/views/ScoreView.vue";
 </template>
 
 <style scoped>
-@media screen and (min-width: 800px) {
-  .score-wrapper {
-  }
+@media screen and (min-width: 400px) {
   .play-and-result-wrapper {
     display: flex;
     justify-content: center;
+    margin-left: 10vw;
+    margin-right: 10vw;
   }
 }
 </style>

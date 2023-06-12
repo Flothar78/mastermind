@@ -38,18 +38,20 @@ const clickReplay = () => {
 </template>
 
 <style scoped>
-.score-container {
-  display: flex;
-  flex-direction: column;
-  padding: 1vw 0 3vw 0;
-}
-.score-replay-container {
-  display: flex;
-  justify-content: space-around;
-}
-button {
-  height: 3vw;
-  width: 14vw;
-  margin-left: 3vw;
+@media screen and (min-width: 400px) {
+  .score-container {
+    display: flex;
+    flex-direction: column;
+    padding: 1vw 0 3vw 0;
+  }
+  .score-replay-container {
+    display: flex;
+    justify-content: space-around;
+  }
+  button {
+    height: 3vw;
+    width: 14vw;
+    margin-left: 3vw;
+  }
 }
 </style>

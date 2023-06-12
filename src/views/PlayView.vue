@@ -13,7 +13,7 @@ import AvailableColors from "@/components/AvailableColors.vue";
 </template>
 
 <style scoped>
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 400px) {
   .play-ground {
     border: black 0.5px solid;
     display: flex;
