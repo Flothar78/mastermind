@@ -16,6 +16,10 @@ watch(winLooseMessage, (newWinLooseMessage) => {
 const clickReplay = () => {
   color_store.$reset();
 };
+const restartGame = () => {
+  color_store.$reset();
+  score_store.$reset();
+};
 </script>
 
 <template>
@@ -31,7 +35,13 @@ const clickReplay = () => {
         type="button"
         @click="clickReplay"
       >
-        Play Again ?
+        Continue?</button
+      ><button
+        v-if="color_store.playRowId === 10000"
+        type="button"
+        @click="restartGame"
+      >
+        Resart ?
       </button>
     </div>
   </div>
