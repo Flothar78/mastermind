@@ -11,6 +11,6 @@
   },
   "include": ["src/**/*"],
   "files": [
-    "/home/flothar78/Developpement/projetsPersos/Mastermind/ColorStore.ts"
+    "/home/flothar78/Developpement/projetsPersos/mastermind/ColorStore.ts"
   ]
 }
