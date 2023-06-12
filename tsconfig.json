@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outDir": "/home/flothar78/Developpement/projetsPersos/Mastermind/src/stores",
+    "outDir": "/home/flothar78/Developpement/projetsPersos/mastermind/src/stores",
     "target": "esnext",
     "moduleResolution": "node",
     "lib": ["esnext", "dom"],
