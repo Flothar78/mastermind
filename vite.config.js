@@ -4,10 +4,10 @@ import vue from "@vitejs/plugin-vue";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/mastermind/",
   watchOptions: {
     poll: true,
   },
+  base: "/mastermind/",
   plugins: [vue()],
   resolve: {
     alias: {
