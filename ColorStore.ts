@@ -65,18 +65,10 @@ export const useColorStore = defineStore("ColorStore", {
         const solution = this.solution;
         const matchingInSolution = solution.filter((y) => y === x).length;
         const matchingInPlayerChoice = a.filter((z) => z === x).length;
-
         if (solution[i] === x) {
           this.resultColors[chosenRow].push("black");
-          console.log("countBlack: " + countBlack);
           countBlack++;
-          console.log("countBlack: " + countBlack);
         } else if (solution.includes(x)) {
-          console.log("matchingInSolution: " + matchingInSolution);
-          console.log("matchingInPlayerChoice: " + matchingInPlayerChoice);
-          //console.log(a.filter((s) => s[i] === solution[i]).length);
-          console.log("countBlack: " + countBlack);
-
           matchingInSolution < matchingInPlayerChoice
             ? this.resultColors[chosenRow].push("none") *
               (matchingInPlayerChoice - matchingInSolution)
@@ -85,9 +77,7 @@ export const useColorStore = defineStore("ColorStore", {
           this.resultColors[chosenRow].push("none");
         }
       });
-
       this.endOfGame();
-
       return this.resultColors.map((x) => x);
     },
     endOfGame() {

@@ -2,6 +2,7 @@
   "compilerOptions": {
     "outDir": "/home/flothar78/Developpement/projetsPersos/mastermind/src/stores",
     "target": "esnext",
+    //"module": "commonjs",
     "moduleResolution": "node",
     "lib": ["esnext", "dom"],
     "noEmitOnError": true,
