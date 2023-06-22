@@ -37,8 +37,9 @@ const { rows } = storeToRefs(color_store);
   }
   .checkRow {
     border: black 0.5px solid;
-    padding: 1.5vh 0 1.5vh 0;
+    padding: 25% 10% 25% 10%; 
     height: 5vw;
+    width: 7vw;
   }
 }
 </style>
