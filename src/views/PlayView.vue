@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import GameSolution from "@/components/GameSolution.vue";
-import PeonsRow from "@/components/PeonsRow.vue";
 import AvailableColors from "@/components/AvailableColors.vue";
+import TryAndChecks from "@/components/TryAndChecks.vue";
 </script>
 
 <template>
   <div class="play-ground">
     <GameSolution />
-    <PeonsRow />
+    <TryAndChecks />
     <AvailableColors />
   </div>
 </template>

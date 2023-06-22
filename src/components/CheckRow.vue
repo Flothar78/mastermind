@@ -6,11 +6,12 @@ import { storeToRefs } from "pinia";
 const color_store = useColorStore();
 const score_store = useScoreStore();
 defineProps({ rowNumber: Number });
-const { numberOfPeons, chosenRow, resultColors } = storeToRefs(color_store);
+const { numberOfPeons, rows, chosenRow, resultColors } =
+  storeToRefs(color_store);
 const checkColorsPlaces = color_store.checkColorsPlaces(chosenRow);
 </script>
 <template>
-  <div>
+  <div class="flexInCheckRows">
     <PeonOccurence
       v-for="peon in numberOfPeons"
       :key="peon - 1"
@@ -22,6 +23,9 @@ const checkColorsPlaces = color_store.checkColorsPlaces(chosenRow);
 
 <style scoped>
 @media screen and (min-width: 400px) {
+  .flexInCheckRows {
+    display: flex;
+  }
   .peon-in-check-row {
     width: 1.5vw;
     height: 1.5vw;

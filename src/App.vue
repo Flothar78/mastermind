@@ -1,6 +1,5 @@
 <script setup>
 import PlayView from "@/views/PlayView.vue";
-import ResultView from "@/views/ResultView.vue";
 import ScoreView from "@/views/ScoreView.vue";
 </script>
 
@@ -10,7 +9,6 @@ import ScoreView from "@/views/ScoreView.vue";
   </div>
   <div class="play-and-result-wrapper">
     <PlayView />
-    <ResultView />
   </div>
 </template>
 
