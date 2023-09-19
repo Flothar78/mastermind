@@ -48,6 +48,7 @@ const looseMessage = () => {
   .betweenRows {
     display: flex;
     flex-direction: column-reverse;
+    min-width: 60%;
   }
 }
 </style>

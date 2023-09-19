@@ -6,8 +6,8 @@
 @media screen and (min-width: 400px) {
   .peon-shape {
     border: 0.5px solid black;
-    width: 5vw;
-    height: 5vw;
+    width: 3vw;
+    height: 3vw;
     border-radius: 50%;
   }
   .red {

@@ -15,7 +15,7 @@ import TryAndChecks from "@/components/TryAndChecks.vue";
 <style scoped>
 @media screen and (min-width: 400px) {
   .play-ground {
-    border: black 0.5px solid;
+   
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;

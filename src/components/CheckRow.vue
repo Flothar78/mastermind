@@ -11,7 +11,7 @@ const { numberOfPeons, rows, chosenRow, resultColors } =
 const checkColorsPlaces = color_store.checkColorsPlaces(chosenRow);
 </script>
 <template>
-  <div class="flexInCheckRows">
+  <div class="insideCheckRows">
     <PeonOccurence
       v-for="peon in numberOfPeons"
       :key="peon - 1"
@@ -23,8 +23,9 @@ const checkColorsPlaces = color_store.checkColorsPlaces(chosenRow);
 
 <style scoped>
 @media screen and (min-width: 400px) {
-  .flexInCheckRows {
+  .insideCheckRows {
     display: flex;
+    justify-content: space-between;
   }
   .peon-in-check-row {
     width: 1.5vw;
