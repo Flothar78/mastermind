@@ -10,7 +10,7 @@ const { rows, playRowId, resultColors, winLooseMessage } =
 let { score } = storeToRefs(score_store);
 
 watch(winLooseMessage, (newWinLooseMessage) => {
-  newWinLooseMessage == "You win !" ? score_store.increment() : "";
+  newWinLooseMessage == "One more point !" ? score_store.increment() : "";
 });
 
 const clickReplay = () => {
@@ -24,7 +24,7 @@ const restartGame = () => {
 
 <template>
   <div class="score-container">
-    <div>SCORE: {{ score }}</div>
+    <div class="score-display">SCORE: {{ score }}</div>
     <div>
       {{ winLooseMessage }}
     </div>
@@ -40,7 +40,7 @@ const restartGame = () => {
       type="button"
       @click="restartGame"
     >
-      Resart ?
+      Restart ?
     </button>
   </div>
 </template>

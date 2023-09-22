@@ -272,16 +272,25 @@
     justify-content: space-between;
   }
   .score-container {
+    border: blue 3px solid;
     display: flex;
     flex-direction: column;
-    padding: 1vw 0 3vw 0;
+    align-items: center;
+    padding: 1vw 1vw 0 0;
+    margin-right: 2vw;
+    width: 15vw;
+    padding: 0 2vw 0 2vw;
+  }
+  .score-display {
+    width: 100%;
+    margin: 2vh 0 5vh 0;
   }
   .play-and-result-wrapper {
     border: yellow solid 3px;
     display: flex;
     justify-content: center;
-    width: 80%;
-    height: 98vh;
+    width: 50%;
+    height: 95vh;
   }
   .play-ground {
     display: flex;
@@ -301,8 +310,8 @@
     margin-bottom: 3vw;
   }
   .game-solution-peons {
-    height: 30px;
-    width: 30px;
+    height: 40px;
+    width: 40px;
   }
   .play-and-check-container {
     border: black 0.5px solid;
