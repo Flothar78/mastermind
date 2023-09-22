@@ -30,6 +30,7 @@ const looseMessage = () => {
         :key="index"
         @click="color_store.getColorFromStore(rows.indexOf(row), index)"
         :class="rows[rows.indexOf(row)][index]"
+        class="withinRow-peons"
       />
     </div>
   </div>

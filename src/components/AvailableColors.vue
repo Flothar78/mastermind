@@ -13,6 +13,7 @@ const { colorsArray, addColorToStore } = storeToRefs(color_store);
       v-for="(color, index) in colorsArray"
       :key="index"
       :class="colorsArray[index]"
+      class="available-colors-peons"
       @click="color_store.addColorToStore(colorsArray[index])"
     />
   </div>

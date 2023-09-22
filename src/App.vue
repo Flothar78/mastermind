@@ -4,7 +4,7 @@ import ScoreView from "@/views/ScoreView.vue";
 </script>
 
 <template>
-  <div>
+  <div id="app">
     <ScoreView />
   </div>
   <div class="play-and-result-wrapper">
@@ -13,13 +13,5 @@ import ScoreView from "@/views/ScoreView.vue";
 </template>
 
 <style scoped>
-@media screen and (min-width: 400px) {
-  .play-and-result-wrapper {
-    display: flex;
-    justify-content: center;
-    margin-left: 10vw;
-    margin-right: 10vw;
-    max-height: 90vh;
-  }
-}
+@import "@/assets/main.css";
 </style>

@@ -24,26 +24,24 @@ const restartGame = () => {
 
 <template>
   <div class="score-container">
-    <div class="score-replay-container">
-      <div>SCORE: {{ score }}</div>
-      <div>
-        {{ winLooseMessage }}
-      </div>
-
-      <button
-        v-if="color_store.playRowId === 10000"
-        type="button"
-        @click="clickReplay"
-      >
-        Continue?</button
-      ><button
-        v-if="color_store.playRowId === 10000"
-        type="button"
-        @click="restartGame"
-      >
-        Resart ?
-      </button>
+    <div>SCORE: {{ score }}</div>
+    <div>
+      {{ winLooseMessage }}
     </div>
+
+    <button
+      v-if="color_store.playRowId === 10000"
+      type="button"
+      @click="clickReplay"
+    >
+      Continue?</button
+    ><button
+      v-if="color_store.playRowId === 10000"
+      type="button"
+      @click="restartGame"
+    >
+      Resart ?
+    </button>
   </div>
 </template>
 
