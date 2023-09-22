@@ -19,15 +19,5 @@ const { colorsArray, addColorToStore } = storeToRefs(color_store);
 </template>
 
 <style scoped>
-@media screen and (min-width: 400px) {
-  .peons-row {
-    border: black 2.5px solid;
-    background-color: #e6e6e6;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 8vw;
-    margin: 1vw;
-  }
-}
+@import "@/assets/main.css";
 </style>

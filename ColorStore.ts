@@ -26,15 +26,11 @@ export const useColorStore = defineStore("ColorStore", {
   },
   actions: {
     getRandomColors(number: number) {
-      console.log("getRandomColors");
       if (this.solution.length < this.numberOfPeons) {
         this.solution.push(
           this.colorsArray[Math.floor(Math.random() * this.colorsArray.length)]
         );
       }
-
-      console.log(this.solution);
-
       return this.solution[number];
     },
     addColorToStore(color: string) {

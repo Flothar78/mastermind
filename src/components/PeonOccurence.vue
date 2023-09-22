@@ -3,30 +3,5 @@
 </template>
 
 <style scoped>
-@media screen and (min-width: 400px) {
-  .peon-shape {
-    border: 0.5px solid black;
-    width: 3vw;
-    height: 3vw;
-    border-radius: 50%;
-  }
-  .red {
-    background-color: red;
-  }
-  .blue {
-    background-color: blue;
-  }
-  .green {
-    background-color: green;
-  }
-  .yellow {
-    background-color: yellow;
-  }
-  .orange {
-    background-color: orange;
-  }
-  .black {
-    background-color: black;
-  }
-}
+@import "@/assets/main.css";
 </style>

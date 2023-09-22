@@ -1,35 +1,131 @@
-@import "./base.css";
-
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-
-  font-weight: normal;
-}
-
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-}
-
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
+@media screen and (min-width: 400px) {
+  .game-solution {
+    border: black 2.5px solid;
+    background-color: #e6e6e6;
+    height: 7.5vw;
   }
-}
-
-@media (min-width: 1024px) {
-  body {
+  .peons-row {
+    border: black 0.5px solid;
     display: flex;
-    place-items: center;
+    justify-content: space-around;
+    align-items: center;
+    height: 4vw;
+    margin: 1vw;
+  }
+  .peon-choice {
+    border: black 0.5px solid;
+    width: 1.75vw;
+    height: 1.75vw;
+    border-radius: 50%;
   }
 
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
+  .peons-row {
+    border: black 2.5px solid;
+    background-color: #e6e6e6;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 8vw;
+    margin: 1vw;
+  }
+  .insideCheckRows {
+    display: flex;
+    justify-content: space-between;
+  }
+  .peon-in-check-row {
+    width: 1.5vw;
+    height: 1.5vw;
+    border-radius: 50%;
+  }
+  .black {
+    background-color: black;
+  }
+  .grey {
+    background-color: grey;
+  }
+  .none {
+    background-color: red;
+  }
+
+  .peon-shape {
+    border: 0.5px solid black;
+    width: 3vw;
+    height: 3vw;
+    border-radius: 50%;
+  }
+  .red {
+    background-color: red;
+  }
+  .blue {
+    background-color: blue;
+  }
+  .green {
+    background-color: green;
+  }
+  .yellow {
+    background-color: yellow;
+  }
+  .orange {
+    background-color: orange;
+  }
+  .black {
+    background-color: black;
+  }
+
+  .withinRow {
+    border: black 0.5px solid;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 5vw;
+    margin: 1vw;
+  }
+  .betweenRows {
+    display: flex;
+    flex-direction: column-reverse;
+    min-width: 60%;
+  }
+
+  .play-and-check-container {
+    border: black 0.5px solid;
+    display: flex;
+    justify-content: space-around;
+  }
+  .checkRowsContainer {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-around;
+    height: 100%;
+  }
+  .checkRow {
+    border: black 0.5px solid;
+    padding: 25% 10% 25% 10%;
+    height: 5vw;
+    width: 7vw;
+  }
+
+  .play-ground {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    min-height: 40vw;
+    min-width: 45vw;
+    padding-left: 1.5vw;
+    padding-right: 1.5vw;
+  }
+
+  .score-container {
+    display: flex;
+    flex-direction: column;
+    padding: 1vw 0 3vw 0;
+  }
+  .score-replay-container {
+    display: flex;
+    justify-content: space-around;
+  }
+  button {
+    height: 3vw;
+    width: 14vw;
+    margin-left: 3vw;
   }
 }

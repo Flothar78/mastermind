@@ -13,16 +13,5 @@ import TryAndChecks from "@/components/TryAndChecks.vue";
 </template>
 
 <style scoped>
-@media screen and (min-width: 400px) {
-  .play-ground {
-   
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    min-height: 40vw;
-    min-width: 45vw;
-    padding-left: 1.5vw;
-    padding-right: 1.5vw;
-  }
-}
+@import "@/assets/main.css";
 </style>

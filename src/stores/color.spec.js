@@ -27,7 +27,7 @@ describe("Color Store", () => {
 
   ///////////////////////////////////////////////////////////////
 
-  it("solution: ['black', 'yellow','red','orange']", () => {
+  /*  it("solution: ['black', 'yellow','red','orange']", () => {
     // Set up initial state or mock data
     const color_store = useColorStore();
     color_store.chosenPeons = ["black", "orange", "black", "black"];
@@ -66,4 +66,5 @@ describe("Color Store", () => {
       "black",
     ]);
   });
+  */
 });

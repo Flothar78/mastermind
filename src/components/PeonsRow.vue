@@ -36,19 +36,5 @@ const looseMessage = () => {
 </template>
 
 <style scoped>
-@media screen and (min-width: 400px) {
-  .withinRow {
-    border: black 0.5px solid;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 5vw;
-    margin: 1vw;
-  }
-  .betweenRows {
-    display: flex;
-    flex-direction: column-reverse;
-    min-width: 60%;
-  }
-}
+@import "@/assets/main.css";
 </style>

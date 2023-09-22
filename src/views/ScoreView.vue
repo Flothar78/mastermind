@@ -48,20 +48,5 @@ const restartGame = () => {
 </template>
 
 <style scoped>
-@media screen and (min-width: 400px) {
-  .score-container {
-    display: flex;
-    flex-direction: column;
-    padding: 1vw 0 3vw 0;
-  }
-  .score-replay-container {
-    display: flex;
-    justify-content: space-around;
-  }
-  button {
-    height: 3vw;
-    width: 14vw;
-    margin-left: 3vw;
-  }
-}
+@import "@/assets/main.css";
 </style>

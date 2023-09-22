@@ -23,23 +23,5 @@ const { rows } = storeToRefs(color_store);
 </template>
 
 <style scoped>
-@media screen and (min-width: 400px) {
-  .play-and-check-container {
-    border: black 0.5px solid;
-    display: flex;
-    justify-content: space-around;
-  }
-  .checkRowsContainer {
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: space-around;
-    height: 100%;
-  }
-  .checkRow {
-    border: black 0.5px solid;
-    padding: 25% 10% 25% 10%; 
-    height: 5vw;
-    width: 7vw;
-  }
-}
+@import "@/assets/main.css";
 </style>

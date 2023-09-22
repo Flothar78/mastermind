@@ -10,7 +10,7 @@ const { playRowId, numberOfPeons } = storeToRefs(color_store);
   <div class="game-solution">
     <div class="peons-row">
       <PeonOccurence
-        v-show="playRowId == 10000"
+        v-show="playRowId <= 10000"
         v-for="number in numberOfPeons"
         :key="number"
         :class="color_store.getRandomColors(number - 1)"
@@ -20,25 +20,5 @@ const { playRowId, numberOfPeons } = storeToRefs(color_store);
 </template>
 
 <style scoped>
-@media screen and (min-width: 400px) {
-  .game-solution {
-    border: black 2.5px solid;
-    background-color: #e6e6e6;
-    height: 7.5vw;
-  }
-  .peons-row {
-    border: black 0.5px solid;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 4vw;
-    margin: 1vw;
-  }
-  .peon-choice {
-    border: black 0.5px solid;
-    width: 1.75vw;
-    height: 1.75vw;
-    border-radius: 50%;
-  }
-}
+@import "@/assets/main.css";
 </style>
