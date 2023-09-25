@@ -1,20 +1,86 @@
+#app {
+  display: flex;
+  justify-content: flex-start;
+  flex-grow: 1;
+}
+.play-and-check-container {
+  border: black 0.5px solid;
+  max-height: 80vh;
+  display: flex;
+  justify-content: space-around;
+}
+.withinRow {
+  border: black 0.5px solid;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 1vw;
+  padding: 1vw;
+}
+.betweenRows {
+  display: flex;
+  flex-direction: column-reverse;
+  min-width: 60%;
+}
+.black {
+  background-color: black;
+}
+.grey {
+  background-color: grey;
+}
+.none {
+  background-color: red;
+}
+.red {
+  background-color: red;
+}
+.blue {
+  background-color: blue;
+}
+.green {
+  background-color: green;
+}
+.yellow {
+  background-color: yellow;
+}
+.orange {
+  background-color: orange;
+}
+.checkRowsContainer {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-around;
+  height: 100%;
+}
+.checkRow {
+  border: black 0.5px solid;
+  align-items: center;
+  height: 5vw;
+  width: 7vw;
+}
+.score-container {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  padding: 1vw 0 3vw 0;
+}
+button {
+  height: 3vw;
+  width: 14vw;
+  margin-left: 3vw;
+}
 @media screen and (min-width: 400px) and (max-width: 734px) {
-  #app {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-  }
   .play-and-result-wrapper {
     display: flex;
     justify-content: center;
-    max-height: 90vh;
-    width: 66%;
+    width: 80%;
+    height: 98vh;
   }
   .play-ground {
     display: flex;
     flex-direction: column;
-    min-height: 40vw;
-    min-width: 45vw;
+    min-height: 95vh;
+    width: 80%;
     padding-left: 1.5vw;
     padding-right: 1.5vw;
   }
@@ -26,25 +92,6 @@
     align-items: center;
     height: 8vw;
     margin: 1vw;
-  }
-  .play-and-check-container {
-    border: black 0.5px solid;
-    max-height: 80vh;
-    display: flex;
-    justify-content: space-around;
-  }
-  .withinRow {
-    border: black 0.5px solid;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin: 1vw;
-    padding: 1vw;
-  }
-  .betweenRows {
-    display: flex;
-    flex-direction: column-reverse;
-    min-width: 60%;
   }
   .peons-row {
     border: black 2.5px solid;
@@ -61,22 +108,10 @@
     height: 1.75vw;
     border-radius: 50%;
   }
-
   .insideCheckRows {
     display: flex;
     justify-content: space-between;
   }
-
-  .black {
-    background-color: black;
-  }
-  .grey {
-    background-color: grey;
-  }
-  .none {
-    background-color: red;
-  }
-
   .peon-shape {
     border: 0.5px solid black;
     width: 4vw;
@@ -88,60 +123,9 @@
     height: 1.2vw;
     border-radius: 50%;
   }
-  .red {
-    background-color: red;
-  }
-  .blue {
-    background-color: blue;
-  }
-  .green {
-    background-color: green;
-  }
-  .yellow {
-    background-color: yellow;
-  }
-  .orange {
-    background-color: orange;
-  }
-  .black {
-    background-color: black;
-  }
-
-  .checkRowsContainer {
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: space-around;
-    height: 100%;
-  }
-  .checkRow {
-    border: black 0.5px solid;
-    align-items: center;
-    height: 5vw;
-    width: 7vw;
-  }
-  .score-container {
-    display: flex;
-    flex-direction: column;
-    padding: 1vw 0 3vw 0;
-  }
-  button {
-    height: 3vw;
-    width: 14vw;
-    margin-left: 3vw;
-  }
 }
 
 @media screen and (min-width: 735px) and (max-width: 999px) {
-  #app {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-  }
-  .score-container {
-    display: flex;
-    flex-direction: column;
-    padding: 1vw 0 3vw 0;
-  }
   .play-and-result-wrapper {
     border: yellow solid 3px;
     display: flex;
@@ -170,25 +154,7 @@
     height: 40px;
     width: 40px;
   }
-  .play-and-check-container {
-    border: black 0.5px solid;
-    max-height: 80vh;
-    display: flex;
-    justify-content: space-around;
-  }
-  .betweenRows {
-    display: flex;
-    flex-direction: column-reverse;
-    min-width: 60%;
-  }
-  .withinRow {
-    border: black 0.5px solid;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin: 1vw;
-    padding: 1vw;
-  }
+
   .withinRow-peons {
     height: 25px;
     width: 25px;
@@ -205,16 +171,6 @@
     height: 40px;
     width: 40px;
   }
-  .black {
-    background-color: black;
-  }
-  .grey {
-    background-color: grey;
-  }
-  .none {
-    background-color: red;
-  }
-
   .peon-shape {
     border: 0.5px solid black;
     border-radius: 50%;
@@ -224,61 +180,20 @@
     height: 1vw;
     border-radius: 50%;
   }
-  .red {
-    background-color: red;
-  }
-  .blue {
-    background-color: blue;
-  }
-  .green {
-    background-color: green;
-  }
-  .yellow {
-    background-color: yellow;
-  }
-  .orange {
-    background-color: orange;
-  }
-  .black {
-    background-color: black;
-  }
-
-  .checkRowsContainer {
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: space-around;
-    height: 100%;
-  }
   .insideCheckRows {
     display: flex;
     justify-content: space-around;
   }
-  .checkRow {
-    border: black 0.5px solid;
-    align-items: center;
-    height: 5vw;
-    width: 7vw;
-  }
-  button {
-    height: 3vw;
-    width: 14vw;
-    margin-left: 3vw;
-  }
 }
 @media screen and (min-width: 1000px) {
-  #app {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-  }
   .score-container {
+    width: 25%;
     border: blue 3px solid;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 1vw 1vw 0 0;
     margin-right: 2vw;
-    width: 15vw;
     padding: 0 2vw 0 2vw;
   }
   .score-display {
@@ -289,7 +204,7 @@
     border: yellow solid 3px;
     display: flex;
     justify-content: center;
-    width: 50%;
+    width: 100%;
     height: 95vh;
   }
   .play-ground {
@@ -350,15 +265,6 @@
     height: 40px;
     width: 40px;
   }
-  .black {
-    background-color: black;
-  }
-  .grey {
-    background-color: grey;
-  }
-  .none {
-    background-color: red;
-  }
   .peon-shape {
     border: 0.5px solid black;
     border-radius: 50%;
@@ -367,30 +273,6 @@
     width: 1vw;
     height: 1vw;
     border-radius: 50%;
-  }
-  .red {
-    background-color: red;
-  }
-  .blue {
-    background-color: blue;
-  }
-  .green {
-    background-color: green;
-  }
-  .yellow {
-    background-color: yellow;
-  }
-  .orange {
-    background-color: orange;
-  }
-  .black {
-    background-color: black;
-  }
-  .checkRowsContainer {
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: space-around;
-    height: 100%;
   }
   .insideCheckRows {
     display: flex;
@@ -402,10 +284,5 @@
     height: 4vh;
     width: 7vw;
     margin: 1vh 0 1vh 0;
-  }
-  button {
-    height: 3vw;
-    width: 14vw;
-    margin-left: 3vw;
   }
 }

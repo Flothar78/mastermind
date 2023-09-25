@@ -5,10 +5,10 @@ import ScoreView from "@/views/ScoreView.vue";
 
 <template>
   <div id="app">
-    <ScoreView />
-  </div>
-  <div class="play-and-result-wrapper">
-    <PlayView />
+ 
+      <ScoreView />
+
+    <div class="play-and-result-wrapper"><PlayView /></div>
   </div>
 </template>
 
