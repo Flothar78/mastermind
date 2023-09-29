@@ -1,7 +1,7 @@
 *,
 ::before,
 ::after {
-  content: content-box;
+  content: border-box;
   margin: 0;
   padding: 0;
 }
@@ -11,6 +11,7 @@
   display: flex;
   justify-content: flex-start;
   flex-grow: 1;
+  background: radial-gradient(hsl(214deg, 47%, 23%), hsl(237deg, 49%, 15%));
 }
 .withinRow {
   border: black 0.5px solid;
@@ -53,7 +54,6 @@
   display: flex;
   flex-direction: column-reverse;
   justify-content: space-around;
-  height: 100%;
 }
 .checkRow {
   border: black 0.5px solid;
@@ -62,10 +62,15 @@
   width: 7vw;
 }
 .score-container {
+  background: hsl(106, 77%, 49%);
   width: 25%;
+  max-height:15%;
   display: flex;
   flex-direction: column;
   padding: 1vw 0 3vw 0;
+}
+.play-ground {
+  background-image: linear-gradient(300deg, #3f200f, #6f3d1a, #7c5b3a, #96653c);
 }
 button {
   height: 3vw;
@@ -74,14 +79,11 @@ button {
 }
 @media screen and (min-width: 350px) and (max-width: 734px) {
   #app {
-    flex-direction: column;
-    flex-grow: 1;
+    flex-direction: row;
+    align-items: center;
   }
-  .score-container {
-    height: 35%;
-  }
+
   .play-and-result-wrapper {
-    border: blue solid 3px;
     display: flex;
     justify-content: center;
     width: 80%;
@@ -128,7 +130,7 @@ button {
   }
   .insideCheckRows {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
   }
   .peon-shape {
     border: 0.5px solid black;
@@ -145,7 +147,6 @@ button {
 
 @media screen and (min-width: 735px) and (max-width: 999px) {
   .play-and-result-wrapper {
-    border: yellow solid 3px;
     display: flex;
     justify-content: center;
     width: 80%;
@@ -242,7 +243,6 @@ button {
     justify-content: space-around;
   }
   .play-and-result-wrapper {
-    border: yellow solid 3px;
     display: flex;
     justify-content: center;
     width: 100%;
