@@ -24,7 +24,7 @@ const restartGame = () => {
 
 <template>
   <div class="score-container">
-    <div class="score-display">SCORE: {{ score }}</div>
+    <div>SCORE: {{ score }}</div>
     <div>
       {{ winLooseMessage }}
     </div>

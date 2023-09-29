@@ -63,11 +63,14 @@
 }
 .score-container {
   background: hsl(106, 77%, 49%);
-  margin-top: 1%;
   width: 20%;
-  max-height: 25%;
+  max-height: 35%;
+  margin: 2vw 0 0 2vw;
+  padding: 1vw 2vw 0 2vw;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 .play-ground {
   background-image: linear-gradient(300deg, #3f200f, #6f3d1a, #7c5b3a, #96653c);
@@ -211,20 +214,6 @@ button {
   }
 }
 @media screen and (min-width: 1000px) {
-  .score-container {
-    width: 20%;
-    height: 98vh;
-    border: blue 3px solid;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 2vw 0 2vw;
-    padding: 1vw 2vw 0 2vw;
-  }
-  .score-display {
-    width: 100%;
-    margin: 2vh 0 5vh 0;
-  }
   .play-ground {
     display: flex;
     justify-content: space-between;
