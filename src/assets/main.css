@@ -154,7 +154,6 @@ button {
     border-radius: 50%;
   }
 }
-
 @media screen and (min-width: 735px) and (max-width: 999px) {
   .play-and-result-wrapper {
     width: 80%;
@@ -167,7 +166,6 @@ button {
     display: flex;
     justify-content: space-around;
   }
-
   .play-ground {
     display: flex;
     flex-direction: column;
@@ -273,8 +271,8 @@ button {
     padding: 0vw;
   }
   .withinRow-peons {
-    min-height: 30px;
-    min-width: 30px;
+    min-height: 40px;
+    min-width: 40px;
   }
   .available-colors-peons {
     height: 40px;
