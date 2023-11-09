@@ -48,23 +48,22 @@ describe("Color Store", () => {
 });
 
 ///////////////////////////////////////////////////////////////
-/*
-  it("solution: ['black', 'yellow','red','orange']", () => {
-    // Set up initial state or mock data
-    const color_store = useColorStore();
-    color_store.chosenPeons = ["black", "orange", "black", "black"];
-    color_store.solution = ["black", "yellow", "red", "orange"];
-    const chosenRow = 0;
 
-    // Invoke the function
-    color_store.checkColorsPlaces(chosenRow);
+/* it("solution: ['black', 'yellow','red','orange']", () => {
+  // Set up initial state or mock data
+  const color_store = useColorStore();
+  color_store.chosenPeons = ["black", "orange", "black", "black"];
+  color_store.solution = ["black", "yellow", "red", "orange"];
+  const chosenRow = 0;
 
-    // Assert the expected results
-    expect(color_store.resultColors[chosenRow]).toEqual([
-      "black",
-      "grey",
-      "none",
-      "none",
-    ]);
-  });
-*/
+  // Invoke the function
+  color_store.checkColorsPlaces(chosenRow);
+
+  // Assert the expected results
+  expect(color_store.resultColors[chosenRow]).toEqual([
+    "black",
+    "grey",
+    "none",
+    "none",
+  ]);
+});*/

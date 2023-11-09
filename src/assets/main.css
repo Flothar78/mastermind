@@ -59,11 +59,15 @@
 .game-solution {
   min-width: 70%;
   background-color: #27744a;
+  border-radius: 30px;
+}
+.solution-signal {
+  color: rgb(190, 192, 255);
 }
 .betweenRows {
   display: flex;
   flex-direction: column-reverse;
-  min-width: 60%;
+  min-width: 50%;
 }
 .withinRow {
   border: black 0.5px solid;
@@ -71,10 +75,15 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin: 0.2vw;
+  margin: 0.5vw;
+}
+.withinRow-peons {
+  background-color: grey;
+  box-shadow: -5px 10px 10px;
 }
 .peons-row {
   background-color: #27744a;
+  border-radius: 10px;
 }
 .checkRowsContainer {
   display: flex;
@@ -83,7 +92,8 @@
 }
 .checkRow {
   border: black 0.5px solid;
-  background-color: #faf0c0;
+  background-color: #85ccff;
+  border-radius: 10px;
   align-items: center;
   height: 5vw;
   width: 7vw;
@@ -110,14 +120,12 @@ button {
     padding-right: 1.5vw;
   }
   .play-and-check-container {
-    border: black 0.5px solid;
     max-height: 100%;
     width: 100%;
     display: flex;
     justify-content: space-around;
   }
   .game-solution {
-    border: black 2.5px solid;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -160,7 +168,6 @@ button {
     height: 98vh;
   }
   .play-and-check-container {
-    border: black 0.5px solid;
     max-height: 80vh;
 
     display: flex;
@@ -168,34 +175,35 @@ button {
   }
   .play-ground {
     display: flex;
+    margin: auto;
+    padding-top: 4vh;
     flex-direction: column;
-    max-height: 100%;
+    height: 90%;
     width: 80%;
     padding-left: 1.5vw;
     padding-right: 1.5vw;
   }
   .game-solution {
-    border: black 2.5px solid;
     display: flex;
     justify-content: space-around;
     align-items: center;
     height: 15vw;
-    margin-bottom: 1vw;
+    margin-bottom: 3vw;
   }
   .game-solution-peons {
     height: 40px;
     width: 40px;
   }
-
   .withinRow-peons {
     height: 35px;
     width: 35px;
   }
   .peons-row {
-    border: black 2.5px solid;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
     height: 15vw;
   }
   .available-colors-peons {
@@ -227,14 +235,15 @@ button {
     padding-right: 1.5vw;
   }
   .peons-row {
-    max-height: 70%;
+    position: absolute;
+    height: 70%;
     width: 20%;
     border-radius: 5%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    margin-top: 20%;
+    margin-top: 17vh;
   }
   .betweenRows {
     display: flex;
@@ -244,19 +253,19 @@ button {
   }
   .play-and-check-container {
     position: absolute;
-    border: black 0.5px solid;
     max-height: 70vh;
-    margin-top: 20%;
+    margin-top: 17vh;
+    margin-left: 19%;
     width: 80%;
     display: flex;
     justify-content: space-around;
   }
   .play-and-result-wrapper {
     width: 100%;
-    height: 98vh;
+    height: 90vh;
+    margin: 4vh;
   }
   .game-solution {
-    border: black 2.5px solid;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -266,9 +275,6 @@ button {
   .game-solution-peons {
     height: 40px;
     width: 40px;
-  }
-  .withinRow {
-    padding: 0vw;
   }
   .withinRow-peons {
     min-height: 40px;

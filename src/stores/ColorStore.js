@@ -56,6 +56,7 @@ export const useColorStore = defineStore("ColorStore", {
         const solution = this.solution;
         const matchingInSolution = solution.filter((y) => y === x).length;
         const matchingInPlayerChoice = a.filter((z) => z === x).length;
+        console.log(matchingInPlayerChoice, matchingInSolution);
         if (solution[i] === x) {
           this.resultColors[chosenRow].push("black");
           countBlack++;
