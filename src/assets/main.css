@@ -34,16 +34,19 @@
   display: flex;
   justify-content: flex-start;
   flex-grow: 1;
-  background: radial-gradient(hsl(214deg, 47%, 23%), hsl(237deg, 49%, 15%));
+  background: radial-gradient(
+    rgb(10, 10, 117),
+    rgb(31, 34, 119),
+    rgb(1, 2, 33)
+  );
 }
 .score-container {
-  background: hsl(106, 78%, 67%);
-  opacity: 0.6;
+  background: hsl(146, 92%, 47%);
   width: 20%;
   max-height: 35%;
   border-radius: 50%;
-  margin: 2vw 0 0 2vw;
-  padding: 1vw 2vw 0 2vw;
+  margin: 2vw;
+  padding: 1vw;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -57,6 +60,7 @@
   background-image: linear-gradient(300deg, #3f200f, #6f3d1a, #7c5b3a, #96653c);
 }
 .game-solution {
+  box-shadow: 10px 10px 10px #5a2e17;
   min-width: 70%;
   background-color: #27744a;
   border-radius: 30px;
@@ -70,6 +74,7 @@
   min-width: 50%;
 }
 .withinRow {
+  box-shadow: 4px 4px 4px  #3f200f;
   border: black 0.5px solid;
   height: 10%;
   display: flex;
@@ -82,7 +87,8 @@
 }
 .peons-row {
   background-color: #27744a;
-  border-radius: 10px;
+  box-shadow: 10px 10px 10px #3f200f;
+  border-radius: 40px;
 }
 .checkRowsContainer {
   display: flex;
@@ -132,7 +138,6 @@ button {
     margin: 1vw;
   }
   .peons-row {
-    border: black 2.5px solid;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -237,7 +242,6 @@ button {
     position: absolute;
     height: 70%;
     width: 20%;
-    border-radius: 5%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
