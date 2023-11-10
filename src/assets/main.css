@@ -41,9 +41,15 @@
   );
 }
 .score-container {
-  background: hsl(146, 92%, 47%);
+  background: hsl(112, 87%, 31%);
+  box-shadow: 10px 10px 10px rgba(253, 45, 3, 0.97);
+  font-family: sans-serif;
+  font-style: oblique;
+  color: rgb(31, 34, 119);
+  font-size: 1.2rem;
+  font-weight: 900;
   width: 20%;
-  max-height: 35%;
+  height: 35%;
   border-radius: 50%;
   margin: 2vw;
   padding: 1vw;
@@ -74,7 +80,7 @@
   min-width: 50%;
 }
 .withinRow {
-  box-shadow: 4px 4px 4px  #3f200f;
+  box-shadow: 4px 4px 4px #3f200f;
   border: black 0.5px solid;
   height: 10%;
   display: flex;
@@ -96,16 +102,16 @@
   justify-content: space-around;
 }
 .checkRow {
-  border: black 0.5px solid;
-  background-color: #85ccff;
+  background-color: #6fa667;
   border-radius: 10px;
   align-items: center;
-  height: 5vw;
-  width: 7vw;
+  height: 4vw;
+  width: 9vw;
 }
 button {
   height: 3vw;
   width: 14vw;
+  box-shadow: 5px 5px 5px;
 }
 @media screen and (min-width: 350px) and (max-width: 734px) {
   #app {
@@ -173,7 +179,6 @@ button {
   }
   .play-and-check-container {
     max-height: 80vh;
-
     display: flex;
     justify-content: space-around;
   }
@@ -301,7 +306,6 @@ button {
     justify-content: space-around;
   }
   .checkRow {
-    border: black 0.5px solid;
     align-items: center;
     height: 4vh;
     width: 7vw;

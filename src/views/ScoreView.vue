@@ -10,7 +10,7 @@ const { rows, playRowId, resultColors, winLooseMessage } =
 let { score } = storeToRefs(score_store);
 
 watch(winLooseMessage, (newWinLooseMessage) => {
-  newWinLooseMessage == "One more point !" ? score_store.increment() : "";
+  newWinLooseMessage == "Win !" ? score_store.increment() : "";
 });
 
 const clickReplay = () => {

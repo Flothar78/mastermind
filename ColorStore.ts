@@ -74,7 +74,7 @@ export const useColorStore = defineStore("ColorStore", {
         }
       });
       this.endOfGame();
-      return this.resultColors.map((x) => x);
+      return this.resultColors.map((x) => x.sort());
     },
     endOfGame() {
       if (
@@ -84,7 +84,7 @@ export const useColorStore = defineStore("ColorStore", {
           .filter((x) => x === "black").length == this.numberOfPeons
       ) {
         this.playRowId = 10000;
-        this.winLooseMessage = "One more point !";
+        this.winLooseMessage = "Win !";
       }
     },
   },

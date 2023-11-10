@@ -9,7 +9,7 @@ const { playRowId, numberOfPeons } = storeToRefs(color_store);
 <template>
   <div class="game-solution">
     <PeonOccurence
-      v-show="playRowId > 10000"
+      v-show="playRowId === 10000"
       v-for="number in numberOfPeons"
       :key="number"
       :class="color_store.getRandomColors(number - 1)"
