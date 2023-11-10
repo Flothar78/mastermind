@@ -12,7 +12,7 @@
   background-color: grey;
 }
 .none {
-  background-color: white;
+  background-color: transparent;
 }
 .red {
   background-color: red;
@@ -106,7 +106,7 @@
   border-radius: 10px;
   align-items: center;
   height: 4vw;
-  width: 9vw;
+  width: 12vw;
 }
 button {
   height: 3vw;
