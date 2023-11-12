@@ -34,18 +34,14 @@
   display: flex;
   justify-content: flex-start;
   flex-grow: 1;
-  background: radial-gradient(
-    #0a0a75,
-    #1f2277,
-    #010221
-  );
+  background: radial-gradient(#0a0a75, #1f2277, #010221);
 }
 .score-container {
   background: hsl(112, 87%, 31%);
   box-shadow: 10px 10px 10px rgba(253, 45, 3, 0.97);
   font-family: sans-serif;
   font-style: oblique;
-  color: rgb(31, 34, 119);
+  color: #1f2277;
   font-size: 1.2rem;
   font-weight: 900;
   width: 20%;
@@ -66,16 +62,12 @@
   background-image: linear-gradient(300deg, #3f200f, #6f3d1a, #7c5b3a, #96653c);
   box-shadow: 10px 10px 10px rgb(94, 99, 229);
   border-radius: 5%;
-  
 }
 .game-solution {
   box-shadow: 10px 10px 10px #5a2e17;
   min-width: 70%;
   background-color: #27744a;
   border-radius: 30px;
-}
-.solution-signal {
-  color: rgb(190, 192, 255);
 }
 .betweenRows {
   display: flex;
@@ -111,15 +103,26 @@
   height: 4vw;
   width: 12vw;
 }
-button {
+button.score-container-button {
   height: 3vw;
-  width: 14vw;
-  box-shadow: 5px 5px 5px;
+  width: 15vw;
+  box-shadow: 5px 5px 5px #1f2277;
+  border-radius: 10px;
 }
 @media screen and (min-width: 350px) and (max-width: 734px) {
   #app {
     flex-direction: row;
     align-items: center;
+  }
+  .score-container {
+    justify-content: space-between;
+    font-size: .5rem;
+  }
+  button.score-container-button {
+    height: 5vw;
+    width: 20vw;
+    box-shadow: 5px 5px 5px #1f2277;
+    border-radius: 10px;
   }
   .play-and-result-wrapper {
     width: 80%;
@@ -132,6 +135,8 @@ button {
     width: 80%;
     padding-left: 1.5vw;
     padding-right: 1.5vw;
+    margin-bottom: 5%;
+    margin-top: 3%;
   }
   .play-and-check-container {
     max-height: 100%;

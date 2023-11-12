@@ -9,9 +9,20 @@ import TryAndChecks from "@/components/TryAndChecks.vue";
     <GameSolution />
     <TryAndChecks />
     <AvailableColors />
+    <button type="button" @click="restartGame">
+      <small>Reset</small>
+    </button>
   </div>
 </template>
 
 <style scoped>
+button {
+  background-color: #7c5b3a;
+  font-size: .5rem;
+  color: #3f200f;
+  height: 3vw;
+  width: 15vw;
+  border-radius: 10px;
+}
 @import "@/assets/main.css";
 </style>
