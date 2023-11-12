@@ -35,9 +35,9 @@
   justify-content: flex-start;
   flex-grow: 1;
   background: radial-gradient(
-    rgb(10, 10, 117),
-    rgb(31, 34, 119),
-    rgb(1, 2, 33)
+    #0a0a75,
+    #1f2277,
+    #010221
   );
 }
 .score-container {
@@ -64,6 +64,9 @@
 }
 .play-ground {
   background-image: linear-gradient(300deg, #3f200f, #6f3d1a, #7c5b3a, #96653c);
+  box-shadow: 10px 10px 10px rgb(94, 99, 229);
+  border-radius: 5%;
+  
 }
 .game-solution {
   box-shadow: 10px 10px 10px #5a2e17;
