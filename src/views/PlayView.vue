@@ -2,6 +2,14 @@
 import GameSolution from "@/components/GameSolution.vue";
 import AvailableColors from "@/components/AvailableColors.vue";
 import TryAndChecks from "@/components/TryAndChecks.vue";
+import { useColorStore } from "@/stores/ColorStore.js";
+import { useScoreStore } from "@/stores/ScoreStore.js";
+const color_store = useColorStore();
+const score_store = useScoreStore();
+const restartGame = () => {
+  color_store.$reset();
+  score_store.$reset();
+};
 </script>
 
 <template>
