@@ -117,6 +117,7 @@ button.score-container-button {
   .score-container {
     justify-content: space-between;
     font-size: .5rem;
+    box-shadow: 5px 5px 5px rgba(253, 45, 3, 0.97);
   }
   button.score-container-button {
     height: 5vw;
