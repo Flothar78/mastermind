@@ -1,5 +1,4 @@
 import { defineStore } from "pinia";
-import { reactive, toRaw } from "vue";
 export const useColorStore = defineStore("ColorStore", {
   state: () => {
     return {

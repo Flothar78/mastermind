@@ -1,8 +1,9 @@
 <script setup>
+import chosenColorClass from "@/components/AvailableColors.vue";
 import { useColorStore } from "@/stores/ColorStore.js";
 import { useScoreStore } from "@/stores/ScoreStore.js";
 import { storeToRefs } from "pinia";
-import { watch, toRaw } from "vue";
+import { watch, toRaw, ref } from "vue";
 const color_store = useColorStore();
 const score_store = useScoreStore();
 const { rows, playRowId, resultColors, winLooseMessage } =
@@ -17,6 +18,7 @@ const clickReplay = () => {
   color_store.$reset();
 };
 const restartGame = () => {
+  chosenColorClass.value = ref(null);
   color_store.$reset();
   score_store.$reset();
 };
