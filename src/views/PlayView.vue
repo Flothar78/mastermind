@@ -22,6 +22,7 @@ const restartGame = () => {
 </template>
 
 <style scoped>
+@import "@/assets/main.css";
 button {
   background-color: #7c5b3a;
   font-size: 0.5rem;
@@ -30,5 +31,4 @@ button {
   width: 15vw;
   border-radius: 10px;
 }
-@import "@/assets/main.css";
 </style>
