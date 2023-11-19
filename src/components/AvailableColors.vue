@@ -7,12 +7,12 @@ const color_store = useColorStore();
 const { colorsArray } = storeToRefs(color_store);
 const event1 = ref(null);
 const event2 = ref(null);
-const chosenColorClass = ref(false);
+const chosenColorClass = ref(null);
 event1.value = (index) => {
   color_store.addColorToStore(color_store.colorsArray[index]);
 };
 event2.value = (index) => {
-  chosenColorClass.value = true;
+  chosenColorClass.value = index;
 };
 const choiceColorFromAvailableColors = (index) => {
   event1.value(index);
@@ -28,7 +28,7 @@ const choiceColorFromAvailableColors = (index) => {
       :class="
         reactive({
           [color]: true,
-          'chosen-color': chosenColorClass,
+          'chosen-color': index === chosenColorClass,
         })
       "
       @click="choiceColorFromAvailableColors(index)"
