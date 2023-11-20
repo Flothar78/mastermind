@@ -12,6 +12,7 @@ event1.value = (index) => {
   color_store.addColorToStore(color_store.colorsArray[index]);
 };
 event2.value = (index) => {
+  console.log(index);
   chosenColorClass.value = index;
 };
 const choiceColorFromAvailableColors = (index) => {
@@ -39,6 +40,6 @@ const choiceColorFromAvailableColors = (index) => {
 <style scoped>
 @import "@/assets/main.css";
 .chosen-color {
-  border: .8vh white solid;
+  border: 0.8vh white solid;
 }
 </style>
