@@ -2,14 +2,14 @@
 import PeonOccurence from "@/components/PeonOccurence.vue";
 import { reactive, computed, ref } from "vue";
 import { useColorStore } from "@/stores/ColorStore.js";
+import { useScoreStore } from "@/stores/ScoreStore.js";
 import { storeToRefs } from "pinia";
-const color_store = useColorStore();
-const { colorsArray } = storeToRefs(color_store);
+const { colorsArray } = storeToRefs(useColorStore());
+const { chosenColorClass } = storeToRefs(useScoreStore());
 const event1 = ref(null);
 const event2 = ref(null);
-const chosenColorClass = ref(null);
 event1.value = (index) => {
-  color_store.addColorToStore(color_store.colorsArray[index]);
+  useColorStore().addColorToStore(useColorStore().colorsArray[index]);
 };
 event2.value = (index) => {
   console.log(index);

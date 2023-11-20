@@ -4,14 +4,11 @@ import AvailableColors from "@/components/AvailableColors.vue";
 import TryAndChecks from "@/components/TryAndChecks.vue";
 import { useColorStore } from "@/stores/ColorStore.js";
 import { useScoreStore } from "@/stores/ScoreStore.js";
-const color_store = useColorStore();
-const score_store = useScoreStore();
 const restartGame = () => {
-  color_store.$reset();
-  score_store.$reset();
+//  useColorStore().restartScoreStore();
+  useScoreStore().restartGame();
 };
 </script>
-
 <template>
   <div class="play-ground">
     <GameSolution />
@@ -20,7 +17,6 @@ const restartGame = () => {
     <button type="button" @click="restartGame"><div>RESET</div></button>
   </div>
 </template>
-
 <style scoped>
 @import "@/assets/main.css";
 button {
