@@ -12,7 +12,6 @@ event1.value = (index) => {
   useColorStore().addColorToStore(useColorStore().colorsArray[index]);
 };
 event2.value = (index) => {
-  console.log(index);
   chosenColorClass.value = index;
 };
 const choiceColorFromAvailableColors = (index) => {
