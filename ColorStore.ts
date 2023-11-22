@@ -65,8 +65,7 @@ export const useColorStore = defineStore("ColorStore", {
           countBlack++;
         } else if (solution.includes(x)) {
           matchingInSolution < matchingInPlayerChoice
-            ? this.resultColors[chosenRow].push("none") *
-              (matchingInPlayerChoice - matchingInSolution)
+            ? this.resultColors[chosenRow].push("none")
             : this.resultColors[chosenRow].push("grey");
         } else {
           this.resultColors[chosenRow].push("none");
