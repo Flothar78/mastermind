@@ -27,15 +27,17 @@ const restartGame = () => {
     <div>
       {{ winLooseMessage }}
     </div>
+
     <button
-      class="score-container-button"
+      class="continue-button"
       v-if="useColorStore().playRowId === 10000"
       type="button"
       @click="clickReplay"
     >
-      Continue?</button
-    ><button
-      class="score-container-button"
+      Continue ?
+    </button>
+    <button
+      class="restart-button"
       v-if="useColorStore().playRowId === 10000"
       type="button"
       @click="restartGame"
