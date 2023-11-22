@@ -16,12 +16,11 @@ const looseMessage = () => {
     JSON.stringify(arrayRows[arrayRows.length - 1]) !==
     JSON.stringify(solution.value)
   ) {
-    color_store.winLooseMessage = "You loose !";
+    color_store.winLooseMessage = "Wrong !";
     color_store.playRowId = 10000;
   }
 };
 </script>
-
 <template>
   <div class="betweenRows">
     <div v-for="row in rows" :key="rows.indexOf(row)" class="withinRow">

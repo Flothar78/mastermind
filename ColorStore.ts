@@ -1,5 +1,4 @@
 import { defineStore } from "pinia";
-import { useScoreStore } from "@/stores/ScoreStore.js";
 export const useColorStore = defineStore("ColorStore", {
   state: () => {
     return {
@@ -86,9 +85,6 @@ export const useColorStore = defineStore("ColorStore", {
         this.playRowId = 10000;
         this.winLooseMessage = "Win !";
       }
-    },
-    restartGame() {
-      useScoreStore().$reset();
     },
   },
   getters: {
