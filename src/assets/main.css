@@ -121,7 +121,7 @@
   background-color: #6fa667;
   border-radius: 10px;
   align-items: center;
-  height: 4vw;
+  height: 3vw;
   width: 12vw;
 }
 .restart-button {
@@ -212,15 +212,15 @@
     border-radius: 50%;
   }
   .insideCheckRows {
-    height:3vh;
-    width:15vw;
+    height: 3vh;
+    width: 15vw;
     display: flex;
     justify-content: space-around;
   }
   .peon-shape {
     border: 0.5px solid black;
-    width:6vw;
-    height:6vw;
+    width: 4vw;
+    height: 4vw;
     border-radius: 50%;
   }
   .peon-in-check-row {
@@ -253,16 +253,8 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 15vw;
+    min-height: 6vw;
     margin-bottom: 3vw;
-  }
-  .game-solution-peons {
-    height: 40px;
-    width: 40px;
-  }
-  .withinRow-peons {
-    height: 35px;
-    width: 35px;
   }
   .peons-row {
     display: flex;
@@ -272,13 +264,11 @@
     margin-bottom: 2vh;
     height: 15vw;
   }
-  .available-colors-peons {
-    height: 40px;
-    width: 40px;
-  }
   .peon-shape {
     border: 0.5px solid black;
     border-radius: 50%;
+    height: 3vw;
+    width: 3vw;
   }
   .peon-in-check-row {
     width: 1vw;
@@ -337,21 +327,11 @@
     height: 10vh;
     margin: 3% 10% 0 10%;
   }
-  .game-solution-peons {
-    height: 40px;
-    width: 40px;
-  }
-  .withinRow-peons {
-    min-height: 40px;
-    min-width: 40px;
-  }
-  .available-colors-peons {
-    height: 40px;
-    width: 40px;
-  }
   .peon-shape {
     border: 0.5px solid black;
     border-radius: 50%;
+    width: 2.2vw;
+    height: 2.2vw;
   }
   .peon-in-check-row {
     width: 1vw;
