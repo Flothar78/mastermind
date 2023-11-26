@@ -140,8 +140,9 @@
 }
 @media screen and (min-width: 350px) and (max-width: 734px) {
   #app {
-    flex-direction: row;
-    align-items: center;
+    flex-direction: column-reverse;
+
+    
   }
   .score-container {
     justify-content: space-between;
@@ -168,14 +169,14 @@
     border-radius: 10px;
   }
   .play-and-result-wrapper {
-    width: 80%;
+
     height: 75%;
   }
   .play-ground {
     display: flex;
     flex-direction: column;
     height: 90%;
-    width: 80%;
+    width:60vw;
     padding-left: 1.5vw;
     padding-right: 1.5vw;
     margin-bottom: 5%;
