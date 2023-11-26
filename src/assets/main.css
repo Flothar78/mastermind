@@ -5,6 +5,9 @@
   margin: 0;
   padding: 0;
 }
+body {
+  height: 100vh;
+}
 .black {
   background-color: black;
 }
@@ -93,11 +96,12 @@
   display: flex;
   flex-direction: column-reverse;
   min-width: 50%;
+  max-height: 50vh;
 }
 .withinRow {
   box-shadow: 10px 10px 10px #3f200f;
   border: black 0.5px solid;
-  height: 10%;
+  max-height: 7%;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -140,11 +144,17 @@
 }
 @media screen and (min-width: 350px) and (max-width: 734px) {
   #app {
-    flex-direction: row;
-    align-items: center;
+    flex-direction: column-reverse;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    flex-grow: 1;
+    background: radial-gradient(#0a0a75, #1f2277, #010221);
   }
   .score-container {
-    justify-content: space-between;
+    justify-content: space-around;
+    margin: auto;
+    max-height: 10vh;
     font-size: 0.5rem;
     box-shadow: 5px 5px 5px rgba(253, 45, 3, 0.97);
     padding-top: 1.5vh;
@@ -169,11 +179,13 @@
   }
   .play-and-result-wrapper {
     width: 80%;
-    height: 75%;
+    height: 90%;
   }
   .play-ground {
+    position: relative;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     height: 90%;
     width: 80%;
     padding-left: 1.5vw;
@@ -195,11 +207,14 @@
     margin: 1vw;
   }
   .peons-row {
+    position: absolute;
     display: flex;
+    flex-direction: column-reverse;
     justify-content: space-around;
     align-items: center;
-    height: 8vw;
-    margin: 1vw;
+    height: 90%;
+    width: 12vw;
+    margin-left: 75vw;
   }
   .peon-choice {
     border: black 0.5px solid;
