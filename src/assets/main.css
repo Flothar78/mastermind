@@ -30,7 +30,8 @@
   background-color: orange;
 }
 #app {
-  max-height: 100vh;
+  padding-top: 1vh;
+  height: 100vh;
   display: flex;
   justify-content: flex-start;
   flex-grow: 1;
@@ -138,13 +139,13 @@
   box-shadow: 7px 7px 7px #1f2277;
   border-radius: 10px;
 }
-@media screen and (min-width: 350px) and (max-width: 734px) {
+@media screen and (max-width: 734px) {
   #app {
     flex-direction: column-reverse;
-
-    
   }
   .score-container {
+    margin: auto;
+    max-height: 10vh;
     justify-content: space-between;
     font-size: 0.5rem;
     box-shadow: 5px 5px 5px rgba(253, 45, 3, 0.97);
@@ -168,22 +169,20 @@
     box-shadow: 3px 3px 3px #1f2277;
     border-radius: 10px;
   }
-  .play-and-result-wrapper {
-
-    height: 75%;
-  }
   .play-ground {
+    position: relative;
     display: flex;
     flex-direction: column;
     height: 90%;
-    width:60vw;
+    width: 70vw;
     padding-left: 1.5vw;
     padding-right: 1.5vw;
     margin-bottom: 5%;
     margin-top: 3%;
+    margin-left: 15vw;
   }
   .play-and-check-container {
-    max-height: 100%;
+    height: 65vh;
     width: 100%;
     display: flex;
     justify-content: space-around;
@@ -192,15 +191,19 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 8vw;
+    height: 15vw;
     margin: 1vw;
   }
   .peons-row {
+    position: absolute;
     display: flex;
+    flex-direction: column-reverse;
     justify-content: space-around;
     align-items: center;
-    height: 8vw;
-    margin: 1vw;
+    height: 90%;
+    width: 20%;
+    margin-left: -20vw;
+    margin-top: 6vh;
   }
   .peon-choice {
     border: black 0.5px solid;
@@ -209,18 +212,20 @@
     border-radius: 50%;
   }
   .insideCheckRows {
+    height:3vh;
+    width:15vw;
     display: flex;
     justify-content: space-around;
   }
   .peon-shape {
     border: 0.5px solid black;
-    width: 4vw;
-    height: 4vw;
+    width:6vw;
+    height:6vw;
     border-radius: 50%;
   }
   .peon-in-check-row {
-    width: 1.2vw;
-    height: 1.2vw;
+    width: 2vw;
+    height: 2vw;
     border-radius: 50%;
   }
 }
