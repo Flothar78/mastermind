@@ -72,3 +72,24 @@ describe("Color Store", () => {
 });
 
 ///////////////////////////////////////////////////////////////
+
+it("solution: ['red', 'yellow', 'blue', 'green']", () => {
+  // Set up initial state or mock data
+  const color_store = useColorStore();
+  color_store.chosenPeons = ["blue", "yellow", "green", "blue"];
+  color_store.solution = ["red", "yellow", "blue", "green"];
+  const chosenRow = 0;
+
+  // Invoke the function
+  color_store.checkColorsPlaces(chosenRow);
+
+  // Assert the expected results
+  expect(color_store.resultColors[chosenRow]).toEqual([
+    "black",
+    "grey",
+    "grey",
+    "none",
+  ]);
+});
+
+/////////////////////////////////////////////////////////////
