@@ -24,7 +24,7 @@
   background-color: green;
 }
 .yellow {
-  background-color: yellow
+  background-color: yellow;
 }
 .orange {
   background-color: orange;
@@ -149,20 +149,16 @@
     font-size: 0.5rem;
     width: 15%;
     height: 20%;
-    padding:0;
+    padding: 0;
     margin-bottom: 70vh;
     margin-left: 1.5vw;
   }
   .continue-button {
     font-size: xx-small;
-    width: 90%;
-    height: 15%;
     box-shadow: 3px 3px 3px #1f2277;
   }
   .restart-button {
     font-size: xx-small;
-    width: 70%;
-    height: 15%;
     margin-top: 0.3vh;
   }
   .play-ground {
@@ -235,12 +231,10 @@
   .continue-button {
     font-size: xx-small;
     margin: 2vh 0 2vh 0;
-    width: 15vw;
     box-shadow: 3px 3px 3px #1f2277;
   }
   .restart-button {
     font-size: xx-small;
-    width: 12vw;
   }
   .play-and-result-wrapper {
     width: 80%;
@@ -300,15 +294,10 @@
     justify-content: center;
   }
   .continue-button {
-    font-size: xx-small;
     margin: 2vh 0 2vh 0;
-    width: 15vw;
     box-shadow: 3px 3px 3px #1f2277;
   }
-  .restart-button {
-    font-size: xx-small;
-    width: 12vw;
-  }
+
   .play-ground {
     position: relative;
     display: flex;
