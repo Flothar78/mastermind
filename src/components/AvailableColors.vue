@@ -39,6 +39,6 @@ const choiceColorFromAvailableColors = (index) => {
 <style scoped>
 @import "@/assets/main.css";
 .chosen-color {
-  border: 0.8vh white solid;
+  border: 0.8vh #00ffff solid;
 }
 </style>
