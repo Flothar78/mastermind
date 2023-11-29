@@ -50,16 +50,16 @@ export const useColorStore = defineStore("ColorStore", {
           : (chosenPeons.length = 0);
       }
     },
-    previouslyCountedColor(colorOccurence) {
+    previouslyCountedColor(colorName, colorOccurence) {
       colorOccurence = 0;
-      console.log(`color: ${colorOccurence}`);
+      console.log(`color ${colorName}: ${colorOccurence}`);
       const colorOccurenceIncrement = () => {
         colorOccurence++;
-        console.log(`color: ${colorOccurence}`);
+        console.log(`color ${colorName}: ${colorOccurence}`);
       };
       return colorOccurenceIncrement;
     },
-    checkColorsPlaces(chosenRow,color) {
+    checkColorsPlaces(chosenRow, color) {
       const incrementOccurence = this.previouslyCountedColor(color);
       this.chosenPeons.map((x, i, a) => {
         const solution = this.solution;
@@ -67,7 +67,7 @@ export const useColorStore = defineStore("ColorStore", {
         const matchingInPlayerChoice = a.filter((z) => z === x).length;
         if (solution[i] === x) {
           this.resultColors[chosenRow].push("black");
-          incrementOccurence(color);
+          incrementOccurence(x,i);
         } else if (solution.includes(x)) {
           // console.log(
           //   `matchingInPlayerChoice: ${matchingInPlayerChoice}`,
@@ -75,7 +75,8 @@ export const useColorStore = defineStore("ColorStore", {
           // );
           matchingInSolution < matchingInPlayerChoice
             ? this.resultColors[chosenRow].push("none")
-            : this.resultColors[chosenRow].push("grey") && incrementOccurence(color);
+            : this.resultColors[chosenRow].push("grey") &&
+              incrementOccurence(x);
         } else {
           this.resultColors[chosenRow].push("none");
         }
