@@ -53,7 +53,7 @@ export const useColorStore = defineStore("ColorStore", {
     previouslyCountedColor(colorName, colorOccurence) {
       colorOccurence = 0;
       console.log(`color ${colorName}: ${colorOccurence}`);
-      const colorOccurenceIncrement = () => {
+      const colorOccurenceIncrement = (colorOccurence) => {
         colorOccurence++;
         console.log(`color ${colorName}: ${colorOccurence}`);
       };
@@ -67,7 +67,7 @@ export const useColorStore = defineStore("ColorStore", {
         const matchingInPlayerChoice = a.filter((z) => z === x).length;
         if (solution[i] === x) {
           this.resultColors[chosenRow].push("black");
-          incrementOccurence(x,i);
+          incrementOccurence(x);
         } else if (solution.includes(x)) {
           // console.log(
           //   `matchingInPlayerChoice: ${matchingInPlayerChoice}`,
