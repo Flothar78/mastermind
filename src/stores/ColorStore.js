@@ -50,33 +50,39 @@ export const useColorStore = defineStore("ColorStore", {
           : (chosenPeons.length = 0);
       }
     },
-    previouslyCountedColor(colorName, colorOccurence) {
-      colorOccurence = 0;
-      console.log(`color ${colorName}: ${colorOccurence}`);
-      const colorOccurenceIncrement = (colorOccurence) => {
-        colorOccurence++;
-        console.log(`color ${colorName}: ${colorOccurence}`);
-      };
-      return colorOccurenceIncrement;
+    previouslyCountedColor(colorName) {
+      const chosenPeons = this.chosenPeons;
+
+      const chosenPeonsObj = chosenPeons.reduce(
+        (map, peon) => ({
+          ...map,
+          [peon]: (map[peon] || 0) + 1,
+        }),
+        {}
+      );
+      console.log("l.64 " + colorName + " " + chosenPeonsObj[colorName]);
+      chosenPeonsObj[colorName]--;
+      console.log("l.68 " + colorName + " " + chosenPeonsObj[colorName]);
+
+      return chosenPeonsObj[colorName];
+      //console.log(`color ${object[colorName]}: ${colorOccurence}`);
+      //return `color ${colorName}: ${colorOccurence}`;
     },
     checkColorsPlaces(chosenRow, color) {
-      const incrementOccurence = this.previouslyCountedColor(color);
       this.chosenPeons.map((x, i, a) => {
+        const previouslyCountedColor = this.previouslyCountedColor;
         const solution = this.solution;
         const matchingInSolution = solution.filter((y) => y === x).length;
         const matchingInPlayerChoice = a.filter((z) => z === x).length;
         if (solution[i] === x) {
           this.resultColors[chosenRow].push("black");
-          incrementOccurence(x);
+          previouslyCountedColor(x);
         } else if (solution.includes(x)) {
-          // console.log(
-          //   `matchingInPlayerChoice: ${matchingInPlayerChoice}`,
-          //   `matchingInSolution: ${matchingInSolution}`
-          // );
-          matchingInSolution < matchingInPlayerChoice
+          console.log("l.79 " + x + " " + previouslyCountedColor(x));
+          matchingInSolution < previouslyCountedColor
             ? this.resultColors[chosenRow].push("none")
             : this.resultColors[chosenRow].push("grey") &&
-              incrementOccurence(x);
+              previouslyCountedColor(x);
         } else {
           this.resultColors[chosenRow].push("none");
         }
