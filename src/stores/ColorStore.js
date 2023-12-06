@@ -17,6 +17,7 @@ export const useColorStore = defineStore("ColorStore", {
       colorsArray: ["red", "blue", "green", "yellow", "orange", "black"],
       choiceOfColor: [],
       chosenPeons: [],
+
       solution: [],
       resultColors: [[], [], [], [], [], [], [], [], [], []],
       playRowId: 0,
@@ -51,38 +52,34 @@ export const useColorStore = defineStore("ColorStore", {
       }
     },
     previouslyCountedColor(colorName) {
-      const chosenPeons = this.chosenPeons;
-
-      const chosenPeonsObj = chosenPeons.reduce(
-        (map, peon) => ({
-          ...map,
-          [peon]: (map[peon] || 0) + 1,
-        }),
-        {}
-      );
-      console.log("l.64 " + colorName + " " + chosenPeonsObj[colorName]);
+      const chosenPeonsObj = this.chosenPeonsObject;
+      console.log(colorName, chosenPeonsObj[colorName]);
       chosenPeonsObj[colorName]--;
-      console.log("l.68 " + colorName + " " + chosenPeonsObj[colorName]);
-
+      console.log(colorName, chosenPeonsObj[colorName]);
       return chosenPeonsObj[colorName];
-      //console.log(`color ${object[colorName]}: ${colorOccurence}`);
-      //return `color ${colorName}: ${colorOccurence}`;
     },
-    checkColorsPlaces(chosenRow, color) {
-      this.chosenPeons.map((x, i, a) => {
-        const previouslyCountedColor = this.previouslyCountedColor;
+    checkColorsPlaces(chosenRow) {
+      this.chosenPeons.map((x, i) => {
+        function delayedInvoke(func, colorName) {
+          return () => {
+            return func.call(null, colorName);
+          };
+        }
+        const previouslyCounted = delayedInvoke(
+          this.previouslyCountedColor,
+          x
+        );
         const solution = this.solution;
         const matchingInSolution = solution.filter((y) => y === x).length;
-        const matchingInPlayerChoice = a.filter((z) => z === x).length;
         if (solution[i] === x) {
           this.resultColors[chosenRow].push("black");
-          previouslyCountedColor(x);
+          this.previouslyCountedColor(x);
         } else if (solution.includes(x)) {
-          console.log("l.79 " + x + " " + previouslyCountedColor(x));
-          matchingInSolution < previouslyCountedColor
+          console.log("l.70 " + previouslyCounted);
+          matchingInSolution < previouslyCounted
             ? this.resultColors[chosenRow].push("none")
             : this.resultColors[chosenRow].push("grey") &&
-              previouslyCountedColor(x);
+              this.previouslyCountedColor(x);
         } else {
           this.resultColors[chosenRow].push("none");
         }
@@ -107,6 +104,17 @@ export const useColorStore = defineStore("ColorStore", {
       return (
         Object.values(this.rows).flat().length / Object.values(this.rows).length
       );
+    },
+    chosenPeonsObject() {
+      const chosenPeons = this.chosenPeons;
+      const chosenPeonsObj = chosenPeons.reduce(
+        (map, peon) => ({
+          ...map,
+          [peon]: (map[peon] || 0) + 1,
+        }),
+        {}
+      );
+      return chosenPeonsObj;
     },
   },
 });
