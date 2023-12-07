@@ -52,21 +52,21 @@ export const useColorStore = defineStore("ColorStore", {
       }
     },
     previouslyCountedColor(colorName) {
-      const chosenPeonsObj = this.chosenPeonsObject;
-      console.log(this.chosenPeonsObject);
-      chosenPeonsObj[colorName]--;
-      console.log(this.chosenPeonsObject);
+      const solutionObject = this.solutionObject;
+      console.log(this.solutionObject);
+      solutionObject[colorName]--;
+      console.log(this.solutionObject);
     },
     checkColorsPlaces(chosenRow) {
       this.chosenPeons.map((x, i) => {
         const solution = this.solution;
-        const colorInSolution = solution.filter((y) => y === x).length;
+        // const colorInSolution = solution.filter((y) => y === x).length;
         if (solution[i] === x) {
           this.resultColors[chosenRow].push("black");
           this.previouslyCountedColor(x);
         } else if (solution.includes(x)) {
-          console.log(this.chosenPeonsObject[x], colorInSolution);
-          this.chosenPeonsObject[x] <= colorInSolution
+          console.log(this.chosenPeonsObject[x], this.solutionObject);
+          this.chosenPeonsObject[x] <= this.solutionObject[x]
             ? this.resultColors[chosenRow].push("none")
             : this.resultColors[chosenRow].push("grey") &&
               this.previouslyCountedColor(x);
@@ -75,7 +75,7 @@ export const useColorStore = defineStore("ColorStore", {
         }
       });
       this.endOfGame();
-      return this.resultColors//.map((x) => x.sort());
+      return this.resultColors.map((x) => x.sort());
     },
     endOfGame() {
       if (
@@ -105,6 +105,17 @@ export const useColorStore = defineStore("ColorStore", {
         {}
       );
       return chosenPeonsObj;
+    },
+    solutionObject() {
+      const solution = this.solution;
+      const solutionObj = solution.reduce(
+        (map, peon) => ({
+          ...map,
+          [peon]: (map[peon] || 0) + 1,
+        }),
+        {}
+      );
+      return solutionObj;
     },
   },
 });
