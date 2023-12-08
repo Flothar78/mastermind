@@ -92,6 +92,23 @@
   animation-name: scoreContainerSprout;
   animation-duration: 1.6s;
 }
+.infos-container {
+  background: hsl(112, 87%, 31%);
+  font-family: sans-serif;
+  font-style: oblique;
+  color: #1f2277;
+  font-size: 1.2rem;
+  font-weight: 900;
+  width: 20%;
+  height: 35%;
+  border-radius: 10%;
+  margin: 5vw;
+  padding: 1vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .winLooseMessage {
   animation-name: scoreContainerSprout;
   animation-duration: 1.6s;
@@ -172,14 +189,24 @@
   .score-container {
     position: absolute;
     justify-content: space-around;
+    box-shadow: 5px 5px 5px #fd2d03f7;
+    font-size: 1rem;
+    width: 25vw;
+    height: 9vh;
+    padding-top: 1vh;
+    margin-top: -12vh;
+    margin-left: 67vw;
+  }
+  .infos-container {
+    position: absolute;
+    justify-content: space-around;
     box-shadow: 5px 5px 5px rgba(253, 45, 3, 0.97);
-    font-size: 1.2rem;
-    width: 35vw;
-    height: 12vh;
-    padding: 0;
-    padding-top: 1.5vh;
-    margin-bottom: 86vh;
-    margin-left: 50vw;
+    font-size: 1rem;
+    width: 25vw;
+    height: 9vh;
+    padding-top: 1vh;
+    margin-top: -12vh;
+    margin-left: 20vw;
   }
   .continue-button {
     font-size: small;
@@ -221,6 +248,7 @@
     margin: 1vw;
   }
   .peons-row {
+    box-shadow: 7px 7px 15px #fd2d03f7;
     position: absolute;
     display: flex;
     flex-direction: column-reverse;
@@ -263,8 +291,14 @@
     box-shadow: 7px 5px 7px rgba(253, 45, 3, 0.97);
     font-size: x-large;
     height: 20%;
-
-    margin-right: 2.5vw;
+    min-width: 15vw;
+    justify-content: center;
+  }
+  .infos-container {
+    box-shadow: 7px 5px 7px rgba(253, 45, 3, 0.97);
+    font-size: x-large;
+    height: 20%;
+    min-width: 15vw;
     justify-content: center;
   }
   .continue-button {
@@ -339,7 +373,15 @@
     box-shadow: 7px 5px 7px rgba(253, 45, 3, 0.97);
     font-size: xx-large;
     height: 30%;
-    min-width: 10vw;
+    min-width: 20vw;
+    margin-right: 2.5vw;
+    justify-content: center;
+  }
+  .infos-container {
+    box-shadow: 7px 5px 7px rgba(253, 45, 3, 0.97);
+    font-size: xx-large;
+    height: 30%;
+    min-width: 20vw;
     margin-right: 2.5vw;
     justify-content: center;
   }
@@ -347,7 +389,6 @@
     margin: 2vh 0 2vh 0;
     box-shadow: 3px 3px 3px #1f2277;
   }
-
   .play-ground {
     position: relative;
     display: flex;

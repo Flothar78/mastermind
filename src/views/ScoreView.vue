@@ -26,7 +26,7 @@ const restartGame = () => {
     <div class="score-container">
       <div class="score">SCORE: {{ score }}</div>
     </div>
-    <div class="score-container" v-if="useColorStore().playRowId === 10000">
+    <div class="infos-container" v-if="useColorStore().playRowId === 10000">
       <div class="winLooseMessage">
         {{ winLooseMessage }}
       </div>
