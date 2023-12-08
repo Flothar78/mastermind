@@ -14,17 +14,10 @@ const restartGame = () => {
     <GameSolution />
     <TryAndChecks />
     <AvailableColors />
-    <button type="button" @click="restartGame"><div>RESET</div></button>
+    <button type="button" class="reset-button" @click="restartGame"><div>RESET</div></button>
   </div>
 </template>
 <style scoped>
 @import "@/assets/main.css";
-button {
-  background-color: #7c5b3a;
-  font-size: 0.5rem;
-  color: #3f200f;
-  height: 3vw;
-  width: 15vw;
-  border-radius: 10px;
-}
+
 </style>

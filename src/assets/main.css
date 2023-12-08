@@ -93,6 +93,8 @@
   animation-duration: 1.6s;
 }
 .infos-container {
+  animation-name: scoreContainerSprout;
+  animation-duration: 1.6s;
   background: hsl(112, 87%, 31%);
   font-family: sans-serif;
   font-style: oblique;
@@ -180,6 +182,14 @@
   align-items: center;
   height: 3vw;
   width: 12vw;
+}
+button {
+  background-color: #7c5b3a;
+  font-size: 0.5rem;
+  color: #3f200f;
+  height: 3vw;
+  width: 15vw;
+  border-radius: 10px;
 }
 @media screen and (max-width: 759px) {
   #app {
@@ -388,6 +398,11 @@
   .continue-button {
     margin: 2vh 0 2vh 0;
     box-shadow: 3px 3px 3px #1f2277;
+  }
+  .reset-button {
+    height: 3vw;
+    width: 15vw;
+    font-size: .8rem;
   }
   .play-ground {
     position: relative;
