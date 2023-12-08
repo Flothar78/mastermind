@@ -60,12 +60,11 @@ export const useColorStore = defineStore("ColorStore", {
     checkColorsPlaces(chosenRow) {
       this.chosenPeons.map((x, i) => {
         const solution = this.solution;
-        // const colorInSolution = solution.filter((y) => y === x).length;
         if (solution[i] === x) {
           this.resultColors[chosenRow].push("black");
           this.previouslyCountedColor(x);
         } else if (solution.includes(x)) {
-          console.log(this.chosenPeonsObject[x], this.solutionObject);
+          console.log(this.chosenPeonsObject[x], this.solutionObject[x]);
           this.chosenPeonsObject[x] <= this.solutionObject[x]
             ? this.resultColors[chosenRow].push("none")
             : this.resultColors[chosenRow].push("grey") &&
