@@ -53,9 +53,9 @@ export const useColorStore = defineStore("ColorStore", {
     },
     previouslyCountedColor(colorName) {
       const solutionObject = this.solutionObject;
-      console.log(this.solutionObject);
-      solutionObject[colorName]--;
-      console.log(this.solutionObject);
+      // console.log(this.solutionObject);
+      solutionObject[colorName] > 0 ? solutionObject[colorName]-- : "";
+      // console.log(this.solutionObject);
     },
     checkColorsPlaces(chosenRow) {
       this.chosenPeons.map((x, i) => {
@@ -65,7 +65,7 @@ export const useColorStore = defineStore("ColorStore", {
           this.previouslyCountedColor(x);
         } else if (solution.includes(x)) {
           console.log(this.chosenPeonsObject[x], this.solutionObject[x]);
-          this.chosenPeonsObject[x] <= this.solutionObject[x]
+          this.solutionObject[x] === 0
             ? this.resultColors[chosenRow].push("none")
             : this.resultColors[chosenRow].push("grey") &&
               this.previouslyCountedColor(x);

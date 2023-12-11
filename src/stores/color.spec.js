@@ -29,7 +29,7 @@ describe("Color Store", () => {
   });
 
   //////////////////////////////////////////////////////////////
-  
+
   it("solution: ['blue', 'red', 'blue', 'blue']", () => {
     // Set up initial state or mock data
     const color_store = useColorStore();
@@ -50,7 +50,7 @@ describe("Color Store", () => {
   });
 
   ///////////////////////////////////////////////////////////////
-/*
+
   it("solution: ['green', 'black','orange','green']", () => {
     // Set up initial state or mock data
     const color_store = useColorStore();
@@ -90,6 +90,4 @@ describe("Color Store", () => {
       "none",
     ]);
   });
-  
-  */
 });
