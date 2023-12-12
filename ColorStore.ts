@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 export const useColorStore = defineStore("ColorStore", {
   state: () => {
     return {
-      rows: [
+      rows: <string[][]>[
         ["", "", "", ""],
         ["", "", "", ""],
         ["", "", "", ""],
@@ -14,43 +14,34 @@ export const useColorStore = defineStore("ColorStore", {
         ["", "", "", ""],
         ["", "", "", ""],
       ],
-      colorsArray: [
-        "red",
-        "blue",
-        "green",
-        "yellow",
-        "orange",
-        "black",
-      ] as string[],
-      choiceOfColor: [] as [],
-      chosenPeons: [] as [],
-      solution: [] as [],
-      resultColors: [[], [], [], [], [], [], [], [], [], []] as [][],
-      playRowId: 0 as number,
-      winLooseMessage: "" as string,
+      colorsArray: ["red", "blue", "green", "yellow", "orange", "black"],
+      choiceOfColor: <string[]>[],
+      chosenPeons: <string[]>[],
+      solution: <string[]>[],
+      resultColors: <string[][]>[[], [], [], [], [], [], [], [], [], []],
+      playRowId: 0,
+      winLooseMessage: "",
     };
   },
   actions: {
     getRandomColors(number: number) {
       if (this.solution.length < this.numberOfPeons) {
         this.solution.push(
-          this.colorsArray[
-            Math.floor(Math.random() * this.colorsArray.length)
-          ] as string
+          this.colorsArray[Math.floor(Math.random() * this.colorsArray.length)]
         );
       }
       return this.solution[number];
     },
-    addColorToStore(color) {
+    addColorToStore(color: string) {
       this.choiceOfColor.length = 0;
       this.choiceOfColor.push(color);
     },
-    getColorFromStore(chosenRow, chosenPeon) {
+    getColorFromStore(chosenRow: number, chosenPeon: number) {
       if (chosenRow === this.playRowId) {
         const row = this.rows[chosenRow];
         const chosenPeons = this.chosenPeons;
         row[chosenPeon] = this.choiceOfColor[0];
-        row.map((x) => {
+        row.map((x: string) => {
           x !== "" ? chosenPeons.push(x) : "";
         });
         row.every((x) => x !== "") ? this.playRowId++ : "";
@@ -59,13 +50,11 @@ export const useColorStore = defineStore("ColorStore", {
           : (chosenPeons.length = 0);
       }
     },
-    previouslyCountedColor(colorName) {
+    previouslyCountedColor(colorName: any) {
       const solutionObject = this.solutionObject;
-      // console.log(this.solutionObject);
       solutionObject[colorName] > 0 ? solutionObject[colorName]-- : "";
-      // console.log(this.solutionObject);
     },
-    checkColorsPlaces(chosenRow) {
+    checkColorsPlaces(chosenRow: any) {
       this.chosenPeons.map((x, i) => {
         const solution = this.solution;
         if (solution[i] === x) {
@@ -97,15 +86,15 @@ export const useColorStore = defineStore("ColorStore", {
     },
   },
   getters: {
-    numberOfPeons() {
+    numberOfPeons(): number {
       return (
         Object.values(this.rows).flat().length / Object.values(this.rows).length
       );
     },
-    chosenPeonsObject() {
+    chosenPeonsObject(): any {
       const chosenPeons = this.chosenPeons;
       const chosenPeonsObj = chosenPeons.reduce(
-        (map, peon) => ({
+        (map: Record<string, number> = {}, peon) => ({
           ...map,
           [peon]: (map[peon] || 0) + 1,
         }),
@@ -113,10 +102,10 @@ export const useColorStore = defineStore("ColorStore", {
       );
       return chosenPeonsObj;
     },
-    solutionObject() {
+    solutionObject(): any {
       const solution = this.solution;
       const solutionObj = solution.reduce(
-        (map, peon) => ({
+        (map: Record<string, number> = {}, peon) => ({
           ...map,
           [peon]: (map[peon] || 0) + 1,
         }),
@@ -126,4 +115,3 @@ export const useColorStore = defineStore("ColorStore", {
     },
   },
 });
-//# sourceMappingURL=ColorStore.js.map
