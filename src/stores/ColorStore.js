@@ -51,25 +51,32 @@ export const useColorStore = defineStore("ColorStore", {
       }
     },
     previouslyCountedColor(colorName) {
-      const solutionObject = this.solutionObject;
-      solutionObject[colorName] > 0 ? solutionObject[colorName]-- : "";
+      this.solutionObject[colorName] > 0
+        ? this.solutionObject[colorName]--
+        : "";
     },
     checkColorsPlaces(chosenRow) {
+      console.log(this.solutionObject);
+      this.solutionObject;
+      console.log(this.solutionObject);
       this.chosenPeons.map((x, i) => {
-        const solution = this.solution;
-        if (solution[i] === x) {
+        // console.log("map côté black: " + this.chosenPeonsObject[x],this.solutionObject[x]);
+        if (this.solution[i] === x) {
           this.resultColors[chosenRow].push("black");
           this.previouslyCountedColor(x);
-        } else if (solution.includes(x)) {
-          console.log(this.chosenPeonsObject[x], this.solutionObject[x]);
-          this.solutionObject[x] === 0
-            ? this.resultColors[chosenRow].push("none")
-            : this.resultColors[chosenRow].push("grey") &&
-              this.previouslyCountedColor(x);
-        } else {
-          this.resultColors[chosenRow].push("none");
         }
-      });
+      }),
+        this.chosenPeons.map((x, i) => {
+          if (this.solution.includes(x) && this.solution[i] !== x) {
+            //    console.log(this.chosenPeonsObject[x], this.solutionObject[x]);
+            this.solutionObject[x] === 0
+              ? this.resultColors[chosenRow].push("none")
+              : this.resultColors[chosenRow].push("grey") &&
+                this.previouslyCountedColor(x);
+          } else if (!this.solution.includes(x)) {
+            this.resultColors[chosenRow].push("none");
+          }
+        });
       this.endOfGame();
       return this.resultColors.map((x) => x.sort());
     },
@@ -94,7 +101,7 @@ export const useColorStore = defineStore("ColorStore", {
     chosenPeonsObject() {
       const chosenPeons = this.chosenPeons;
       const chosenPeonsObj = chosenPeons.reduce(
-        (map = {}, peon) => ({
+        (map, peon) => ({
           ...map,
           [peon]: (map[peon] || 0) + 1,
         }),
@@ -105,7 +112,7 @@ export const useColorStore = defineStore("ColorStore", {
     solutionObject() {
       const solution = this.solution;
       const solutionObj = solution.reduce(
-        (map = {}, peon) => ({
+        (map, peon) => ({
           ...map,
           [peon]: (map[peon] || 0) + 1,
         }),

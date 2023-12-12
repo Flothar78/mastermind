@@ -2,7 +2,6 @@
 import PeonsRow from "@/components/PeonsRow.vue";
 import CheckRow from "@/components/CheckRow.vue";
 import { useColorStore } from "@/stores/ColorStore.js";
-import { toRaw } from "vue";
 import { storeToRefs } from "pinia";
 const color_store = useColorStore();
 const { rows } = storeToRefs(color_store);
