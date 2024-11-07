@@ -9,7 +9,7 @@
   background-color: black;
 }
 .grey {
-  background-color: grey;
+  background-color: rgb(236, 233, 233);
 }
 .none {
   background-color: transparent;
@@ -35,7 +35,7 @@
   display: flex;
   justify-content: flex-start;
   flex-grow: 1;
-  background: radial-gradient(#0a0a75, #1f2277, #010221);
+  background: linear-gradient(-30deg,#1f2277, #208AAE, #B8DBD9, #F4F4F9);
 }
 @keyframes solutionPeonsSprout {
   0% {
@@ -71,10 +71,11 @@
   }
 }
 .score-container {
-  background: hsl(112, 87%, 31%);
+  box-shadow: 3px 3px 7px ;
+  background: #27744A;
   font-family: sans-serif;
   font-style: oblique;
-  color: #1f2277;
+  color: #D3FAD6;
   font-size: 1.2rem;
   font-weight: 900;
   width: 20%;
@@ -88,12 +89,13 @@
   align-items: center;
 }
 .infos-container {
+  box-shadow: 3px 3px 7px ;
   animation-name: containerSprout;
   animation-duration: 1.6s;
-  background: hsl(112, 87%, 31%);
+  background: #27744A;
   font-family: sans-serif;
   font-style: oblique;
-  color: #1f2277;
+  color: #D3FAD6;
   font-size: 1.2rem;
   font-weight: 900;
   width: 20%;
@@ -111,20 +113,22 @@
   animation-duration: 1.6s;
 }
 .continue-button {
+  color: #D3FAD6;
   font-size: large;
   animation-name: containerSprout;
   animation-duration: 1.6s;
   height: 3vw;
   width: 10vw;
-  box-shadow: 7px 7px 7px #1f2277;
+  /* box-shadow: 7px 7px 7px #1f2277; */
   border-radius: 10px;
 }
 .restart-button {
   font-size:large;
+  font-weight: bold;
   animation-name: containerSprout;
   animation-duration: 1.6s;
   background-color: transparent;
-  color: blue;
+  color: #D3FAD6;
   opacity: 0.6;
   height: 3vw;
   width: 8vw;
@@ -136,15 +140,16 @@
   justify-content: center;
 }
 .play-ground {
-  background-image: linear-gradient(300deg, #3f200f, #6f3d1a, #7c5b3a, #96653c);
-  box-shadow: 10px 10px 10px rgb(94, 99, 229);
+  background-image: linear-gradient(-30deg, #3f200f, #6f3d1a, #7c5b3a, #96653c);
+  box-shadow: 3px 3px 10px #D3FAD6;
   border-radius: 5%;
 }
 .game-solution {
-  box-shadow: 8px 8px 8px #5a2e17;
-  min-width: 70%;
+  margin-inline: auto;
+  box-shadow:4px 4px 4px  #5a2e17;
+  width: 87%;
   background-color: #27744a;
-  border-radius: 30px;
+  border-radius: 20px;
 }
 .betweenRows {
   display: flex;
@@ -152,21 +157,25 @@
   min-width: 50%;
 }
 .withinRow {
-  box-shadow: 10px 10px 10px #3f200f;
+  box-shadow: 1px 1px 2px ;
   border: black 0.5px solid;
   height: 10%;
   display: flex;
   justify-content: space-around;
   align-items: center;
   margin: 0.5vw;
+  border-radius: 5px;
 }
 .withinRow-peons {
-  box-shadow: 4px 4px 8px;
+  box-shadow: 2px 2px 0;
 }
 .peons-row {
+  height: 15vh;
+  width:98%;
+  margin-inline: auto;
   background-color: #27744a;
-  box-shadow: 8px 8px 8px #3f200f;
-  border-radius: 40px;
+  box-shadow: 4px 4px 4px #3f200f;
+  border-radius: 20px;
 }
 .checkRowsContainer {
   display: flex;
@@ -175,13 +184,13 @@
 }
 .checkRow {
   background-color: #6fa667;
-  border-radius: 10px;
+  border-radius: 7px;
   align-items: center;
   height: 3vw;
   width: 12vw;
 }
 button {
-  background-color: #7c5b3a;
+  background-color: #744A28;
   font-size: 0.5rem;
   color: #3f200f;
   height: 3vw;
@@ -196,7 +205,6 @@ button {
   .score-container {
     position: absolute;
     justify-content: space-around;
-    box-shadow: 5px 5px 5px #fd2d03f7;
     font-size: 1rem;
     width: 25vw;
     height: 9vh;
@@ -207,7 +215,6 @@ button {
   .infos-container {
     position: absolute;
     justify-content: space-around;
-    box-shadow: 5px 5px 5px #fd2d03f7;
     font-size: 1rem;
     width: 25vw;
     height: 9vh;
@@ -219,7 +226,7 @@ button {
     font-size: small;
     height: 7vw;
     width: 22vw;
-    box-shadow: 5px 5px 8px #30339a;
+    /* box-shadow: 5px 5px 8px #30339a; */
     border-radius: 10px;
   }
   .restart-button {
@@ -234,12 +241,12 @@ button {
     display: flex;
     flex-direction: column;
     max-height: 78vh;
-    width: 70vw;
+    width: 50vw;
     padding-left: 1.5vw;
     padding-right: 1.5vw;
     margin-bottom: 5vh;
     margin-top: 3vh;
-    margin-left: 15vw;
+    margin-left: -25vw;
   }
   .play-and-check-container {
     height: 70vh;
@@ -251,19 +258,19 @@ button {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 15vw;
+    height: 10vw;
     margin: 1vw;
   }
   .peons-row {
-    box-shadow: 7px 7px 10px #fd2d03f7;
-    position: absolute;
+    box-shadow: 0 0;
+    /* position: absolute; */
     display: flex;
-    flex-direction: column-reverse;
+    /* flex-direction: column-reverse; */
     justify-content: space-around;
     align-items: center;
-    height: 70vh;
-    width: 6vh;
-    margin-left: -18vw;
+    /* height: 70vh;
+    width: 6vh; */
+    /* margin-left: -18vw; */
     margin-top: 7vh;
   }
   .peon-choice {
@@ -291,18 +298,13 @@ button {
   }
 }
 @media screen and (min-width: 760px) and (max-width: 999px) {
-  .score {
-    margin-bottom: 10%;
-  }
   .score-container {
-    box-shadow: 7px 5px 7px rgba(253, 45, 3, 0.97);
+    margin-top: 2.5vh;
     font-size: x-large;
-    height: 20%;
+    height: 10%;
     min-width: 15vw;
-    justify-content: center;
   }
   .infos-container {
-    box-shadow: 7px 5px 7px rgba(253, 45, 3, 0.97);
     font-size: x-large;
     height: 20%;
     min-width: 15vw;
@@ -311,7 +313,7 @@ button {
   .continue-button {
     font-size: small;
     margin: 2vh 0 2vh 0;
-    box-shadow: 3px 3px 3px #1f2277;
+    /* box-shadow: 3px 3px 3px #1f2277; */
   }
   .restart-button {
     font-size: small;
@@ -328,12 +330,13 @@ button {
   }
   .play-ground {
     display: flex;
-    padding-top: 4vh;
+    padding-top: 2vh;
     flex-direction: column;
-    height: 90vh;
-    width: 60vh;
+    height: 87vh;
+    width: 60vw;
     padding-left: 1.5vw;
     padding-right: 1.5vw;
+    margin-top:2.5vh;
   }
   .betweenRows {
     height: 65vh;
@@ -354,7 +357,7 @@ button {
     align-items: center;
     margin-top: 2vh;
     margin-bottom: 2vh;
-    height: 10vw;
+   
   }
   .peon-shape {
     border: 0.5px solid black;
@@ -363,8 +366,8 @@ button {
     width: 3vw;
   }
   .peon-in-check-row {
-    width: 1vw;
-    height: 1vw;
+    width: 1.3vw;
+    height: 1.3vw;
     border-radius: 50%;
   }
   .insideCheckRows {
@@ -377,24 +380,23 @@ button {
     margin-bottom: 20%;
   }
   .score-container {
-    box-shadow: 9px 9px 9px rgba(253, 45, 3, 0.97);
-    font-size: xx-large;
-    height: 30%;
+    font-size: x-large;
+    height: 10%;
     min-width: 20vw;
     margin-right: 2.5vw;
     justify-content: center;
+    align-items: center;
   }
   .infos-container {
-    box-shadow: 9px 9px 9px rgba(253, 45, 3, 0.97);
     font-size: xx-large;
     height: 30%;
     min-width: 20vw;
     margin-right: 2.5vw;
-    justify-content: center;
+   justify-content: center; 
   }
   .continue-button {
     margin: 2vh 0 2vh 0;
-    box-shadow: 3px 3px 3px #1f2277;
+    /* box-shadow: 3px 3px 3px #1f2277; */
   }
   .reset-button {
     height: 3vw;
