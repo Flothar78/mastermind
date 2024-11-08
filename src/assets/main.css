@@ -35,7 +35,7 @@
   display: flex;
   justify-content: flex-start;
   flex-grow: 1;
-  background: linear-gradient(-30deg,#1f2277, #208AAE, #B8DBD9, #F4F4F9);
+  background: linear-gradient(-30deg, #1f2277, #208aae, #b8dbd9, #f4f4f9);
 }
 @keyframes solutionPeonsSprout {
   0% {
@@ -71,11 +71,11 @@
   }
 }
 .score-container {
-  box-shadow: 3px 3px 7px ;
-  background: #27744A;
+  box-shadow: 3px 3px 7px;
+  background: #27744a;
   font-family: sans-serif;
   font-style: oblique;
-  color: #D3FAD6;
+  color: #d3fad6;
   font-size: 1.2rem;
   font-weight: 900;
   width: 20%;
@@ -89,13 +89,13 @@
   align-items: center;
 }
 .infos-container {
-  box-shadow: 3px 3px 7px ;
+  box-shadow: 3px 3px 7px;
   animation-name: containerSprout;
   animation-duration: 1.6s;
-  background: #27744A;
+  background: #27744a;
   font-family: sans-serif;
   font-style: oblique;
-  color: #D3FAD6;
+  color: #d3fad6;
   font-size: 1.2rem;
   font-weight: 900;
   width: 20%;
@@ -113,7 +113,7 @@
   animation-duration: 1.6s;
 }
 .continue-button {
-  color: #D3FAD6;
+  color: #d3fad6;
   font-size: large;
   animation-name: containerSprout;
   animation-duration: 1.6s;
@@ -123,12 +123,12 @@
   border-radius: 10px;
 }
 .restart-button {
-  font-size:large;
+  font-size: large;
   font-weight: bold;
   animation-name: containerSprout;
   animation-duration: 1.6s;
   background-color: transparent;
-  color: #D3FAD6;
+  color: #d3fad6;
   opacity: 0.6;
   height: 3vw;
   width: 8vw;
@@ -141,12 +141,12 @@
 }
 .play-ground {
   background-image: linear-gradient(-30deg, #3f200f, #6f3d1a, #7c5b3a, #96653c);
-  box-shadow: 3px 3px 10px #D3FAD6;
+  box-shadow: 3px 3px 10px #d3fad6;
   border-radius: 5%;
 }
 .game-solution {
   margin-inline: auto;
-  box-shadow:4px 4px 4px  #5a2e17;
+  box-shadow: 4px 4px 4px #5a2e17;
   width: 87%;
   background-color: #27744a;
   border-radius: 20px;
@@ -157,7 +157,7 @@
   min-width: 50%;
 }
 .withinRow {
-  box-shadow: 1px 1px 2px ;
+  box-shadow: 1px 1px 2px;
   border: black 0.5px solid;
   height: 10%;
   display: flex;
@@ -171,7 +171,7 @@
 }
 .peons-row {
   height: 15vh;
-  width:98%;
+  width: 98%;
   margin-inline: auto;
   background-color: #27744a;
   box-shadow: 4px 4px 4px #3f200f;
@@ -189,17 +189,21 @@
   height: 3vw;
   width: 12vw;
 }
-button {
-  background-color: #744A28;
+
+.reset-button {
+  position: absolute;
+  background-color: transparent;
   font-size: 0.5rem;
   color: #3f200f;
   height: 3vw;
-  width: 15vw;
+  width: 5vw;
   border-radius: 10px;
+  right: 0;
+  top: 0;
 }
 @media screen and (max-width: 759px) {
   #app {
-    justify-content:center;
+    justify-content: center;
   }
   .score-container {
     position: absolute;
@@ -230,9 +234,10 @@ button {
   .restart-button {
     font-size: small;
     height: 25%;
-    width:60%;
+    width: 60%;
     margin-top: 0.3vh;
-    margin-bottom: 0.7vh;font-size: x-small;
+    margin-bottom: 0.7vh;
+    font-size: x-small;
   }
   .play-ground {
     position: relative;
@@ -266,8 +271,8 @@ button {
     /* flex-direction: column-reverse; */
     justify-content: space-around;
     align-items: center;
-     height: 6vh;
-    width: 95%; 
+    height: 6vh;
+    width: 95%;
     /* margin-left: -18vw; */
     /* margin-top: 7vh; */
   }
@@ -334,7 +339,7 @@ button {
     width: 60vw;
     padding-left: 1.5vw;
     padding-right: 1.5vw;
-    margin-top:2.5vh;
+    margin-top: 2.5vh;
   }
   .betweenRows {
     height: 65vh;
@@ -355,7 +360,6 @@ button {
     align-items: center;
     margin-top: 2vh;
     margin-bottom: 2vh;
-   
   }
   .peon-shape {
     border: 0.5px solid black;
@@ -377,43 +381,40 @@ button {
   .score-container {
     font-size: x-large;
     height: 10%;
-    width: 20vw;
+    width: 15vw;
     margin-right: 2.5vw;
     justify-content: center;
     align-items: center;
   }
   .infos-container {
     font-size: xx-large;
-    height: 30%;
+    height: 25%;
     width: 20vw;
     margin-right: 2.5vw;
-   justify-content: center; 
+    justify-content: center;
   }
   .continue-button {
     margin: 2vh 0 2vh 0;
     /* box-shadow: 3px 3px 3px #1f2277; */
   }
-  .reset-button {
-    height: 3vw;
-    width: 15vw;
-    font-size: .8rem;
-  }
   .play-ground {
-    position: relative;
+    /* position: relative; */
     display: flex;
-    justify-content: space-between;
-    height: 90vh;
+    justify-content: center;
+    height: 95vh;
     width: 70vw;
     padding-left: 1.5vw;
     padding-right: 1.5vw;
   }
   .peons-row {
+    border: purple solid 3px;
+    position: absolute;
     height: 7%;
-    width: 100%;
+    width: 50%;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    /* margin-top: 17vh; */
+    margin-top: 85vh;
   }
   /* .betweenRows {
     display: flex;
@@ -421,33 +422,35 @@ button {
     justify-content: flex-start;
   } */
   .play-and-check-container {
-    border: red 3px solid;
     position: absolute;
-    height: 70vh;
-    margin-top: 17vh;
+    height: 62%;
+    margin-top: 23vh;
     margin-inline: auto;
     /* margin-left: 19%; */
     width: 50vw;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
   }
-  .play-and-result-wrapper { border: black 3px solid;
+  .play-and-result-wrapper {
     width: 60vw;
     height: 90vh;
     margin: 4vh;
   }
-  .game-solution { border: black 3px solid;
+  .game-solution {
+    border: blue 3px solid;
+    position: absolute;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 10vh;
-    margin: 3% 10% 0 10%;
+    height: 8vh;
+    width: 55%;
+    margin: 4% 0 0 0;
   }
   .peon-shape {
     border: 0.5px solid black;
     border-radius: 50%;
-    width: 2.2vw;
-    height: 2.2vw;
+    width: 2vw;
+    height: 2vw;
   }
   .peon-in-check-row {
     width: 1vw;
