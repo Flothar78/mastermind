@@ -7,7 +7,7 @@ defineProps({ rowNumber: Number });
 const { numberOfPeons, resultColors } = storeToRefs(color_store);
 </script>
 <template>
-  <div class="insideCheckRows">
+  <div>
     <PeonOccurence
       v-for="peon in numberOfPeons"
       :key="peon - 1"

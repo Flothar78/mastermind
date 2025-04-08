@@ -56,6 +56,24 @@
   animation-duration: 0.8s;
   animation-timing-function: ease-in;
 }
+.score-container { 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+  height: 10%;  
+  width: 20%;
+  min-width: 15vw;
+  margin: 5vw;
+  padding: 1vw;
+  background: #27744a;
+  color: #d3fad6;
+  font-size: 1.2rem;  
+  font-family: sans-serif;
+  font-weight: 900;
+  box-shadow: 3px 3px 7px;
+  border-radius: 10%;
+}
 @keyframes containerSprout {
   0% {
     opacity: 0;
@@ -70,112 +88,115 @@
     opacity: 1;
   }
 }
-.score-container {
-  box-shadow: 3px 3px 7px;
-  background: #27744a;
-  font-family: sans-serif;
-  font-style: oblique;
-  color: #d3fad6;
-  font-size: 1.2rem;
-  font-weight: 900;
-  width: 20%;
-  height: 35%;
-  border-radius: 10%;
-  margin: 5vw;
-  padding: 1vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 .infos-container {
-  box-shadow: 3px 3px 7px;
   animation-name: containerSprout;
   animation-duration: 1.6s;
-  background: #27744a;
-  font-family: sans-serif;
-  font-style: oblique;
-  color: #d3fad6;
-  font-size: 1.2rem;
-  font-weight: 900;
-  width: 20%;
-  height: 35%;
-  border-radius: 10%;
-  margin: 5vw;
-  padding: 1vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: center;  
+  height: 15vh;
+  width: 15vw;
+  margin: 5vw;
+  padding: 1vw;  
+  background: #27744a;
+  color: #d3fad6;
+  font-family: sans-serif;
+  font-style: oblique;
+  font-size: 1.2rem;
+  font-weight: 900;
+  box-shadow: 3px 3px 7px;
+  border-radius: 10%;
 }
 .winLooseMessage {
   animation-name: containerSprout;
   animation-duration: 1.6s;
 }
 .continue-button {
-  color: #d3fad6;
-  font-size: large;
   animation-name: containerSprout;
   animation-duration: 1.6s;
   height: 3vw;
   width: 10vw;
-  /* box-shadow: 7px 7px 7px #1f2277; */
-  border-radius: 10px;
+  margin: 2vh 0 2vh 0;
+  color: black;
+  border-radius: 10px;   
 }
 .restart-button {
-  font-size: large;
-  font-weight: bold;
   animation-name: containerSprout;
   animation-duration: 1.6s;
-  background-color: transparent;
-  color: #d3fad6;
-  opacity: 0.6;
   height: 3vw;
   width: 8vw;
-  box-shadow: 1px 1px 1px #1f2277;
+  background-color: transparent;
+  color: white;
+  font-size: small;
+  font-weight: bold;
+  box-shadow: 0 0 0;
   border-radius: 10px;
+  opacity: 0.5;
 }
 .play-and-result-wrapper {
   display: flex;
-  justify-content: center;
+  justify-content: center;  
+  width: 70vw;
+  height: 90vh;
+  margin-left: 3vw;
 }
 .play-ground {
-  background-image: linear-gradient(-30deg, #3f200f, #6f3d1a, #7c5b3a, #96653c);
+  display: flex;
+  flex-direction: column;
+  height: 87vh;
+  width: 60vw;
+  margin-top: 2.5vh;
+  padding-top: 2vh;
+  padding-left: 1.5vw;
+  padding-right: 1.5vw;
+  background: linear-gradient(-30deg, #3f200f, #6f3d1a, #7c5b3a, #96653c);
   box-shadow: 3px 3px 10px #d3fad6;
-  border-radius: 5%;
+  border-radius: 5%;  
 }
 .game-solution {
-  margin-inline: auto;
-  box-shadow: 4px 4px 4px #5a2e17;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   width: 87%;
+  min-height: 6vw;
+  margin-bottom: 3vw;
+  margin-inline: auto;
   background-color: #27744a;
+  box-shadow: 4px 4px 4px #5a2e17;
   border-radius: 20px;
+}
+.play-and-check-container {
+  max-height: 90vh;
+  display: flex;
+  justify-content: space-around;
 }
 .betweenRows {
   display: flex;
   flex-direction: column-reverse;
-  min-width: 50%;
+  width: 50%; 
+  height: 65vh;
 }
 .withinRow {
-  box-shadow: 1px 1px 2px;
-  border: black 0.5px solid;
-  height: 10%;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  height: 10%;
   margin: 0.5vw;
+  border: black 0.5px solid;
+  box-shadow: 1px 1px 2px;
   border-radius: 5px;
 }
-.withinRow-peons {
-  box-shadow: 2px 2px 0;
-}
 .peons-row {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   height: 15vh;
   width: 98%;
-  margin-inline: auto;
+  margin: 2vh auto;
   background-color: #27744a;
   box-shadow: 4px 4px 4px #3f200f;
-  border-radius: 20px;
+  border-radius: 20px;  
 }
 .checkRowsContainer {
   display: flex;
@@ -183,24 +204,41 @@
   justify-content: space-around;
 }
 .checkRow {
-  background-color: #6fa667;
-  border-radius: 7px;
+  display: flex;
+  justify-content: space-around; 
   align-items: center;
   height: 3vw;
   width: 12vw;
+  background-color: #6fa667;
+  border-radius: 7px;
 }
-
 .reset-button {
   position: absolute;
-  background-color: transparent;
-  font-size: 0.5rem;
-  color: #3f200f;
+  right: 1vw;
+  bottom: 1vh;
   height: 3vw;
   width: 5vw;
+  background-color: transparent;
+  color: white;
+  font-size: 0.5rem;
   border-radius: 10px;
-  right: 0;
-  top: 0;
+} 
+
+.peon-shape {
+  height: 3vw;
+  width: 3vw;
+  border: 0.5px solid black;
+  border-radius: 50%;
 }
+.withinRow-peons {
+  box-shadow: 2px 2px 0;
+}
+.peon-in-check-row {
+  width: 1.3vw;
+  height: 1.3vw;
+  border-radius: 50%;
+}
+
 @media screen and (max-width: 759px) {
   #app {
     justify-content: center;
@@ -227,7 +265,6 @@
     font-size: small;
     height: 25%;
     width: 70%;
-    /* box-shadow: 5px 5px 8px #30339a; */
     border-radius: 10px;
     font-size: x-small;
   }
@@ -262,32 +299,17 @@
     justify-content: space-around;
     align-items: center;
     height: 7vw;
-    /* margin: 1vw; */
   }
   .peons-row {
     box-shadow: 0 0;
-    /* position: absolute; */
     display: flex;
-    /* flex-direction: column-reverse; */
     justify-content: space-around;
     align-items: center;
     height: 6vh;
     width: 95%;
-    /* margin-left: -18vw; */
-    /* margin-top: 7vh; */
+    
   }
-  /* .peon-choice {
-    border: black 0.5px solid;
-    width: 1.75vw;
-    height: 1vw;
-    border-radius: 50%;
-  } */
-  .insideCheckRows {
-    height: 2vh;
-    width: 10vw;
-    display: flex;
-    justify-content: space-around;
-  }
+
   .peon-shape {
     border: 0.5px solid black;
     width: 3vw;
@@ -300,171 +322,8 @@
     border-radius: 50%;
   }
 }
-@media screen and (min-width: 760px) and (max-width: 999px) {
-  .score-container {
-    margin-top: 2.5vh;
-    font-size: x-large;
-    height: 10%;
-    min-width: 15vw;
-  }
-  .infos-container {
-    font-size: x-large;
-    height: 20%;
-    min-width: 15vw;
-    justify-content: center;
-  }
-  .continue-button {
-    font-size: small;
-    margin: 2vh 0 2vh 0;
-    /* box-shadow: 3px 3px 3px #1f2277; */
-  }
-  .restart-button {
-    font-size: small;
-  }
-  .play-and-result-wrapper {
-    margin-left: 3vw;
-    width: 70vw;
-    height: 90vh;
-  }
-  .play-and-check-container {
-    max-height: 90vh;
-    display: flex;
-    justify-content: space-around;
-  }
-  .play-ground {
-    display: flex;
-    padding-top: 2vh;
-    flex-direction: column;
-    height: 87vh;
-    width: 60vw;
-    padding-left: 1.5vw;
-    padding-right: 1.5vw;
-    margin-top: 2.5vh;
-  }
-  .betweenRows {
-    height: 65vh;
-    display: flex;
-    flex-direction: column-reverse;
-    min-width: 50%;
-  }
-  .game-solution {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    min-height: 6vw;
-    margin-bottom: 3vw;
-  }
-  .peons-row {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin-top: 2vh;
-    margin-bottom: 2vh;
-  }
-  .peon-shape {
-    border: 0.5px solid black;
-    border-radius: 50%;
-    height: 3vw;
-    width: 3vw;
-  }
-  .peon-in-check-row {
-    width: 1.3vw;
-    height: 1.3vw;
-    border-radius: 50%;
-  }
-  .insideCheckRows {
-    display: flex;
-    justify-content: space-around;
-  }
-}
+
 @media screen and (min-width: 1000px) {
-  .score-container {
-    font-size: x-large;
-    height: 10%;
-    width: 15vw;
-    margin-right: 2.5vw;
-    justify-content: center;
-    align-items: center;
-  }
-  .infos-container {
-    font-size: xx-large;
-    height: 25%;
-    width: 20vw;
-    margin-right: 2.5vw;
-    justify-content: center;
-  }
-  .continue-button {
-    margin: 2vh 0 2vh 0;
-    /* box-shadow: 3px 3px 3px #1f2277; */
-  }
-  .play-ground {
-    /* position: relative; */
-    display: flex;
-    justify-content: center;
-    height: 95vh;
-    width: 70vw;
-    padding-left: 1.5vw;
-    padding-right: 1.5vw;
-  }
-  .peons-row {
-    border: purple solid 3px;
-    position: absolute;
-    height: 7%;
-    width: 50%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin-top: 85vh;
-  }
-  /* .betweenRows {
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: flex-start;
-  } */
-  .play-and-check-container {
-    position: absolute;
-    height: 62%;
-    margin-top: 23vh;
-    margin-inline: auto;
-    /* margin-left: 19%; */
-    width: 50vw;
-    display: flex;
-    justify-content: space-around;
-  }
-  .play-and-result-wrapper {
-    width: 60vw;
-    height: 90vh;
-    margin: 4vh;
-  }
-  .game-solution {
-    border: blue 3px solid;
-    position: absolute;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 8vh;
-    width: 55%;
-    margin: 4% 0 0 0;
-  }
-  .peon-shape {
-    border: 0.5px solid black;
-    border-radius: 50%;
-    width: 2vw;
-    height: 2vw;
-  }
-  .peon-in-check-row {
-    width: 1vw;
-    height: 1vw;
-    border-radius: 50%;
-  }
-  .insideCheckRows {
-    display: flex;
-    justify-content: space-around;
-  }
-  /* .checkRow {
-    align-items: center;
-    height: 4vh;
-    width: 7vw;
-    margin: 1vh 0 1vh 0;
-  } */
+  
+
 }
