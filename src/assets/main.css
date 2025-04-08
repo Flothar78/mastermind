@@ -30,12 +30,15 @@
   background-color: orange;
 }
 #app {
-  padding-top: 1.5vh;
-  height: 100vh;
+  position: relative;
   display: flex;
   justify-content: flex-start;
-  flex-grow: 1;
+  height: 99vh;
+  max-width:1487px;
+  margin: auto;
+  padding-top: 1.5vh;
   background: linear-gradient(-30deg, #1f2277, #208aae, #b8dbd9, #f4f4f9);
+  overflow: hidden;
 }
 @keyframes solutionPeonsSprout {
   0% {
@@ -61,9 +64,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center; 
-  height: 10%;  
-  width: 20%;
-  min-width: 15vw;
+  height: 15vh;
+  width: 15vw;
+  max-width:198px;
+  max-height: 90px;
   margin: 5vw;
   padding: 1vw;
   background: #27744a;
@@ -93,10 +97,11 @@
   animation-duration: 1.6s;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;  
-  height: 15vh;
+  height: 20vh;
   width: 15vw;
+  max-width:198px;
   margin: 5vw;
   padding: 1vw;  
   background: #27744a;
@@ -115,23 +120,25 @@
 .continue-button {
   animation-name: containerSprout;
   animation-duration: 1.6s;
-  height: 3vw;
+  height: 4vh;
   width: 10vw;
-  margin: 2vh 0 2vh 0;
+  max-width:120px;
+  margin: 0;
   color: black;
-  border-radius: 10px;   
+  border-radius: 7px;   
 }
 .restart-button {
   animation-name: containerSprout;
   animation-duration: 1.6s;
-  height: 3vw;
+  height: 3vh;
   width: 8vw;
+  max-width:100px;  
   background-color: transparent;
   color: white;
   font-size: small;
   font-weight: bold;
   box-shadow: 0 0 0;
-  border-radius: 10px;
+  border-radius: 7px;
   opacity: 0.5;
 }
 .play-and-result-wrapper {
@@ -144,10 +151,10 @@
 .play-ground {
   display: flex;
   flex-direction: column;
-  height: 87vh;
+  justify-content: space-between;
+  height: 94vh;
   width: 60vw;
-  margin-top: 2.5vh;
-  padding-top: 2vh;
+  max-width:792px;
   padding-left: 1.5vw;
   padding-right: 1.5vw;
   background: linear-gradient(-30deg, #3f200f, #6f3d1a, #7c5b3a, #96653c);
@@ -158,10 +165,9 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 87%;
-  min-height: 6vw;
-  margin-bottom: 3vw;
-  margin-inline: auto;
+  height: 7vh;
+  width: 98%;
+  margin:  auto;
   background-color: #27744a;
   box-shadow: 4px 4px 4px #5a2e17;
   border-radius: 20px;
@@ -170,18 +176,22 @@
   max-height: 90vh;
   display: flex;
   justify-content: space-around;
+  
 }
 .betweenRows {
   display: flex;
   flex-direction: column-reverse;
+  justify-content: space-between;
   width: 50%; 
   height: 65vh;
+  max-height:750px;
 }
 .withinRow {
   display: flex;
   justify-content: space-around;
   align-items: center;
   height: 10%;
+  max-height:38px;
   margin: 0.5vw;
   border: black 0.5px solid;
   box-shadow: 1px 1px 2px;
@@ -191,9 +201,9 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: 15vh;
+  height: 7vh;
   width: 98%;
-  margin: 2vh auto;
+  margin:  auto;
   background-color: #27744a;
   box-shadow: 4px 4px 4px #3f200f;
   border-radius: 20px;  
@@ -202,6 +212,7 @@
   display: flex;
   flex-direction: column-reverse;
   justify-content: space-around;
+  /* max-height:800px; */
 }
 .checkRow {
   display: flex;
@@ -209,13 +220,15 @@
   align-items: center;
   height: 3vw;
   width: 12vw;
+  max-height: 35px;
+  max-width: 150px;
   background-color: #6fa667;
   border-radius: 7px;
 }
 .reset-button {
   position: absolute;
   right: 1vw;
-  bottom: 1vh;
+  bottom: 4.5vh;
   height: 3vw;
   width: 5vw;
   background-color: transparent;
@@ -223,10 +236,11 @@
   font-size: 0.5rem;
   border-radius: 10px;
 } 
-
 .peon-shape {
-  height: 3vw;
-  width: 3vw;
+  height: 4vw;
+  width: 4vw;
+  max-height:35px;
+  max-width:35px;
   border: 0.5px solid black;
   border-radius: 50%;
 }
@@ -236,9 +250,10 @@
 .peon-in-check-row {
   width: 1.3vw;
   height: 1.3vw;
+  max-width:17px;
+  max-height:17px;
   border-radius: 50%;
 }
-
 @media screen and (max-width: 759px) {
   #app {
     justify-content: center;
