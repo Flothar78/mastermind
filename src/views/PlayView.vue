@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup >
 import GameSolution from "@/components/GameSolution.vue";
 import AvailableColors from "@/components/AvailableColors.vue";
 import TryAndChecks from "@/components/TryAndChecks.vue";

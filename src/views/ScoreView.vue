@@ -34,9 +34,7 @@ const restartGame = () => {
       <button class="continue-button" type="button" @click="clickReplay">
         Continue
       </button>
-      <button class="restart-button" type="button" @click="restartGame">
-        Restart
-      </button>
+      
     </div>
   </div>
 </template>
