@@ -30,7 +30,7 @@
   background-color: orange;
 }
 #app {
-  /* position: relative; */
+  position: relative;
   display: flex;
   justify-content: flex-start;
   height: 99vh;
@@ -215,11 +215,11 @@
   position: absolute;
   right: 1vw;
   bottom: 4.5vh;
-  height: 3vw;
-  width: 5vw;
+  height: 4vw;
+  width: 10vw;
   background-color: transparent;
   color: white;
-  font-size: 0.5rem;
+  font-size: 0.8rem;
   border-radius: 10px;
 } 
 .peon-shape {
@@ -334,8 +334,8 @@
   .reset-button {
     right:1%; 
     bottom: 1%;
-    height: 4vw;
-    width: 10vw;
+    
+   
     background-color: transparent;
     color: white;
     font-size: 0.4rem;
