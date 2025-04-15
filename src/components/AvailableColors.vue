@@ -1,6 +1,6 @@
 <script setup>
 import PeonOccurence from "@/components/PeonOccurence.vue";
-import { reactive, computed, ref } from "vue";
+import { reactive, ref } from "vue";
 import { useColorStore } from "@/stores/ColorStore.js";
 import { useScoreStore } from "@/stores/ScoreStore.js";
 import { storeToRefs } from "pinia";
@@ -24,7 +24,6 @@ const choiceColorFromAvailableColors = (index) => {
     <PeonOccurence
       v-for="(color, index) in colorsArray"
       :key="index"
-      class="available-colors-peons"
       :class="
         reactive({
           [color]: true,
@@ -39,6 +38,6 @@ const choiceColorFromAvailableColors = (index) => {
 <style scoped>
 @import "@/assets/main.css";
 .chosen-color {
-  border: 0.8vh white solid;
+  border: .5rem white solid;
 }
 </style>

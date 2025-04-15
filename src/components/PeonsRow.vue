@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script  setup>
 import PeonOccurence from "@/components/PeonOccurence.vue";
 import { useColorStore } from "@/stores/ColorStore.js";
 import { storeToRefs } from "pinia";

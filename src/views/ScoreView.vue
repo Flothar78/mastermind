@@ -4,9 +4,7 @@ import { useColorStore } from "@/stores/ColorStore.js";
 import { useScoreStore } from "@/stores/ScoreStore.js";
 import { storeToRefs } from "pinia";
 import { watch, toRaw, ref } from "vue";
-const { rows, playRowId, resultColors, winLooseMessage } = storeToRefs(
-  useColorStore()
-);
+const { rows, playRowId, resultColors, winLooseMessage } = storeToRefs(useColorStore());
 let { score } = storeToRefs(useScoreStore());
 
 watch(winLooseMessage, (newWinLooseMessage) => {
@@ -22,19 +20,17 @@ const restartGame = () => {
 </script>
 
 <template>
-  <div>
+  <div class="score-infos">
     <div class="score-container">
-      <div class="score">SCORE: {{ score }}</div>
+      <div class="score">SCORE</div>
+      <div>{{ score }}</div>
     </div>
     <div class="infos-container" v-if="useColorStore().playRowId === 10000">
       <div class="winLooseMessage">
         {{ winLooseMessage }}
       </div>
 
-      <button class="continue-button" type="button" @click="clickReplay">
-        Continue
-      </button>
-      
+      <button class="continue-button" type="button" @click="clickReplay">Continue</button>
     </div>
   </div>
 </template>
