@@ -1,7 +1,6 @@
 *,
 ::before,
 ::after {
-  content: border-box;
   margin: 0;
   padding: 0;
 }
@@ -30,14 +29,12 @@
   background-color: orange;
 }
 #app {
-  position: relative;
   display: flex;
-  justify-content: flex-start;
-  height: 99vh;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
   max-width:1487px;
-  margin: auto;
-  padding-top: 1.5vh;
-  background: linear-gradient(-30deg, #1f2277, #208aae, #b8dbd9, #f4f4f9);
+  background: #55A6BD;
   overflow: hidden;
 }
 @keyframes solutionPeonsSprout {
@@ -59,24 +56,75 @@
   animation-duration: 0.8s;
   animation-timing-function: ease-in;
 }
+.score-infos{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-left: 2vw; 
+  height: 89vh;
+}
 .score-container { 
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center; 
-  height: 15vh;
+  height: 20vh;
   width: 15vw;
   max-width:198px;
-  max-height: 90px;
-  margin: 5vw;
   padding: 1vw;
-  background: #27744a;
-  color: #d3fad6;
+  background: white;
+  color: #424B54;
   font-size: 1.2rem;  
   font-family: sans-serif;
   font-weight: 900;
-  box-shadow: 3px 3px 7px;
+  box-shadow: inset 5px 5px 7px #424B54, inset -5px -5px 7px #424B54;
   border-radius: 10%;
+}
+.infos-container {
+  animation-name: containerSprout;
+  animation-duration: 1.6s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;  
+  height: 20vh;
+  width: 15vw;
+  max-width:198px;
+  padding: 1vw;  
+  background: white;
+  color: #424B54;
+  font-family: sans-serif;
+  font-size: 1.8rem;
+  font-weight: 900;
+  box-shadow: inset 5px 5px 7px #424B54, inset -5px -5px 7px #424B54;
+  border-radius: 10%;
+}
+.reset-button {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: fit-content;
+  width: fit-content;
+  padding: .4rem;
+  background-color: transparent;
+  color: white;
+  font-size: 0.8rem;
+  border-radius: 10px;
+} 
+.winLooseMessage {
+  animation-name: containerSprout;
+  animation-duration: 1.6s;
+}
+.continue-button {
+  animation-name: containerSprout;
+  animation-duration: 1.6s;
+  height: fit-content;
+  width: fit-content;
+  padding: .5rem;
+  max-width:120px;
+  margin: 0;
+  color: black;
+  border-radius: 7px;   
 }
 @keyframes containerSprout {
   0% {
@@ -92,59 +140,24 @@
     opacity: 1;
   }
 }
-.infos-container {
-  animation-name: containerSprout;
-  animation-duration: 1.6s;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;  
-  height: 20vh;
-  width: 15vw;
-  max-width:198px;
-  margin: 5vw;
-  padding: 1vw;  
-  background: #27744a;
-  color: #d3fad6;
-  font-family: sans-serif;
-  font-style: oblique;
-  font-size: 1.2rem;
-  font-weight: 900;
-  box-shadow: 3px 3px 7px;
-  border-radius: 10%;
-}
-.winLooseMessage {
-  animation-name: containerSprout;
-  animation-duration: 1.6s;
-}
-.continue-button {
-  animation-name: containerSprout;
-  animation-duration: 1.6s;
-  height: 6vh;
-  width: 10vw;
-  max-width:120px;
-  margin: 0;
-  color: black;
-  border-radius: 7px;   
-}
 .play-and-result-wrapper {
   display: flex;
   justify-content: center;  
   width: 70vw;
-  height: 90vh;
-  margin-left: 3vw;
+  /* height: 90vh; */
+  /* margin-left: 3vw;   */
 }
 .play-ground {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 94vh;
-  width: 60vw;
+  height: 89vh;
+  width: 100%;
   max-width:792px;
   padding-left: 1.5vw;
-  padding-right: 1.5vw;
-  background: linear-gradient(-30deg, #3f200f, #6f3d1a, #7c5b3a, #96653c);
-  box-shadow: 3px 3px 10px #d3fad6;
+  padding-right: 1.5vw;background-image: url("src/assets/brick-wall-dark.png");
+  background-color: #BBDB9B;
+  box-shadow: 3px 3px 10px black;
   border-radius: 5%;  
 }
 .game-solution {
@@ -154,8 +167,9 @@
   height: 7vh;
   width: 98%;
   margin:  auto;
-  background-color: #27744a;
-  box-shadow: 4px 4px 4px #5a2e17;
+  background-color: #D58936;
+  background-image: url("src/assets/wood.png");
+  box-shadow: 4px 4px 4px ;
   border-radius: 20px;
 }
 .play-and-check-container {
@@ -180,7 +194,9 @@
   max-height:38px;
   margin: 0.5vw;
   border: black 0.5px solid;
-  box-shadow: 1px 1px 2px;
+  background-color: #D58936;
+  background-image: url("src/assets/wood.png");
+  box-shadow: 2px 2px 2px;
   border-radius: 5px;
 }
 .peons-row {
@@ -190,8 +206,9 @@
   height: 7vh;
   width: 98%;
   margin:  auto;
-  background-color: #27744a;
-  box-shadow: 4px 4px 4px #3f200f;
+  background-color: #D58936;
+  background-image: url("src/assets/wood.png");
+  box-shadow: 4px 4px 4px ;
   border-radius: 20px;  
 }
 .checkRowsContainer {
@@ -208,20 +225,11 @@
   width: 12vw;
   max-height: 35px;
   max-width: 150px;
-  background-color: #6fa667;
+  /* background-color: white; */
+  background-image: url("src/assets/wood.png");
+  background-color: #D58936;
   border-radius: 7px;
 }
-.reset-button {
-  position: absolute;
-  right: 1vw;
-  bottom: 4.5vh;
-  height: 4vw;
-  width: 10vw;
-  background-color: transparent;
-  color: white;
-  font-size: 0.8rem;
-  border-radius: 10px;
-} 
 .peon-shape {
   height: 4vw;
   width: 4vw;
@@ -229,6 +237,7 @@
   max-width:35px;
   border: 0.5px solid black;
   border-radius: 50%;
+  /* background: #DEEFB7; */
 }
 .withinRow-peons {
   box-shadow: 2px 2px 0;

@@ -10,9 +10,7 @@ const restartGame = () => {
 };
 </script>
 <template>
-  <button type="button" class="reset-button" @click="restartGame">
-    <div>RESET</div>
-  </button>
+ 
   <div class="play-ground">
     <GameSolution />
     <TryAndChecks />
