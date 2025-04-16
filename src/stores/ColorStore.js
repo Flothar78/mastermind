@@ -84,7 +84,7 @@ export const useColorStore = defineStore("ColorStore", {
                 .slice(-4)
                 .filter((x) => x === "black").length == this.numberOfPeons) {
                 this.playRowId = 10000;
-                this.winLooseMessage = "Win !";
+                this.winLooseMessage = "You win";
             }
         },
     },

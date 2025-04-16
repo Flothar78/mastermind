@@ -2,10 +2,8 @@
 import GameSolution from "@/components/GameSolution.vue";
 import AvailableColors from "@/components/AvailableColors.vue";
 import TryAndChecks from "@/components/TryAndChecks.vue";
-import { useColorStore } from "@/stores/ColorStore.js";
 import { useScoreStore } from "@/stores/ScoreStore.js";
 const restartGame = () => {
-  //  useColorStore().restartScoreStore();
   useScoreStore().restartGame();
 };
 </script>
