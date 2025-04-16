@@ -4,11 +4,11 @@ import { useColorStore } from "@/stores/ColorStore.js";
 import { useScoreStore } from "@/stores/ScoreStore.js";
 import { storeToRefs } from "pinia";
 import { watch, toRaw, ref } from "vue";
-const { rows, playRowId, resultColors, winLooseMessage } = storeToRefs(useColorStore());
+const { winLooseMessage } = storeToRefs(useColorStore());
 let { score } = storeToRefs(useScoreStore());
 
 watch(winLooseMessage, (newWinLooseMessage) => {
-  newWinLooseMessage === "Win !" ? useScoreStore().increment() : "";
+  newWinLooseMessage === "You win" ? useScoreStore().increment() : "";
 });
 
 const clickReplay = () => {
