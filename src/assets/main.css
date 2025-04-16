@@ -30,10 +30,11 @@
 }
 #app {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   height: 100vh;
   max-width:1487px;
+  margin: auto;
   background: #55A6BD;
   overflow: hidden;
 }
@@ -57,21 +58,27 @@
   animation-timing-function: ease-in;
 }
 .score-infos{
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  margin-left: 2vw; 
+  margin: auto;
   height: 89vh;
+  width:30vw;
 }
 .score-container { 
+  position: absolute;
+  top:0;
+  left:0;
+  transform: translate(50%,50%);
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center; 
-  height: 20vh;
-  width: 15vw;
-  max-width:198px;
-  padding: 1vw;
+  height:20%;
+  width: fit-content;
+  max-width:258px;
+  padding: 2vh 4vw;
   background: white;
   color: #424B54;
   font-size: 1.2rem;  
@@ -83,14 +90,18 @@
 .infos-container {
   animation-name: containerSprout;
   animation-duration: 1.6s;
+  position: absolute;
+  bottom: 0;
+  left:0;
+  transform: translate(50%, -50%);
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;  
-  height: 20vh;
-  width: 15vw;
-  max-width:198px;
-  padding: 1vw;  
+  height:20%;
+  width: fit-content;
+  max-width:258px;
+  padding: 2vh 4vw;
   background: white;
   color: #424B54;
   font-family: sans-serif;
@@ -106,6 +117,7 @@
   height: fit-content;
   width: fit-content;
   padding: .4rem;
+  border: 1px solid #424b54;
   background-color: transparent;
   color: white;
   font-size: 0.8rem;
