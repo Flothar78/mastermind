@@ -61,7 +61,7 @@
     opacity: 0;
   }
   80% {
-    opacity: 0.5;
+    opacity: 0.1;
   }
   90% {
     opacity: 0.7;
@@ -185,7 +185,7 @@
   max-width:792px;
   padding:0 1.5vw;
   margin-left: 5vh;
-  background-image: url("src/assets/brick-wall-dark.png");
+  background-image: url("/brick-wall-dark.png");
   background-color: #BBDB9B;
   box-shadow: 3px 3px 10px #424B54;
   border-radius: 5%;  
@@ -198,7 +198,7 @@
   width: 98%;
   margin:  auto;
   background-color: #D58936;
-  background-image: url("src/assets/wood.png");
+  background-image: url("/wood.png");
   box-shadow: 4px 4px 4px ;
   border-radius: 20px;
 }
@@ -225,7 +225,7 @@
   margin: 0.5vw;
   border: black 0.5px solid;
   background-color: #D58936;
-  background-image: url("src/assets/wood.png");
+  background-image: url("/wood.png");
   box-shadow: 2px 2px 2px;
   border-radius: 5px;
 }
@@ -237,7 +237,7 @@
   width: 98%;
   margin:  auto;
   background-color: #D58936;
-  background-image: url("src/assets/wood.png");
+  background-image: url("/wood.png");
   box-shadow: 4px 4px 4px ;
   border-radius: 20px;  
 }
@@ -256,7 +256,7 @@
   max-height: 35px;
   max-width: 150px;
   /* background-color: white; */
-  background-image: url("src/assets/wood.png");
+  background-image: url("/wood.png");
   background-color: #D58936;
   border-radius: 7px;
 }
