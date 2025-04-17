@@ -29,6 +29,7 @@
   background-color: orange;
 }
 #app {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -37,6 +38,23 @@
   margin: auto;
   background: #B7D3F2;
   overflow: hidden;
+}
+.tutorial-button {
+  position: absolute;
+  top: 1vh;
+  right: 1vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10vw;
+  max-width: 100px;
+  height: 5vh;
+  padding: 0 1vw;
+  background-color: #424b54;
+  color: white;
+  cursor: default;
+  border-radius: 10px;
+  z-index: 20;
 }
 @keyframes solutionPeonsSprout {
   0% {
