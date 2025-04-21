@@ -6,45 +6,41 @@ const currentSlide = ref(0);
 const slides = [
   {
     text: "En haut du plateau de jeu, il y a la solution qui est cachée.",
-    img: "/solution.png",
+    img: new URL("/solution.png", import.meta.url).href,
     alt: "Solution de la combinaison de couleurs à deviner",
   },
   {
     text: "En bas du plateau de jeu, il y a une réserve de couleurs disponibles.",
-    img: "/reserve_de_couleurs.png",
+    img: new URL("/reserve_de_couleurs.png", import.meta.url).href,
     alt: "Réserve de couleurs disponibles pour le jeu",
   },
   {
-    text: "Il faut deviner la bonne combinaison en faisant des propositions.",
-    img: "/combinaison_couleurs.png",
+    text: "Il faut deviner la bonne combinaison en faisant des propositions, dans les rangées de gauche.",
+    img: new URL("/combinaison_couleurs.png", import.meta.url).href,
     alt: "Rangée pour proposer des combinaisons de couleurs",
   },
   {
     text: `
-      Dans les rangées de gauche, on vous aide à chaque tentative. `,
-
-    img: "/check_peons.png",
+      Dans les rangées de droite, on vous aide à chaque tentative. `,
+    img: new URL("/check_peons.png", import.meta.url).href,
     alt: "Vérification du nombre de pions présents et/ou bien placés.",
   },
   {
     text: ` 
-      Les pions noirs indiquent le nombre de couleurs bien placées.  
-        `,
-
-    img: "/check_peons.png",
+      Les pions noirs indiquent le nombre de couleurs bien placées.`,
+    img: new URL("/check_peons.png", import.meta.url).href,
     alt: "Vérification du nombre de pions présents et/ou bien placés.",
   },
   {
     text: `
       Les pions blancs indiquent le nombre de couleurs présentes mais mal placées.  `,
-
-    img: "/check_peons.png",
+    img: new URL("/check_peons.png", import.meta.url).href,
     alt: "Vérification du nombre de pions présents et/ou bien placés.",
   },
   {
     text: `  
-      ATTENTION: Les pions de vérification n'indiquent pas l'emplacement des couleurs. Seulement leur nombre.`,
-    img: "/check_peons.png",
+      ATTENTION: Les pions blancs et noirs indiquent uniquement le nombre de couleurs présentes ou bien placées, pas leur emplacement.`,
+    img: new URL("/check_peons.png", import.meta.url).href,
     alt: "Vérification du nombre de pions présents et/ou bien placés.",
   },
 ];
@@ -78,8 +74,8 @@ const nextSlide = () => {
   position: fixed;
   top: 0;
   left: 0;
-  right:0;
-  bottom:0;
+  right: 0;
+  bottom: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -130,7 +126,7 @@ const nextSlide = () => {
   text-align: center;
 }
 img {
-  width: 50vw;
+  width: 70vw;
   height: 20vh;
   max-width: 800px;
   object-fit: contain;
