@@ -20,10 +20,30 @@ const slides = [
     alt: "Rangée pour proposer des combinaisons de couleurs",
   },
   {
-    text: `Pour chaque combinaison proposée:  
+    text: `
+      Dans les rangées de gauche, on vous aide à chaque tentative. `,
+
+    img: "/check_peons.png",
+    alt: "Vérification du nombre de pions présents et/ou bien placés.",
+  },
+  {
+    text: ` 
       Les pions noirs indiquent le nombre de couleurs bien placées.  
-      Les pions blancs indiquent le nombre de couleurs présentes mais mal placées.  
-      ATTENTION: Les pions de vérification n'indiquent pas l'emplacement des couleurs.`,
+        `,
+
+    img: "/check_peons.png",
+    alt: "Vérification du nombre de pions présents et/ou bien placés.",
+  },
+  {
+    text: `
+      Les pions blancs indiquent le nombre de couleurs présentes mais mal placées.  `,
+
+    img: "/check_peons.png",
+    alt: "Vérification du nombre de pions présents et/ou bien placés.",
+  },
+  {
+    text: `  
+      ATTENTION: Les pions de vérification n'indiquent pas l'emplacement des couleurs. Seulement leur nombre.`,
     img: "/check_peons.png",
     alt: "Vérification du nombre de pions présents et/ou bien placés.",
   },
@@ -60,6 +80,7 @@ const nextSlide = () => {
   left: 0;
   height: 90vh;
   width: 90vw;
+  max-width: 1483px;
   padding: 5vh 5vw;
   background: white;
   opacity: 0.92;
@@ -88,25 +109,27 @@ const nextSlide = () => {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  height: 75%;
+  height: 55%;
   width: 75%;
+  max-width: 1117px;
   border: 4px #424b54 solid;
   border-radius: 10%;
   box-shadow: 2px 2px 8px, -2px -2px 8px;
 }
 .tuto-text > div {
-  border: 2px solid black;
-  display:flex;
+  /* border: 2px solid black; */
+  display: flex;
   justify-content: center;
-  align-items:center;
-   height:50%;
-   padding: 0 8vw;
-   text-align:left;
+  align-items: center;
+  height: 50%;
+  padding: 0 8vw;
+  text-align: center;
 }
 img {
-  width: 60vw;
-  height: 30vh;
-  object-fit: cover;
+  width: 50vw;
+  height: 20vh;
+  max-width: 800px;
+  object-fit: contain;
 }
 .next-button {
   position: absolute;
