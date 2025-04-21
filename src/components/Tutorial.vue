@@ -75,12 +75,19 @@ const nextSlide = () => {
 </template>
 <style scoped>
 .tuto-container {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
+  right:0;
+  bottom:0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
   height: 90vh;
   width: 90vw;
-  max-width: 1483px;
+  max-width: 1487px;
+  margin: auto;
   padding: 5vh 5vw;
   background: white;
   opacity: 0.92;
@@ -88,10 +95,7 @@ const nextSlide = () => {
   font-family: sans-serif;
   font-size: 1.4rem;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
+  overflow: hidden;
 }
 .tuto-title {
   /* border: black 1px solid; */
