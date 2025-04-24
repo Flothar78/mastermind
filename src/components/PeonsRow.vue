@@ -8,12 +8,15 @@ let { rows, solution, winLooseMessage, numberOfPeons, playRowId } = storeToRefs(
   color_store
 );
 const arrayRows = Object.values(rows.value);
-
-// Vérifier si la rangée active est remplie
 const isRowFilled = (rowIndex) => {
-  
   return rows.value[rowIndex].some(peon => peon !== "");
 };
+// const handleDrop = (event, rowIndex, peonIndex) => {
+//   const color = event.dataTransfer.getData("color"); // Récupère la couleur transférée
+//   console.log(color)
+//   color_store.getColorFromStore(rowIndex, peonIndex, color); // Mets la couleur dans la rangée à l'endroit correct
+// };
+// handleDrop()
 watch(playRowId, (playRowId) => {
   playRowId == 10 ? looseMessage() : "";
 });

@@ -18,6 +18,9 @@ const choiceColorFromAvailableColors = (index) => {
   event1.value(index);
   event2.value(index);
 };
+const dragStart = (event, index) => {
+  event.dataTransfer.setData("color", colorsArray[index]); // On sauvegarde la couleur choisie dans le transfert
+};
 </script>
 <template>
   <div class="peons-row">
@@ -31,6 +34,8 @@ const choiceColorFromAvailableColors = (index) => {
         })
       "
       @click="choiceColorFromAvailableColors(index)"
+      @dragstart="dragStart($event, index)"
+      draggable="true"
     />
   </div>
 </template>
@@ -38,6 +43,6 @@ const choiceColorFromAvailableColors = (index) => {
 <style scoped>
 @import "@/assets/main.css";
 .chosen-color {
-  border: .5rem white solid;
+  border: 0.5rem white solid;
 }
 </style>
