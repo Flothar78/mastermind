@@ -34,20 +34,32 @@ export const useColorStore = defineStore("ColorStore", {
             this.choiceOfColor.length = 0;
             this.choiceOfColor.push(color);
         },
-        getColorFromStore(chosenRow, chosenPeon) {
-            if (chosenRow === this.playRowId) {
-                const row = this.rows[chosenRow];
-                const chosenPeons = this.chosenPeons;
-                row[chosenPeon] = this.choiceOfColor[0];
-                row.map((x) => {
-                    x !== "" ? chosenPeons.push(x) : "";
-                });
-                row.every((x) => x !== "") ? this.playRowId++ : "";
-                row.every((x) => x !== "") && chosenPeons.length == this.numberOfPeons
-                    ? this.checkColorsPlaces(chosenRow)
-                    : (chosenPeons.length = 0);
+        getColorFromStore(chosenRow, chosenPeon, color = this.choiceOfColor[0]) {
+            if (chosenRow !== this.playRowId) return;
+          
+            const row = this.rows[chosenRow];
+            
+            // Ne modifie la case que si elle est vide (évite l'écrasement)
+            if (row[chosenPeon] === "") {
+              row[chosenPeon] = color;
             }
-        },
+          
+            // On reconstruit chosenPeons proprement depuis la ligne actuelle
+            this.chosenPeons = row.filter(peon => peon !== "");
+          
+            // Si toute la ligne est remplie
+            if (row.every(x => x !== "")) {
+              this.playRowId++;
+          
+              if (this.chosenPeons.length === this.numberOfPeons) {
+                this.checkColorsPlaces(chosenRow);
+              }
+          
+              // Reset après validation
+              this.chosenPeons = [];
+            }
+          },
+          
         previouslyCountedColor(colorName) {
             this.solutionObject[colorName] > 0
                 ? this.solutionObject[colorName]--

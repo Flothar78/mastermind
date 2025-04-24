@@ -11,10 +11,20 @@ const arrayRows = Object.values(rows.value);
 const isRowFilled = (rowIndex) => {
   return rows.value[rowIndex].some((peon) => peon !== "");
 };
-const handleDrop = (event, rowIndex, peonIndex) => {
-  const color = event.dataTransfer.getData("color");
-  console.log(color, rowIndex, peonIndex);
-  color_store.getColorFromStore(rowIndex, peonIndex, color); // Mets la couleur dans la rangée à l'endroit correct
+const handleDrop = (event, rowIndex) => {
+  // Empêcher l'effet par défaut
+  event.preventDefault();
+
+  // Récupérer l'élément cible (le peon sur lequel on a effectué le drop)
+  const target = event.target;
+
+  // Vérifier que l'élément cible a l'attribut data-peon-index
+  if (target && target.dataset && target.dataset.peonIndex !== undefined) {
+    const peonIndex = parseInt(target.dataset.peonIndex, 10);
+    const color = event.dataTransfer.getData("color"); // Récupère la couleur transférée
+    console.log(color, rowIndex, peonIndex);
+    color_store.getColorFromStore(rowIndex, peonIndex, color); // Mets la couleur dans la rangée à l'endroit correct
+  }
 };
 
 watch(playRowId, (playRowId) => {
@@ -32,20 +42,23 @@ const looseMessage = () => {
 <template>
   <div class="betweenRows">
     <div
-      v-for="(row, index) in rows"
-      :key="index"
-      :class="{ 'active-row': index === playRowId && !isRowFilled(index) }"
+      v-for="(row, rowIndex) in rows"
+      :key="rowIndex"
+      :class="{ 'active-row': rowIndex === playRowId && !isRowFilled(rowIndex) }"
       @dragover.prevent
       @dragenter.prevent
-      @drop="handleDrop($event, index)"
+      @drop="handleDrop($event, rowIndex)"
       class="withinRow"
     >
       <PeonOccurence
-        v-for="(peon, index) in row"
-        :key="index"
-        @click="color_store.getColorFromStore(rows.indexOf(row), index)"
-        :class="rows[rows.indexOf(row)][index]"
+        v-for="(peon, peonIndex) in row"
+        :key="peonIndex"
+        :data-peon-index="peonIndex" 
+        @click="color_store.getColorFromStore(rowIndex, peonIndex)"
+        :class="rows[rowIndex][peonIndex]"
         class="withinRow-peons"
+        draggable="true"
+        @dragstart="handleDragStart($event, rowIndex, peonIndex)"
       />
     </div>
   </div>
