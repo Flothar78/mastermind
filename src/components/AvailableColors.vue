@@ -20,8 +20,7 @@ const choiceColorFromAvailableColors = (index) => {
 };
 const dragStart = (event, index) => {
   const color = colorsArray.value[index];  
-  event.dataTransfer.setData("color", color); // Ajoute la couleur dans dataTransfer
-  console.log('Drag started with color:', color);
+  event.dataTransfer.setData("color", color); 
 };
 
 </script>
