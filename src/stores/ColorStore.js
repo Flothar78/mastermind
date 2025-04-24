@@ -34,8 +34,9 @@ export const useColorStore = defineStore("ColorStore", {
             this.choiceOfColor.length = 0;
             this.choiceOfColor.push(color);
         },
-        getColorFromStore(chosenRow, chosenPeon) {
+        getColorFromStore(chosenRow, chosenPeon, color) {
             if (chosenRow === this.playRowId) {
+                // this.rows[chosenRow][chosenPeon] = color;
                 const row = this.rows[chosenRow];
                 const chosenPeons = this.chosenPeons;
                 row[chosenPeon] = this.choiceOfColor[0];

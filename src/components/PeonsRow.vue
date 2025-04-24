@@ -9,14 +9,14 @@ let { rows, solution, winLooseMessage, numberOfPeons, playRowId } = storeToRefs(
 );
 const arrayRows = Object.values(rows.value);
 const isRowFilled = (rowIndex) => {
-  return rows.value[rowIndex].some(peon => peon !== "");
+  return rows.value[rowIndex].some((peon) => peon !== "");
 };
-// const handleDrop = (event, rowIndex, peonIndex) => {
-//   const color = event.dataTransfer.getData("color"); // Récupère la couleur transférée
-//   console.log(color)
-//   color_store.getColorFromStore(rowIndex, peonIndex, color); // Mets la couleur dans la rangée à l'endroit correct
-// };
-// handleDrop()
+const handleDrop = (event, rowIndex, peonIndex) => {
+  const color = event.dataTransfer.getData("color");
+  console.log(color, rowIndex, peonIndex);
+  color_store.getColorFromStore(rowIndex, peonIndex, color); // Mets la couleur dans la rangée à l'endroit correct
+};
+
 watch(playRowId, (playRowId) => {
   playRowId == 10 ? looseMessage() : "";
 });
@@ -35,6 +35,9 @@ const looseMessage = () => {
       v-for="(row, index) in rows"
       :key="index"
       :class="{ 'active-row': index === playRowId && !isRowFilled(index) }"
+      @dragover.prevent
+      @dragenter.prevent
+      @drop="handleDrop($event, index)"
       class="withinRow"
     >
       <PeonOccurence
@@ -55,14 +58,14 @@ const looseMessage = () => {
 }
 @keyframes pulse {
   0% {
-    box-shadow: 8px 8px 8px #ffcb60,-8px -8px 16px #ffcb60;
+    box-shadow: 8px 8px 8px #ffcb60, -8px -8px 16px #ffcb60;
     background-color: #c09f7d;
   }
   70% {
     box-shadow: 0 0 0 transparent;
   }
   100% {
-    box-shadow: 0 0 0  transparent;
+    box-shadow: 0 0 0 transparent;
   }
 }
 </style>

@@ -19,8 +19,11 @@ const choiceColorFromAvailableColors = (index) => {
   event2.value(index);
 };
 const dragStart = (event, index) => {
-  event.dataTransfer.setData("color", colorsArray[index]); // On sauvegarde la couleur choisie dans le transfert
+  const color = colorsArray.value[index];  
+  event.dataTransfer.setData("color", color); // Ajoute la couleur dans dataTransfer
+  console.log('Drag started with color:', color);
 };
+
 </script>
 <template>
   <div class="peons-row">
