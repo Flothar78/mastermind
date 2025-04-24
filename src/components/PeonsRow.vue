@@ -45,17 +45,16 @@ const looseMessage = () => {
 .active-row {
   animation: pulse 1s infinite;
 }
-
 @keyframes pulse {
   0% {
-    box-shadow: 8px 8px 8px #ffcb60;
+    box-shadow: 8px 8px 12px #ffcb60,-8px -8px 30px #ffcb60;
     background-color: #c09f7d;
   }
   70% {
-    box-shadow: 0 0 0 rgba(255, 215, 0, 0);
+    box-shadow: 0 0 0 transparent;
   }
   100% {
-    box-shadow: 0 0 0  rgba(255, 215, 0, 0);
+    box-shadow: 0 0 0  transparent;
   }
 }
 </style>
