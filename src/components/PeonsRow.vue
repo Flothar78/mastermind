@@ -1,11 +1,12 @@
-<script  setup>
+<script setup>
 import PeonOccurence from "@/components/PeonOccurence.vue";
 import { useColorStore } from "@/stores/ColorStore.js";
 import { storeToRefs } from "pinia";
 import { watch } from "vue";
 const color_store = useColorStore();
-let { rows, solution, winLooseMessage, numberOfPeons, playRowId } =
-  storeToRefs(color_store);
+let { rows, solution, winLooseMessage, numberOfPeons, playRowId } = storeToRefs(
+  color_store
+);
 
 const arrayRows = Object.values(rows.value);
 watch(playRowId, (playRowId) => {
@@ -13,8 +14,7 @@ watch(playRowId, (playRowId) => {
 });
 const looseMessage = () => {
   if (
-    JSON.stringify(arrayRows[arrayRows.length - 1]) !==
-    JSON.stringify(solution.value)
+    JSON.stringify(arrayRows[arrayRows.length - 1]) !== JSON.stringify(solution.value)
   ) {
     color_store.winLooseMessage = "You lose";
     color_store.playRowId = 10000;
@@ -23,7 +23,12 @@ const looseMessage = () => {
 </script>
 <template>
   <div class="betweenRows">
-    <div v-for="row in rows" :key="rows.indexOf(row)" class="withinRow">
+    <div
+      v-for="(row, index) in rows"
+      :key="index"
+      :class="{ 'active-row': index === playRowId }"
+      class="withinRow"
+    >
       <PeonOccurence
         v-for="(peon, index) in row"
         :key="index"
@@ -37,4 +42,20 @@ const looseMessage = () => {
 
 <style scoped>
 @import "@/assets/main.css";
+.active-row {
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 8px 8px 8px #ffcb60;
+    background-color: #c09f7d;
+  }
+  70% {
+    box-shadow: 0 0 0 rgba(255, 215, 0, 0);
+  }
+  100% {
+    box-shadow: 0 0 0  rgba(255, 215, 0, 0);
+  }
+}
 </style>
