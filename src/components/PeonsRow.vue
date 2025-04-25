@@ -60,18 +60,22 @@ const looseMessage = () => {
 <style scoped>
 @import "@/assets/main.css";
 .active-row {
-  animation: pulse 1s infinite;
+  animation: pulse 1.5s  infinite;
 }
+
 @keyframes pulse {
   0% {
     box-shadow: 8px 8px 2px #ffcb60, -8px -8px 20px #ffcb60;
     background-color: #c09f7d;
   }
-  70% {
+  50% {
     box-shadow: 0 0 0 transparent;
+    background-color: #D58936;
+
   }
   100% {
-    box-shadow: 6px 6px 14px ;
+    box-shadow: 0 0 0 transparent;
+    background-color: #D58936;
   }
 }
 </style>
