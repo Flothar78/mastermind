@@ -69,7 +69,7 @@ const looseMessage = () => {
     background-color: #d58936;
   }
   75% {
-    box-shadow: 8px 8px 2px #ffcb60, -8px -8px 8px #ffcb60;
+    box-shadow: 8px 8px 22px #ffcb60, -8px -8px 28px #ffcb60;
     background-color: #c09f7d;
   }
   98% {
