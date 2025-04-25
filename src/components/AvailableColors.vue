@@ -22,9 +22,14 @@ const dragStart = (event, index) => {
   const color = colorsArray.value[index];
   event.dataTransfer.setData("color", color);
 };
+const isPeonActive = ref(true)
+
+function handleRowClick() {
+  isPeonActive.value = false
+}
 </script>
 <template>
-  <div class="peons-row">
+  <div class="peons-row" @click="handleRowClick">
     <PeonOccurence
       v-for="(color, index) in colorsArray"
       :key="index"
@@ -32,6 +37,7 @@ const dragStart = (event, index) => {
         [color]: true,
         'peon-drag-image': true,
         'chosen-color': index === chosenColorClass,
+        'peon': isPeonActive,
       }"
       @click="choiceColorFromAvailableColors(index)"
       @dragstart="dragStart($event, index)"
@@ -49,5 +55,21 @@ const dragStart = (event, index) => {
   border-radius: 50%;
   overflow: hidden;
   /* background-color: transparent; */
+}
+.peon {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  
+  0% {
+    box-shadow: 3px 3px 2px #ffcb60, -3px -3px 2px #ffcb60;
+  }
+  33.33% {
+    box-shadow: 0 0 0 transparent;
+  }
+  100% {
+    box-shadow: 0 0 0 transparent;
+  }
 }
 </style>
