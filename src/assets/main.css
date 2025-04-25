@@ -42,7 +42,7 @@
 }
 .tutorial-button {
   position: absolute;
-  top: 4vh;
+  top: 5vh;
   right: 1vw;
   display: flex;
   justify-content: center;
@@ -102,8 +102,8 @@
 .score-container { 
   position: absolute;
   top:0;
-  left:50%;
-  transform: translate(-50%,50%);
+  left:0%;
+  transform: translate(42%,50%);
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -129,7 +129,7 @@
   position: absolute;
   bottom: 0;
   left:50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-48%, -50%);
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -152,7 +152,7 @@
 .reset-button {
   position: absolute;
   right: 1vw;
-  bottom: 0;
+  bottom: -1vh;
   height: fit-content;
   width: 8vw;
   padding: .4rem;

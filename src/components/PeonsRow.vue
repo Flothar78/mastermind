@@ -64,14 +64,14 @@ const looseMessage = () => {
 }
 @keyframes pulse {
   0% {
-    box-shadow: 8px 8px 8px #ffcb60, -8px -8px 16px #ffcb60;
+    box-shadow: 8px 8px 2px #ffcb60, -8px -8px 20px #ffcb60;
     background-color: #c09f7d;
   }
   70% {
     box-shadow: 0 0 0 transparent;
   }
   100% {
-    box-shadow: 0 0 0 transparent;
+    box-shadow: 6px 6px 14px ;
   }
 }
 </style>
