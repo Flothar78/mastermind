@@ -40,9 +40,7 @@ export const useColorStore = defineStore("ColorStore", {
             const row = this.rows[chosenRow];
             
             // Ne modifie la case que si elle est vide (évite l'écrasement)
-            if (row[chosenPeon] === "") {
-              row[chosenPeon] = color;
-            }
+            row[chosenPeon] = color;
           
             // On reconstruit chosenPeons proprement depuis la ligne actuelle
             this.chosenPeons = row.filter(peon => peon !== "");

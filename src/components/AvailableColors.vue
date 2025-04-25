@@ -1,6 +1,6 @@
 <script setup>
 import PeonOccurence from "@/components/PeonOccurence.vue";
-import { reactive, ref } from "vue";
+import { reactive, ref, nextTick } from "vue";
 import { useColorStore } from "@/stores/ColorStore.js";
 import { useScoreStore } from "@/stores/ScoreStore.js";
 import { storeToRefs } from "pinia";
@@ -18,23 +18,28 @@ const choiceColorFromAvailableColors = (index) => {
   event1.value(index);
   event2.value(index);
 };
+const peonRefs = ref([]); // Références aux éléments DOM
 const dragStart = (event, index) => {
-  const color = colorsArray.value[index];  
-  event.dataTransfer.setData("color", color); 
+  const color = colorsArray.value[index];
+  event.dataTransfer.setData("color", color);
+  const el = peonRefs.value[index]?.$el || peonRefs.value[index];
+  if (el) {
+    console.log(el.clientWidth);
+    event.dataTransfer.setDragImage(el, el.clientWidth / 2, el.clientHeight / 2);
+    console.log(el.clientWidth);
+  }
 };
-
 </script>
 <template>
   <div class="peons-row">
     <PeonOccurence
       v-for="(color, index) in colorsArray"
       :key="index"
-      :class="
-        reactive({
-          [color]: true,
-          'chosen-color': index === chosenColorClass,
-        })
-      "
+      :ref="(el) => (peonRefs[index] = el)"
+      :class="{
+        [color]: true,
+        'chosen-color': index === chosenColorClass,
+      }"
       @click="choiceColorFromAvailableColors(index)"
       @dragstart="dragStart($event, index)"
       draggable="true"
