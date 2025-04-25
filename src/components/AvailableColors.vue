@@ -62,14 +62,14 @@ function handleRowClick() {
   /* background-color: transparent; */
 }
 .peon {
-  animation: pulse 1.5s infinite;
+  animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
   0% {
-    box-shadow: 3px 3px 2px #ffcb60, -3px -3px 8px #ffcb60;
+    box-shadow: 6px 6px 2px #ffcb60;
   }
-  33.33% {
+  50% {
     box-shadow: 0 0 0 transparent;
   }
   100% {
