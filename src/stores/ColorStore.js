@@ -1,115 +1,142 @@
 import { defineStore } from "pinia";
-export const useColorStore = defineStore("ColorStore", {
-    state: () => {
+export const useColorStore = defineStore( "ColorStore", {
+    state: () =>
+    {
         return {
             rows: [
-                ["", "", "", ""],
-                ["", "", "", ""],
-                ["", "", "", ""],
-                ["", "", "", ""],
-                ["", "", "", ""],
-                ["", "", "", ""],
-                ["", "", "", ""],
-                ["", "", "", ""],
-                ["", "", "", ""],
-                ["", "", "", ""],
+                [ "", "", "", "" ],
+                [ "", "", "", "" ],
+                [ "", "", "", "" ],
+                [ "", "", "", "" ],
+                [ "", "", "", "" ],
+                [ "", "", "", "" ],
+                [ "", "", "", "" ],
+                [ "", "", "", "" ],
+                [ "", "", "", "" ],
+                [ "", "", "", "" ],
             ],
-            colorsArray: ["red", "blue", "green", "yellow", "orange", "black"],
+            colorsArray: [ "red", "blue", "green", "yellow", "orange", "black" ],
             choiceOfColor: [],
             chosenPeons: [],
             solution: [],
-            resultColors: [[], [], [], [], [], [], [], [], [], []],
+            resultColors: [ [], [], [], [], [], [], [], [], [], [] ],
             playRowId: 0,
             winLooseMessage: "",
+            isPeonActive: true,
         };
     },
     actions: {
-        getRandomColors(number) {
-            if (this.solution.length < this.numberOfPeons) {
-                this.solution.push(this.colorsArray[Math.floor(Math.random() * this.colorsArray.length)]);
-            }
-            return this.solution[number];
+        restartAnimation ()
+        {
+            this.isPeonActive = false
+            requestAnimationFrame( () =>
+            {
+                this.isPeonActive = true
+            } )
         },
-        addColorToStore(color) {
+        getRandomColors ( number )
+        {
+            if ( this.solution.length < this.numberOfPeons )
+            {
+                this.solution.push( this.colorsArray[ Math.floor( Math.random() * this.colorsArray.length ) ] );
+            }
+            return this.solution[ number ];
+        },
+        addColorToStore ( color )
+        {
             this.choiceOfColor.length = 0;
-            this.choiceOfColor.push(color);
+            this.choiceOfColor.push( color );
         },
-        getColorFromStore(chosenRow, chosenPeon, color = this.choiceOfColor[0]) {
-            if (chosenRow !== this.playRowId) return;
-          
-            const row = this.rows[chosenRow];
-            
+        getColorFromStore ( chosenRow, chosenPeon, color = this.choiceOfColor[ 0 ] )
+        {
+            if ( chosenRow !== this.playRowId ) return;
+
+            const row = this.rows[ chosenRow ];
+
             // Ne modifie la case que si elle est vide (évite l'écrasement)
-            row[chosenPeon] = color;
-          
+            row[ chosenPeon ] = color;
+
             // On reconstruit chosenPeons proprement depuis la ligne actuelle
-            this.chosenPeons = row.filter(peon => peon !== "");
-          
+            this.chosenPeons = row.filter( peon => peon !== "" );
+
             // Si toute la ligne est remplie
-            if (row.every(x => x !== "")) {
-              this.playRowId++;
-          
-              if (this.chosenPeons.length === this.numberOfPeons) {
-                this.checkColorsPlaces(chosenRow);
-              }
-          
-              // Reset après validation
-              this.chosenPeons = [];
+            if ( row.every( x => x !== "" ) )
+            {
+                this.playRowId++;
+
+                if ( this.chosenPeons.length === this.numberOfPeons )
+                {
+                    this.checkColorsPlaces( chosenRow );
+                }
+
+                // Reset après validation
+                this.chosenPeons = [];
             }
-          },
-          
-        previouslyCountedColor(colorName) {
-            this.solutionObject[colorName] > 0
-                ? this.solutionObject[colorName]--
+        },
+
+        previouslyCountedColor ( colorName )
+        {
+            this.solutionObject[ colorName ] > 0
+                ? this.solutionObject[ colorName ]--
                 : "";
         },
-        checkColorsPlaces(chosenRow) {
-            Object.assign(this.solutionObject, this.solution.reduce((map = {}, peon) => ({
+        checkColorsPlaces ( chosenRow )
+        {
+            Object.assign( this.solutionObject, this.solution.reduce( ( map = {}, peon ) => ( {
                 ...map,
-                [peon]: (map[peon] || 0) + 1,
-            }), {}));
-            this.chosenPeons.map((x, i) => {
-                if (this.solution[i] === x) {
-                    this.resultColors[chosenRow].push("black");
-                    this.previouslyCountedColor(x);
+                [ peon ]: ( map[ peon ] || 0 ) + 1,
+            } ), {} ) );
+            this.chosenPeons.map( ( x, i ) =>
+            {
+                if ( this.solution[ i ] === x )
+                {
+                    this.resultColors[ chosenRow ].push( "black" );
+                    this.previouslyCountedColor( x );
                 }
-            }),
-                this.chosenPeons.map((x, i) => {
-                    if (this.solution.includes(x) && this.solution[i] !== x) {
-                        this.solutionObject[x] === 0
-                            ? this.resultColors[chosenRow].push("none")
-                            : this.resultColors[chosenRow].push("grey") &&
-                                this.previouslyCountedColor(x);
+            } ),
+                this.chosenPeons.map( ( x, i ) =>
+                {
+                    if ( this.solution.includes( x ) && this.solution[ i ] !== x )
+                    {
+                        this.solutionObject[ x ] === 0
+                            ? this.resultColors[ chosenRow ].push( "none" )
+                            : this.resultColors[ chosenRow ].push( "grey" ) &&
+                            this.previouslyCountedColor( x );
                     }
-                    else if (!this.solution.includes(x)) {
-                        this.resultColors[chosenRow].push("none");
+                    else if ( !this.solution.includes( x ) )
+                    {
+                        this.resultColors[ chosenRow ].push( "none" );
                     }
-                });
+                } );
             this.endOfGame();
-            return this.resultColors.map((x) => x.sort());
+            return this.resultColors.map( ( x ) => x.sort() );
         },
-        endOfGame() {
-            if (this.resultColors
+        endOfGame ()
+        {
+            if ( this.resultColors
                 .flat()
-                .slice(-4)
-                .filter((x) => x === "black").length == this.numberOfPeons) {
+                .slice( -4 )
+                .filter( ( x ) => x === "black" ).length == this.numberOfPeons )
+            {
                 this.playRowId = 10000;
                 this.winLooseMessage = "You win";
             }
         },
     },
     getters: {
-        numberOfPeons() {
-            return (Object.values(this.rows).flat().length / Object.values(this.rows).length);
+        numberOfPeons ()
+        {
+            return ( Object.values( this.rows ).flat().length / Object.values( this.rows ).length );
         },
-        solutionObject() {
+        solutionObject ()
+        {
             const solution = this.solution;
-            const solutionObj = solution.reduce((map = {}, peon) => ({
+            const solutionObj = solution.reduce( ( map = {}, peon ) => ( {
                 ...map,
-                [peon]: (map[peon] || 0) + 1,
-            }), {});
+                [ peon ]: ( map[ peon ] || 0 ) + 1,
+            } ), {} );
             return solutionObj;
         },
     },
-});
+} );
 //# sourceMappingURL=ColorStore.js.map

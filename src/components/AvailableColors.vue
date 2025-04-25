@@ -1,15 +1,20 @@
 <script setup>
 import PeonOccurence from "@/components/PeonOccurence.vue";
-import { reactive, ref, nextTick } from "vue";
+import { ref, computed } from "vue";
 import { useColorStore } from "@/stores/ColorStore.js";
 import { useScoreStore } from "@/stores/ScoreStore.js";
 import { storeToRefs } from "pinia";
 const { colorsArray } = storeToRefs(useColorStore());
 const { chosenColorClass } = storeToRefs(useScoreStore());
+const colorStore = useColorStore();
+// Remplace ta variable locale par celle du store :
+const isPeonActive = computed(() => colorStore.isPeonActive);
+console.log(isPeonActive.value);
+
 const event1 = ref(null);
 const event2 = ref(null);
 event1.value = (index) => {
-  useColorStore().addColorToStore(useColorStore().colorsArray[index]);
+  colorStore.addColorToStore(colorStore.colorsArray[index]);
 };
 event2.value = (index) => {
   chosenColorClass.value = index;
@@ -19,13 +24,13 @@ const choiceColorFromAvailableColors = (index) => {
   event2.value(index);
 };
 const dragStart = (event, index) => {
+  colorStore.isPeonActive = false;
   const color = colorsArray.value[index];
   event.dataTransfer.setData("color", color);
 };
-const isPeonActive = ref(true)
 
 function handleRowClick() {
-  isPeonActive.value = false
+  colorStore.isPeonActive = false;
 }
 </script>
 <template>
@@ -37,7 +42,7 @@ function handleRowClick() {
         [color]: true,
         'peon-drag-image': true,
         'chosen-color': index === chosenColorClass,
-        'peon': isPeonActive,
+        peon: isPeonActive,
       }"
       @click="choiceColorFromAvailableColors(index)"
       @dragstart="dragStart($event, index)"
@@ -61,9 +66,8 @@ function handleRowClick() {
 }
 
 @keyframes pulse {
-  
   0% {
-    box-shadow: 3px 3px 2px #ffcb60, -3px -3px 2px #ffcb60;
+    box-shadow: 3px 3px 2px #ffcb60, -3px -3px 8px #ffcb60;
   }
   33.33% {
     box-shadow: 0 0 0 transparent;
