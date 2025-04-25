@@ -18,16 +18,9 @@ const choiceColorFromAvailableColors = (index) => {
   event1.value(index);
   event2.value(index);
 };
-const peonRefs = ref([]); // Références aux éléments DOM
 const dragStart = (event, index) => {
   const color = colorsArray.value[index];
   event.dataTransfer.setData("color", color);
-  const el = peonRefs.value[index]?.$el || peonRefs.value[index];
-  if (el) {
-    console.log(el.clientWidth);
-    event.dataTransfer.setDragImage(el, el.clientWidth / 2, el.clientHeight / 2);
-    console.log(el.clientWidth);
-  }
 };
 </script>
 <template>
@@ -35,9 +28,9 @@ const dragStart = (event, index) => {
     <PeonOccurence
       v-for="(color, index) in colorsArray"
       :key="index"
-      :ref="(el) => (peonRefs[index] = el)"
       :class="{
         [color]: true,
+        'peon-drag-image': true,
         'chosen-color': index === chosenColorClass,
       }"
       @click="choiceColorFromAvailableColors(index)"
@@ -50,6 +43,11 @@ const dragStart = (event, index) => {
 <style scoped>
 @import "@/assets/main.css";
 .chosen-color {
-  border: 0.5rem white solid;
+  border: 0.4rem white solid;
+}
+.peon-drag-image {
+  border-radius: 50%;
+  overflow: hidden;
+  /* background-color: transparent; */
 }
 </style>
