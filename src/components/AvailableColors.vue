@@ -7,10 +7,7 @@ import { storeToRefs } from "pinia";
 const { colorsArray } = storeToRefs(useColorStore());
 const { chosenColorClass } = storeToRefs(useScoreStore());
 const colorStore = useColorStore();
-// Remplace ta variable locale par celle du store :
 const isPeonActive = computed(() => colorStore.isPeonActive);
-console.log(isPeonActive.value);
-
 const event1 = ref(null);
 const event2 = ref(null);
 event1.value = (index) => {
@@ -67,7 +64,7 @@ function handleRowClick() {
 
 @keyframes pulse {
   0% {
-    box-shadow: 6px 6px 2px #ffcb60;
+    box-shadow: 8px 8px 8px #ffcb60;
   }
   50% {
     box-shadow: 0 0 0 transparent;
@@ -76,4 +73,5 @@ function handleRowClick() {
     box-shadow: 0 0 0 transparent;
   }
 }
+
 </style>
