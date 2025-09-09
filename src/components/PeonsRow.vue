@@ -79,7 +79,7 @@ const handleDragOver = (event, rowIndex) => {
     box-shadow: 0 0 0 transparent;
   }
   40% {
-    box-shadow: 6px 6px 18px #ffbf3e;
+    box-shadow: 4px 4px 8px #ffbf3e;
   }
 
   50% {

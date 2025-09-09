@@ -65,7 +65,7 @@ function handleRowClick() {
   0% {
     box-shadow: 8px 8px 2px #ffbf3e;
   }
-  20% {
+  30% {
     box-shadow: 0 0 0 transparent;
   }
   100% {
