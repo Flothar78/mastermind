@@ -16,8 +16,8 @@ const handleDrop = (event, rowIndex) => {
   const target = event.target;
   if (target && target.dataset && target.dataset.peonIndex !== undefined) {
     const peonIndex = parseInt(target.dataset.peonIndex, 10);
-    const color = event.dataTransfer.getData("color"); 
-    color_store.getColorFromStore(rowIndex, peonIndex, color); 
+    const color = event.dataTransfer.getData("color");
+    color_store.getColorFromStore(rowIndex, peonIndex, color);
   }
 };
 watch(playRowId, (playRowId) => {
@@ -36,7 +36,7 @@ const handleDragStart = (event, rowIndex, peonIndex) => {
   event.dataTransfer.setData("color", color);
 };
 const handleDragOver = (event, rowIndex) => {
-   event.preventDefault();
+  event.preventDefault();
   if (rowIndex === playRowId.value) {
     event.dataTransfer.dropEffect = "copy";
   } else {
@@ -76,36 +76,17 @@ const handleDragOver = (event, rowIndex) => {
 }
 @keyframes pulse {
   0% {
-    box-shadow: 6px 6px 2px #56607f;
-    background-color: #68749A;
-  }
-  60% {
-    box-shadow: 3px 3px 10px #ffcb60, -3px -3px 8px #ffcb60;
-    background-color: #68749A;
-  }
-  85% {
-    box-shadow: 6px 6px 2px #56607f;
-    background-color: #68749A;
-  }
-  100% {
-    box-shadow: 6px 6px 2px #56607f;
-    background-color: #68749A;
-  }
-}
-@media screen and (max-width: 759px) {
-  @keyframes pulse {
-  0% {
     box-shadow: 0 0 0 transparent;
-    background-color: #68749A;
   }
-  50% {
-    box-shadow: 2px 2px 8px #ffcb60, -2px -2px 10px #ffcb60;
-    background-color: #c09f7d;
+  89% {
+    box-shadow: 6px 6px 18px #ffbf3e;
+  }
+
+  90% {
+    box-shadow: 0 0 0 transparent;
   }
   100% {
     box-shadow: 0 0 0 transparent;
-    background-color: #68749A;
   }
-}
 }
 </style>

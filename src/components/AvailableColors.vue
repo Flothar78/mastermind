@@ -56,7 +56,6 @@ function handleRowClick() {
 .peon-drag-image {
   border-radius: 50%;
   overflow: hidden;
-  /* background-color: transparent; */
 }
 .peon {
   animation: pulse 2s infinite;
@@ -64,9 +63,9 @@ function handleRowClick() {
 
 @keyframes pulse {
   0% {
-    box-shadow: 8px 8px 8px #ffcb60;
+    box-shadow: 6px 6px 12px #ffbf3e;
   }
-  30% {
+  40% {
     box-shadow: 0 0 0 transparent;
   }
   100% {
