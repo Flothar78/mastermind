@@ -36,7 +36,7 @@
   height: 100vh;
   max-width:1487px;
   margin: auto;
-  background: #BDD5EA;
+  background: #E7F1FE;
   /* background: #BBDB9B; */
   overflow: hidden;
 }
@@ -97,19 +97,19 @@
 .score-infos{
   position: relative;
   height: 89vh;
-  width:30vw;
+  width:  30vw;
 }
 .score-container { 
   position: absolute;
   top:0;
-  left:0%;
-  transform: translate(51%,50%);
+   left:50%;
+  transform: translate(-47%, 50%);
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center; 
   height:20%;
-  width: fit-content;
+  width: 40%;
   max-width:258px;
   padding: 2vh 4vw;
   background: white;
@@ -121,7 +121,7 @@
   letter-spacing: 1px;
   text-align: center;
   box-shadow: inset 7px 7px 7px , inset -7px -7px 7px ;
-  border-radius: 12% 3%;
+  border-radius: 12% ;
 }
 .infos-container {
   animation-name: containerSprout;
@@ -135,7 +135,7 @@
   justify-content: space-around;
   align-items: center;  
   height:20%;
-  width: fit-content;
+  width: 40%;
   max-width:258px;
   padding: 2vh 4vw;
   background: white;
@@ -147,7 +147,7 @@
   letter-spacing: 1px;
   text-align: center;
   box-shadow: inset 7px 7px 7px , inset -7px -7px 7px ;
-  border-radius:  3% 12%;
+  border-radius:   12%;
 }
 .reset-button {
   position: absolute;
@@ -193,6 +193,7 @@
 .play-and-result-wrapper {
   display: flex;
   justify-content: center;  
+  align-items: center;
   width: 70vw;
 }
 .play-ground {
@@ -203,10 +204,8 @@
   width: 100%;
   max-width:792px;
   padding:0 1.5vw;
-  margin-left: 5vh;
-  background-image: url("/brick-wall-dark.png");
-  /* background-color: #879A74; */
-  box-shadow: 7px 7px 14px #495867;
+  background-color: #2E3957;
+  box-shadow: 7px 7px 14px #1b1f2d;
   border-radius: 5%;  
 }
 .game-solution {
@@ -216,8 +215,8 @@
   height: 7vh;
   width: 98%;
   margin:  auto;
-  background-color: #D58936;
-  background-image: url("/wood.png");
+  background-color: #68749A;
+  /* background-image: url("/wood.png"); */
   box-shadow: 4px 4px 4px ;
   border-radius: 20px;
 }
@@ -243,9 +242,9 @@
   max-height:38px;
   margin: 0.5vw;
   border: black 0.5px solid;
-  background-color: #D58936;
-  background-image: url("/wood.png");
-  box-shadow: 2px 2px 2px;
+  background-color: #68749A;
+  /* background-image: url("/wood.png"); */
+  box-shadow: 6px 6px 10px #56607f;
   border-radius: 5px;
 }
 .peons-row {
@@ -255,9 +254,8 @@
   height: 7vh;
   width: 98%;
   margin:  auto;
-  background-color: #D58936;
-  background-image: url("/wood.png");
-  box-shadow: 4px 4px 4px ;
+  background-color: #68749A;
+  /* background-image: url("/wood.png"); */
   border-radius: 20px;  
 }
 .checkRowsContainer {
@@ -275,8 +273,8 @@
   max-height: 35px;
   max-width: 150px;
   /* background-color: white; */
-  background-image: url("/wood.png");
-  background-color: #D58936;
+  /* background-image: url("/wood.png"); */
+  background-color: #68749A;
   border-radius: 7px;
 }
 .peon-shape {
@@ -286,7 +284,6 @@
   max-width:35px;
   border: 0.5px solid black;
   border-radius: 50%;
-  /* background: #DEEFB7; */
 }
 .withinRow-peons {
   box-shadow: 2px 2px 0;

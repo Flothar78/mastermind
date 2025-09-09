@@ -76,31 +76,35 @@ const handleDragOver = (event, rowIndex) => {
 }
 @keyframes pulse {
   0% {
-    box-shadow: 0 0 0 transparent;
-    background-color: #d58936;
+    box-shadow: 6px 6px 2px #56607f;
+    background-color: #68749A;
   }
-  50% {
-    box-shadow: 8px 8px 22px #ffcb60, -8px -8px 28px #ffcb60;
-    background-color: #c09f7d;
+  60% {
+    box-shadow: 3px 3px 10px #ffcb60, -3px -3px 8px #ffcb60;
+    background-color: #68749A;
+  }
+  85% {
+    box-shadow: 6px 6px 2px #56607f;
+    background-color: #68749A;
   }
   100% {
-    box-shadow: 0 0 0 transparent;
-    background-color: #d58936;
+    box-shadow: 6px 6px 2px #56607f;
+    background-color: #68749A;
   }
 }
 @media screen and (max-width: 759px) {
   @keyframes pulse {
   0% {
     box-shadow: 0 0 0 transparent;
-    background-color: #d58936;
+    background-color: #68749A;
   }
   50% {
-    box-shadow: 4px 4px 12px #ffcb60, -4px -4px 14px #ffcb60;
+    box-shadow: 2px 2px 8px #ffcb60, -2px -2px 10px #ffcb60;
     background-color: #c09f7d;
   }
   100% {
     box-shadow: 0 0 0 transparent;
-    background-color: #d58936;
+    background-color: #68749A;
   }
 }
 }

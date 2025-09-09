@@ -1,5 +1,4 @@
 <script setup>
-import chosenColorClass from "@/components/AvailableColors.vue";
 import { useColorStore } from "@/stores/ColorStore.js";
 import { useScoreStore } from "@/stores/ScoreStore.js";
 import { storeToRefs } from "pinia";
