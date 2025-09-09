@@ -49,7 +49,7 @@ const handleDragOver = (event, rowIndex) => {
     <div
       v-for="(row, rowIndex) in rows"
       :key="rowIndex"
-      :class="{ 'active-row': rowIndex === playRowId && !isRowFilled(rowIndex) }"
+      :class="{ 'active-row': rowIndex === playRowId && !isRowFilled(rowIndex) && rowIndex <=2 }"
       @dragover="handleDragOver($event, rowIndex)"
       @dragenter.prevent
       @drop="handleDrop($event, rowIndex)"
@@ -75,14 +75,14 @@ const handleDragOver = (event, rowIndex) => {
   animation: pulse 2s infinite;
 }
 @keyframes pulse {
-  0% {
+0% {
     box-shadow: 0 0 0 transparent;
   }
-  89% {
+  40% {
     box-shadow: 6px 6px 18px #ffbf3e;
   }
 
-  90% {
+  50% {
     box-shadow: 0 0 0 transparent;
   }
   100% {

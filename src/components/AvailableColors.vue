@@ -63,9 +63,9 @@ function handleRowClick() {
 
 @keyframes pulse {
   0% {
-    box-shadow: 6px 6px 12px #ffbf3e;
+    box-shadow: 8px 8px 2px #ffbf3e;
   }
-  40% {
+  20% {
     box-shadow: 0 0 0 transparent;
   }
   100% {
