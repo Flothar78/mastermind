@@ -244,8 +244,7 @@
   margin: 0.5vw;
   border: black 0.5px solid;
   background-color: #68749A;
-  /* background-image: url("/wood.png"); */
-  box-shadow: 6px 6px 10px #56607f;
+  box-shadow: 2px 2px 6px #56607f;
   border-radius: 5px;
 }
 .peons-row {
