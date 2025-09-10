@@ -11,15 +11,7 @@ const arrayRows = Object.values(rows.value);
 const isRowFilled = (rowIndex) => {
   return rows.value[rowIndex].some((peon) => peon !== "");
 };
-const handleDrop = (event, rowIndex) => {
-  event.preventDefault();
-  const target = event.target;
-  if (target && target.dataset && target.dataset.peonIndex !== undefined) {
-    const peonIndex = parseInt(target.dataset.peonIndex, 10);
-    const color = event.dataTransfer.getData("color");
-    color_store.getColorFromStore(rowIndex, peonIndex, color);
-  }
-};
+
 watch(playRowId, (playRowId) => {
   playRowId == 10 ? looseMessage() : "";
 });
@@ -34,6 +26,21 @@ const looseMessage = () => {
 const handleDragStart = (event, rowIndex, peonIndex) => {
   const color = rows.value[rowIndex][peonIndex];
   event.dataTransfer.setData("color", color);
+  
+  const target = event.target;
+  const dragIcon = target.cloneNode(true);
+  dragIcon.style.position = "absolute";
+  dragIcon.style.top = "-9999px";
+  dragIcon.style.borderRadius = "50%";
+  document.body.appendChild(dragIcon);
+
+  event.dataTransfer.setDragImage(
+    dragIcon,
+    dragIcon.offsetWidth / 2,
+    dragIcon.offsetHeight / 2
+  );
+
+  setTimeout(() => document.body.removeChild(dragIcon), 0);
 };
 const handleDragOver = (event, rowIndex) => {
   event.preventDefault();
@@ -43,13 +50,48 @@ const handleDragOver = (event, rowIndex) => {
     event.dataTransfer.dropEffect = "none";
   }
 };
+const handleDrop = (event, rowIndex) => {
+  event.preventDefault();
+  const color = event.dataTransfer.getData("color");
+
+  const rowEl = event.currentTarget;
+  const peonEls = [...rowEl.querySelectorAll(".withinRow-peons")];
+
+  const { clientX, clientY } = event;
+
+  // trouver le peon le plus proche de la souris
+  let closestIndex = 0;
+  let minDistance = Infinity;
+
+  peonEls.forEach((el, idx) => {
+    const rect = el.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+
+  // distance 2D
+    const dx = clientX - centerX;
+    const dy = clientY - centerY;
+    const distance = Math.sqrt(dx * dx + dy * dy);
+
+
+  
+    if (distance < minDistance) {
+      minDistance = distance;
+      closestIndex = idx;
+    }
+  });
+
+  color_store.getColorFromStore(rowIndex, closestIndex, color);
+};
 </script>
 <template>
   <div class="betweenRows">
     <div
       v-for="(row, rowIndex) in rows"
       :key="rowIndex"
-      :class="{ 'active-row': rowIndex === playRowId && !isRowFilled(rowIndex) && rowIndex <=2 }"
+      :class="{
+        'active-row': rowIndex === playRowId && !isRowFilled(rowIndex) && rowIndex <= 2,
+      }"
       @dragover="handleDragOver($event, rowIndex)"
       @dragenter.prevent
       @drop="handleDrop($event, rowIndex)"
@@ -75,7 +117,7 @@ const handleDragOver = (event, rowIndex) => {
   animation: pulse 2s infinite;
 }
 @keyframes pulse {
-0% {
+  0% {
     box-shadow: 0 0 0 transparent;
   }
   40% {

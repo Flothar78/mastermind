@@ -28,18 +28,18 @@ const dragStart = (event, index) => {
   const target = event.target;
   const dragIcon = target.cloneNode(true);
   dragIcon.style.position = "absolute";
-  dragIcon.style.top = "-9999px"; // le cacher du flux
-  dragIcon.style.borderRadius = "50%"; // s’assurer que c’est rond
+  dragIcon.style.top = "-9999px"; 
+  dragIcon.style.borderRadius = "50%";
   document.body.appendChild(dragIcon);
 
-  // centrer l’image de drag sur la souris
+  
   event.dataTransfer.setDragImage(
     dragIcon,
     dragIcon.offsetWidth / 2,
     dragIcon.offsetHeight / 2
   );
 
-  // supprimer après un tick pour ne pas polluer le DOM
+
   setTimeout(() => document.body.removeChild(dragIcon), 0);
 };
 
