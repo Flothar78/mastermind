@@ -159,7 +159,7 @@ const handleDrop = (event, rowIndex) => {
       v-for="(row, rowIndex) in rows"
       :key="rowIndex"
       :class="{
-        'active-row': rowIndex === playRowId && !isRowFilled(rowIndex) && rowIndex <= 2,
+        'active-row': rowIndex === playRowId && !isRowFilled(rowIndex) && rowIndex <= 1,
       }"
       @dragover="handleDragOver($event, rowIndex)"
       @dragenter.prevent
