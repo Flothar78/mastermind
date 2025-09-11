@@ -25,7 +25,7 @@ const looseMessage = () => {
   }
 };
 
-/* --- Drag image pré-créé --- */
+
 let dragIcon = null;
 
 onMounted(() => {
@@ -194,7 +194,7 @@ const handleDrop = (event, rowIndex) => {
 }
 
 .drop-target {
-  outline: 2px dashed #ffbf3e;
+  outline: 2px solid #ffbf3e;
   outline-offset: 4px;
   transform: scale(1.12);
   transition: transform 0.08s ease;

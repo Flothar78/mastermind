@@ -37,7 +37,6 @@
   max-width:1487px;
   margin: auto;
   background: #E7F1FE;
-  /* background: #BBDB9B; */
   overflow: hidden;
 }
 .tutorial-button {
@@ -82,7 +81,7 @@
   50% {
     opacity: 0.1;
   }
-  95%{
+  85%{
     opacity: .5;
   }
   100% {
@@ -91,11 +90,10 @@
 }
 .game-solution-peons {
   animation-name: solutionPeonsSprout;
-  animation-duration: 2s;
+  animation-duration: 1s;
   animation-timing-function: ease-in;
 }
 .score-infos{
-  border: 2px solid #424b54;
   position: relative;
   height: 89vh;
   width:  30vw;
@@ -126,7 +124,7 @@
 }
 .infos-container {
   animation-name: containerSprout;
-  animation-duration: 2s;
+  animation-duration: 1s;
   position: absolute;
   bottom: 0;
   left:50%;
