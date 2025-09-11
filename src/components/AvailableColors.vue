@@ -89,7 +89,7 @@ const dragStart = (event, index) => {
 
 @keyframes pulse {
   0% {
-    box-shadow: 6px 6px 2px #ffbf3e;
+    box-shadow: 6px 6px 1px #ffbf3e;
   }
   70% {
     box-shadow: 0 0 0 transparent;
