@@ -25,7 +25,7 @@ const looseMessage = () => {
   }
 };
 
-
+/* --- Drag image pré-créé --- */
 let dragIcon = null;
 
 onMounted(() => {
@@ -48,7 +48,6 @@ onBeforeUnmount(() => {
   }
 });
 
-
 const handleDragStart = (event, rowIndex, peonIndex) => {
   const color = rows.value[rowIndex][peonIndex];
 
@@ -62,7 +61,6 @@ const handleDragStart = (event, rowIndex, peonIndex) => {
   tempDragIcon.style.left = "-9999px";
   document.body.appendChild(tempDragIcon);
 
-
   event.dataTransfer.setData("color", color);
   event.dataTransfer.setDragImage(
     tempDragIcon,
@@ -70,7 +68,6 @@ const handleDragStart = (event, rowIndex, peonIndex) => {
     tempDragIcon.offsetHeight / 2
   );
 
- 
   setTimeout(() => {
     document.body.removeChild(tempDragIcon);
   }, 0);
@@ -110,14 +107,11 @@ const handleDragOver = (event, rowIndex) => {
     }
   });
 
+  // Nettoyer tous les highlights
   peonEls.forEach((el) => el.classList.remove("drop-target"));
-  if (closestEl) closestEl.classList.add("drop-target");
-};
 
-const handleDragLeave = (event) => {
-  Array.from(event.currentTarget.querySelectorAll(".withinRow-peons")).forEach((el) =>
-    el.classList.remove("drop-target")
-  );
+  // Appliquer sur le plus proche
+  if (closestEl) closestEl.classList.add("drop-target");
 };
 
 const handleDrop = (event, rowIndex) => {
@@ -149,6 +143,8 @@ const handleDrop = (event, rowIndex) => {
     color_store.getColorFromStore(rowIndex, closestIndex, color);
   }
 
+  // Nettoyer highlight
+  peonEls.forEach((el) => el.classList.remove("drop-target"));
   handleDragEnd();
 };
 </script>
@@ -164,7 +160,6 @@ const handleDrop = (event, rowIndex) => {
       @dragover="handleDragOver($event, rowIndex)"
       @dragenter.prevent
       @drop="handleDrop($event, rowIndex)"
-      @dragleave="handleDragLeave"
       class="withinRow"
     >
       <PeonOccurence
