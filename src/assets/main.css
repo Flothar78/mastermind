@@ -36,7 +36,7 @@
   height: 100vh;
   max-width:1487px;
   margin: auto;
-  background: #E7F1FE;
+  background: #BBB8B2;
   overflow: hidden;
 }
 .tutorial-button {
@@ -215,8 +215,7 @@
   height: 7vh;
   width: 98%;
   margin:  auto;
-  background-color: #68749A;
-  /* background-image: url("/wood.png"); */
+  background-color: #F34213;   /* DE9151 */
   box-shadow: 4px 4px 4px ;
   border-radius: 20px;
 }
@@ -242,8 +241,7 @@
   max-height:38px;
   margin: 0.5vw;
   border: black 0.5px solid;
-  background-color: #68749A;
-  box-shadow: 2px 2px 6px #56607f;
+  background-color: #BBB8B2;
   border-radius: 5px;
 }
 .peons-row {
@@ -253,15 +251,13 @@
   height: 7vh;
   width: 98%;
   margin:  auto;
-  background-color: #68749A;
-  /* background-image: url("/wood.png"); */
+  background-color: #F34213;
   border-radius: 20px;  
 }
 .checkRowsContainer {
   display: flex;
   flex-direction: column-reverse;
   justify-content: space-around;
-  /* max-height:800px; */
 }
 .checkRow {
   display: flex;
@@ -271,9 +267,7 @@
   width: 12vw;
   max-height: 35px;
   max-width: 150px;
-  /* background-color: white; */
-  /* background-image: url("/wood.png"); */
-  background-color: #68749A;
+  background-color: #BBB8B2;
   border-radius: 7px;
 }
 .peon-shape {
@@ -328,8 +322,8 @@
   }
   .infos-container {
    top:65%;
-   left:1vh;
-   transform: translate(0%, -50%);
+   left:50%;
+   transform: translate(-50%, -50%);
    font-size: 1rem; 
    height: 100%;
    padding:1vh 4vw;

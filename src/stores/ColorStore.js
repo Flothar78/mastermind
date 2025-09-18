@@ -52,14 +52,9 @@ export const useColorStore = defineStore( "ColorStore", {
             if ( chosenRow !== this.playRowId ) return;
 
             const row = this.rows[ chosenRow ];
-
-            // Ne modifie la case que si elle est vide (évite l'écrasement)
             row[ chosenPeon ] = color;
-
-            // On reconstruit chosenPeons proprement depuis la ligne actuelle
             this.chosenPeons = row.filter( peon => peon !== "" );
 
-            // Si toute la ligne est remplie
             if ( row.every( x => x !== "" ) )
             {
                 this.playRowId++;
@@ -68,8 +63,6 @@ export const useColorStore = defineStore( "ColorStore", {
                 {
                     this.checkColorsPlaces( chosenRow );
                 }
-
-                // Reset après validation
                 this.chosenPeons = [];
             }
         },
@@ -119,7 +112,7 @@ export const useColorStore = defineStore( "ColorStore", {
                 .filter( ( x ) => x === "black" ).length == this.numberOfPeons )
             {
                 this.playRowId = 10000;
-                this.winLooseMessage = "You win";
+                this.winLooseMessage = "Bien Joué !";
             }
         },
     },
@@ -139,4 +132,3 @@ export const useColorStore = defineStore( "ColorStore", {
         },
     },
 } );
-//# sourceMappingURL=ColorStore.js.map

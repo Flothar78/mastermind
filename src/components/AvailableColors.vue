@@ -91,7 +91,7 @@ const dragStart = (event, index) => {
   0% {
     box-shadow: 12px 12px 1px #ffbf3e;
   }
-  30% {
+  33% {
     box-shadow: 0 0 0 transparent;
   }
   100% {

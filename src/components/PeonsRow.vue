@@ -9,7 +9,6 @@ let { rows, solution, winLooseMessage, numberOfPeons, playRowId } = storeToRefs(
   color_store
 );
 
-/* --- Helpers --- */
 const isRowFilled = (rowIndex) => rows.value[rowIndex].some((peon) => peon !== "");
 
 watch(playRowId, (val) => {
@@ -20,12 +19,12 @@ const looseMessage = () => {
   if (
     JSON.stringify(arrayRows[arrayRows.length - 1]) !== JSON.stringify(solution.value)
   ) {
-    color_store.winLooseMessage = "You lose";
+    color_store.winLooseMessage = "Toi y'en a perdre !";
     color_store.playRowId = 10000;
   }
 };
 
-/* --- Drag image pré-créé --- */
+
 let dragIcon = null;
 
 onMounted(() => {
@@ -106,22 +105,15 @@ const handleDragOver = (event, rowIndex) => {
       closestEl = el;
     }
   });
-
-  // Nettoyer tous les highlights
   peonEls.forEach((el) => el.classList.remove("drop-target"));
-
-  // Appliquer sur le plus proche
   if (closestEl) closestEl.classList.add("drop-target");
 };
-
 const handleDrop = (event, rowIndex) => {
   event.preventDefault();
   const color = event.dataTransfer.getData("color") || "";
-
   const rowEl = event.currentTarget;
   const peonEls = Array.from(rowEl.querySelectorAll(".withinRow-peons"));
   if (!peonEls.length) return;
-
   const { clientX, clientY } = event;
   let closestIndex = 0;
   let minDist2 = Infinity;
@@ -143,7 +135,6 @@ const handleDrop = (event, rowIndex) => {
     color_store.getColorFromStore(rowIndex, closestIndex, color);
   }
 
-  // Nettoyer highlight
   peonEls.forEach((el) => el.classList.remove("drop-target"));
   handleDragEnd();
 };
@@ -203,10 +194,10 @@ const handleDrop = (event, rowIndex) => {
   0% {
     box-shadow: 0 0 0 transparent;
   }
-  80% {
+  64% {
     box-shadow: 4px 4px 8px #ffbf3e;
   }
-  85% {
+  89% {
     box-shadow: 0 0 0 transparent;
   }
   100% {
