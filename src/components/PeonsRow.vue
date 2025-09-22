@@ -195,7 +195,7 @@ const handleDrop = (event, rowIndex) => {
     box-shadow: 0 0 0 transparent;
   }
   64% {
-    box-shadow: 4px 4px 8px #ffbf3e;
+    box-shadow: 8px 8px 12px #ffbf3e;
   }
   89% {
     box-shadow: 0 0 0 transparent;
