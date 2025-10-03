@@ -19,13 +19,14 @@ const looseMessage = () => {
   if (
     JSON.stringify(arrayRows[arrayRows.length - 1]) !== JSON.stringify(solution.value)
   ) {
-    color_store.winLooseMessage = "Toi y'en a perdre !";
+    color_store.winLooseMessage = "C'est perdu !";
     color_store.playRowId = 10000;
   }
 };
 
 
 let dragIcon = null;
+let currentColor = null;
 
 onMounted(() => {
   dragIcon = document.createElement("div");
