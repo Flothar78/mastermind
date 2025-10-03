@@ -60,6 +60,7 @@
   0% {
     height: 0;
     width: 0;
+   
   }
   25% {
     height: .1vh;
@@ -72,6 +73,7 @@
   100% {
     height: 4vw;
     width: 4vw;
+    background-color: #F34213;
   }
 }
 @keyframes containerSprout {
@@ -170,11 +172,11 @@
 }
 .winLooseMessage {
   animation-name: containerSprout;
-  animation-duration: 1.6s;
+  animation-duration: 2s;
 }
 .continue-button {
   animation-name: containerSprout;
-  animation-duration: 1.6s;
+  animation-duration: 2s;
   height: fit-content;
   width: fit-content;
   padding: .5rem;
@@ -215,9 +217,21 @@
   height: 7vh;
   width: 98%;
   margin:  auto;
-  background-color: #F34213;   /* DE9151 */
+  background-color: #BBB8B2;   /* DE9151 */
   box-shadow: 4px 4px 4px ;
-  border-radius: 20px;
+  border-radius: 20px; 
+}
+.game-solution.active{
+  animation: colorChange 1s forwards;
+}
+@keyframes colorChange {
+  0% {
+    background-color: #BBB8B2;
+  }
+  100% {
+    background-color: #F34213;
+  }
+  
 }
 .play-and-check-container {
   max-height: 90vh;
