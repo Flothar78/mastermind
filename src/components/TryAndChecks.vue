@@ -5,6 +5,7 @@ import { useColorStore } from "@/stores/ColorStore.js";
 import { storeToRefs } from "pinia";
 const color_store = useColorStore();
 const { rows } = storeToRefs(color_store);
+
 </script>
 
 <template>

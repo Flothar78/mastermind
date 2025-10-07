@@ -1,8 +1,9 @@
 <script setup>
 import PeonOccurence from "@/components/PeonOccurence.vue";
+import RulesInfo from "@/components/RulesInfo.vue";
 import { useColorStore } from "@/stores/ColorStore.js";
 import { storeToRefs } from "pinia";
-import { watch, onMounted, onBeforeUnmount } from "vue";
+import { watch, onMounted, onBeforeUnmount, computed } from "vue";
 
 const color_store = useColorStore();
 let { rows, solution, winLooseMessage, numberOfPeons, playRowId } = storeToRefs(
@@ -10,6 +11,9 @@ let { rows, solution, winLooseMessage, numberOfPeons, playRowId } = storeToRefs(
 );
 
 const isRowFilled = (rowIndex) => rows.value[rowIndex].some((peon) => peon !== "");
+const showRulesInfo = computed(() => {
+  return isRowFilled(0) && !isRowFilled(3);
+});
 
 watch(playRowId, (val) => {
   if (val == 10) looseMessage();
@@ -24,9 +28,7 @@ const looseMessage = () => {
   }
 };
 
-
 let dragIcon = null;
-let currentColor = null;
 
 onMounted(() => {
   dragIcon = document.createElement("div");
@@ -167,11 +169,16 @@ const handleDrop = (event, rowIndex) => {
       />
     </div>
   </div>
+  <RulesInfo v-if="showRulesInfo" class="rules-infos" />
 </template>
 
 <style scoped>
 @import "@/assets/main.css";
-
+.rules-infos {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
 .withinRow-peons {
   width: 36px;
   height: 36px;

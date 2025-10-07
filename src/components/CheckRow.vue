@@ -5,7 +5,6 @@ import { storeToRefs } from "pinia";
 const color_store = useColorStore();
 defineProps({ rowNumber: Number });
 const { numberOfPeons, resultColors } = storeToRefs(color_store);
-console.log('stuff');
 </script>
 <template>
   <div>
