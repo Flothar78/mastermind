@@ -10,9 +10,9 @@ let { rows, solution, winLooseMessage, numberOfPeons, playRowId } = storeToRefs(
   color_store
 );
 
-const isRowFilled = (rowIndex) => rows.value[rowIndex].some((peon) => peon !== "");
+const isRowFilled = (rowIndex) => rows.value[rowIndex].every((peon) => peon !== "");
 const showRulesInfo = computed(() => {
-  return isRowFilled(0) && !isRowFilled(3);
+  return isRowFilled(0) && !isRowFilled(2);
 });
 
 watch(playRowId, (val) => {
@@ -169,15 +169,28 @@ const handleDrop = (event, rowIndex) => {
       />
     </div>
   </div>
-  <RulesInfo v-if="showRulesInfo" class="rules-infos" />
+  <Transition name="rules">
+    <RulesInfo v-if="showRulesInfo" class="rules-infos" />
+  </Transition>
 </template>
 
 <style scoped>
 @import "@/assets/main.css";
-.rules-infos {
-  position: absolute;
-  top: 0;
-  right: 0;
+.rules-enter-active,
+.rules-leave-active {
+  transition: all 0.6s ease;
+}
+
+.rules-enter-from,
+.rules-leave-to {
+  opacity: 0;
+  transform: translateY(100%);
+}
+
+.rules-enter-to,
+.rules-leave-from {
+  opacity: 1;
+  transform: translateY(0);
 }
 .withinRow-peons {
   width: 36px;
