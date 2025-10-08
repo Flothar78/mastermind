@@ -9,20 +9,12 @@ import { ref, watch, watchEffect, onMounted, onBeforeUnmount, computed } from "v
 const color_store = useColorStore();
 const score_store = useScoreStore();
 let { score } = storeToRefs(score_store);
-const dynamicScore = ref(score.value);
- watchEffect(() => {
-   dynamicScore.value = score.value;
- });
-
-// const getCurrentScore = () => dynamicScore.value;
-
 let { rows, solution, winLooseMessage, numberOfPeons, playRowId } = storeToRefs(
   color_store
 );
-
 const isRowFilled = (rowIndex) => rows.value[rowIndex].every((peon) => peon !== "");
 const showRulesInfo = computed(() => {
-  return isRowFilled(0) && !isRowFilled(2) && dynamicScore.value < 3;
+  return isRowFilled(0) && !isRowFilled(2) && score.value < 3;
 });
 
 watch(playRowId, (val) => {
