@@ -41,20 +41,21 @@
 }
 .tutorial-button {
   position: absolute;
-  bottom: 0;
-  left: 1vw;
+  bottom: 1vh;
+  right: 1vw;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 10vw;
+  width: 18vw;
   max-width: 100px;
-  height: 5vh;
+  height: 4vh;
   padding: 0 1vw;
   background-color: #424b54;
   color: white;
   cursor: default;
   border-radius: 10px;
   z-index: 20;
+  box-shadow: 4px 4px 4px;
 }
 @keyframes solutionPeonsSprout {
   0% {

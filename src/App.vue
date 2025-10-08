@@ -1,15 +1,14 @@
 <script setup>
 import PlayView from "@/views/PlayView.vue";
 import ScoreView from "@/views/ScoreView.vue";
-import Tutorial from "./components/Tutorial.vue";
+import RulesInfo from "./components/RulesInfo.vue";
 import { ref } from "vue";
-const tutorialButton = ref(null);
 const buttonText = ref("Voir Règles");
 const gameRules = ref(false);
 const displayTutorial = () => {
   if (gameRules.value === false) {
     gameRules.value = true;
-    buttonText.value = "Voir Jeu";
+    buttonText.value = "Fermer Règles";
   } else {
     gameRules.value = false;
     buttonText.value = "Voir Règles";
@@ -18,8 +17,8 @@ const displayTutorial = () => {
 </script>
 
 <template>
-  <Tutorial v-if="gameRules" />
-  <div class="tutorial-button" @click="displayTutorial()" ref="tutorialButton">
+  <RulesInfo v-if="gameRules" />
+  <div class="tutorial-button" @click="displayTutorial()" >
     {{ buttonText }}
   </div>
   <div class="play-and-result-wrapper">
