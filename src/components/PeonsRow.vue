@@ -2,17 +2,27 @@
 import PeonOccurence from "@/components/PeonOccurence.vue";
 import RulesInfo from "@/components/RulesInfo.vue";
 import { useColorStore } from "@/stores/ColorStore.js";
+import { useScoreStore } from "@/stores/ScoreStore.js";
 import { storeToRefs } from "pinia";
-import { watch, onMounted, onBeforeUnmount, computed } from "vue";
+import { ref, watch, watchEffect, onMounted, onBeforeUnmount, computed } from "vue";
 
 const color_store = useColorStore();
+const score_store = useScoreStore();
+let { score } = storeToRefs(score_store);
+const dynamicScore = ref(score.value);
+watchEffect(() => {
+  dynamicScore.value = score.value;
+});
+
+const getCurrentScore = () => dynamicScore.value;
+
 let { rows, solution, winLooseMessage, numberOfPeons, playRowId } = storeToRefs(
   color_store
 );
 
 const isRowFilled = (rowIndex) => rows.value[rowIndex].every((peon) => peon !== "");
 const showRulesInfo = computed(() => {
-  return isRowFilled(0) && !isRowFilled(2);
+  return isRowFilled(0) && !isRowFilled(2) && getCurrentScore() < 3;
 });
 
 watch(playRowId, (val) => {
@@ -170,7 +180,7 @@ const handleDrop = (event, rowIndex) => {
     </div>
   </div>
   <Transition name="rules">
-    <RulesInfo  class="rules-infos" />
+    <RulesInfo v-if="showRulesInfo" class="rules-infos" />
     <!-- v-if="showRulesInfo" -->
   </Transition>
 </template>
