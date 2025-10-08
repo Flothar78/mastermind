@@ -170,7 +170,8 @@ const handleDrop = (event, rowIndex) => {
     </div>
   </div>
   <Transition name="rules">
-    <RulesInfo v-if="showRulesInfo" class="rules-infos" />
+    <RulesInfo  class="rules-infos" />
+    <!-- v-if="showRulesInfo" -->
   </Transition>
 </template>
 
