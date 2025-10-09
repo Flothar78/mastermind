@@ -71,6 +71,7 @@
     height: 10%;
     padding: 0;
     font-size: 0.9em;
+    text-align: center;
     border-radius: 2%;
     z-index: 30;
   }
