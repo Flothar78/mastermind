@@ -7,8 +7,10 @@ const buttonText = ref("Voir Règles");
 const gameRules = ref(false);
 const displayTutorial = () => {
   if (gameRules.value === false) {
+    const button = document.querySelector(".tutorial-button");
     gameRules.value = true;
     buttonText.value = "Fermer Règles";
+    button.classList.add('active')
   } else {
     gameRules.value = false;
     buttonText.value = "Voir Règles";
@@ -18,7 +20,7 @@ const displayTutorial = () => {
 
 <template>
   <RulesInfo v-if="gameRules" class="rules-info" />
-  <div class="tutorial-button" @click="displayTutorial()" >
+  <div class="tutorial-button" @click="displayTutorial()">
     {{ buttonText }}
   </div>
   <div class="play-and-result-wrapper">
@@ -29,4 +31,5 @@ const displayTutorial = () => {
 
 <style scoped>
 @import "@/assets/main.css";
+
 </style>

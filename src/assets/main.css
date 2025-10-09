@@ -305,32 +305,18 @@
     flex-direction: column-reverse;
   }
   .tutorial-button {
-    top: 4.5vh;
-    right:4vw;
+    top: 5.5vh;
+    right:2vw;
     width: 12vw;
     height: 4vh;
-    font-size: .8em;
-    z-index: 40;
+    font-size: .7em;
+    text-align: center;
+    z-index: 20;
+    box-shadow: 0 0 0;
   }
-
-  /* .tutorial-button {
-  position: absolute;
-  bottom: 1vh;
-  right: 1vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 18vw;
-  max-width: 100px;
-  height: 4vh;
-  padding: 0 1vw;
-  background-color: #424b54;
-  color: white;
-  cursor: default;
-  border-radius: 10px;
-  z-index: 20;
-  box-shadow: 4px 4px 4px;
-} */
+.tutorial-button.active {
+  z-index: 40;
+}
   .play-and-result-wrapper {
     width: 90vw;
     height: 90vh;
