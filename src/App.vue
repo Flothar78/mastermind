@@ -17,7 +17,7 @@ const displayTutorial = () => {
 </script>
 
 <template>
-  <RulesInfo v-if="gameRules" />
+  <RulesInfo v-if="gameRules" class="rules-info" />
   <div class="tutorial-button" @click="displayTutorial()" >
     {{ buttonText }}
   </div>

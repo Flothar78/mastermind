@@ -1,17 +1,9 @@
 <template>
   <div class="container">
-    <div>
-      Un <span class="black-dot"></span> signale un pion de la bonne couleur et bien placé.
-      <div class="parenthese-style">(ça n'indique pas le pion concerné)</div>
-    </div>
-    <div>
-      Un <span class="white-dot"></span> signale un pion de la mauvaise couleur et mal placé.
-      <div class="parenthese-style">(ça n'indique pas le pion concerné)</div>
-    </div>
-    <div>
-      Un <span class="empty-dot"></span> signale un pion dont la couleur ne fait pas partie de la solution.
-      <div class="parenthese-style">(ça n'indique pas le pion concerné)</div>
-    </div>
+    <div class="dot-reading"><span class="black-dot"></span> Bonne couleur, bien placée.</div>
+    <div class="dot-reading"><span class="white-dot"></span> Mauvaise couleur, mal placée.</div>
+    <div class="dot-reading"><span class="empty-dot"></span> N'est pas dans la combinaison.</div>
+    <div class="parenthese-style">(ça n'indique pas l'emplacement des pions)</div>
   </div>
 </template>
 
@@ -27,7 +19,7 @@
   justify-content: space-around;
   width: 20.5vw;
   height: 36vh;
-  padding:0 10px 0 20px  !important;
+  padding: 0 10px 0 20px !important;
   color: black;
   background-color: #bbb8b2;
   border-radius: 10% 0 0 10%;
@@ -59,9 +51,37 @@
   border-radius: 50%;
   margin: 0 2px;
 }
-.parenthese-style{
+.parenthese-style {
   font-size: 0.9em;
   font-style: italic;
   font-weight: 900;
+}
+
+@media (max-width: 768px) {
+  .container {
+    box-sizing: content-box;
+    border: 0;
+    top: 0;
+    right: 0;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 95%;
+    height: 10%;
+    padding: 0;
+    font-size: 0.9em;
+    border-radius: 2%;
+    z-index: 30;
+  }
+  .dot-reading{
+    width:33%
+  }
+  .parenthese-style {
+  font-size: 0.9em;
+  font-style: italic;
+  font-weight: 900;
+  margin: auto;
+}
 }
 </style>

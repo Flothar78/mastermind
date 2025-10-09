@@ -34,9 +34,9 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  max-width:1487px;
+  max-width: 1487px;
   margin: auto;
-  background: #BBB8B2;
+  background: #bbb8b2;
   overflow: hidden;
 }
 .tutorial-button {
@@ -61,20 +61,19 @@
   0% {
     height: 0;
     width: 0;
-   
   }
   25% {
-    height: .1vh;
+    height: 0.1vh;
     width: 6vw;
   }
-50%{
-  height: 4vw;
+  50% {
+    height: 4vw;
     width: 4vw;
-}
+  }
   100% {
     height: 4vw;
     width: 4vw;
-    background-color: #F34213;
+    background-color: #f34213;
   }
 }
 @keyframes containerSprout {
@@ -84,8 +83,8 @@
   50% {
     opacity: 0.1;
   }
-  85%{
-    opacity: .5;
+  85% {
+    opacity: 0.5;
   }
   100% {
     opacity: 1;
@@ -96,60 +95,60 @@
   animation-duration: 1s;
   animation-timing-function: ease-in;
 }
-.score-infos{
+.score-infos {
   position: relative;
   height: 89vh;
-  width:  30vw;
+  width: 30vw;
 }
-.score-container { 
+.score-container {
   position: absolute;
-  top:0;
-  left:50%;
+  top: 0;
+  left: 50%;
   transform: translate(-47%, 50%);
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: center; 
-  height:20%;
+  align-items: center;
+  height: 20%;
   width: 40%;
-  max-width:258px;
+  max-width: 258px;
   padding: 2vh 4vw;
   background: white;
-  color: #424B54;
-  font-size: 1.2rem;  
+  color: #424b54;
+  font-size: 1.2rem;
   font-family: sans-serif;
   font-weight: 900;
   text-shadow: 1px 1px 2px;
   letter-spacing: 1px;
   text-align: center;
-  box-shadow: inset 7px 7px 7px , inset -7px -7px 7px ;
-  border-radius: 12% ;
+  box-shadow: inset 7px 7px 7px, inset -7px -7px 7px;
+  border-radius: 12%;
 }
 .infos-container {
   animation-name: containerSprout;
   animation-duration: 1s;
   position: absolute;
   bottom: 0;
-  left:50%;
+  left: 50%;
   transform: translate(-47%, -50%);
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: center;  
-  height:20%;
+  align-items: center;
+  height: 20%;
   width: 40%;
-  max-width:258px;
+  max-width: 258px;
   padding: 2vh 4vw;
   background: white;
-  color: #424B54;
+  color: #424b54;
   font-family: sans-serif;
   font-size: 1.6rem;
   font-weight: 900;
   text-shadow: 1px 1px 2px;
   letter-spacing: 1px;
   text-align: center;
-  box-shadow: inset 7px 7px 7px , inset -7px -7px 7px ;
-  border-radius:   12%;
+  box-shadow: inset 7px 7px 7px, inset -7px -7px 7px;
+  border-radius: 12%;
 }
 .reset-button {
   position: absolute;
@@ -157,16 +156,16 @@
   bottom: 0;
   height: fit-content;
   width: 8vw;
-  padding: .4rem;
+  padding: 0.4rem;
   border: 2px solid #424b54;
   background-color: transparent;
   color: #424b54;
   font-size: 0.8rem;
-  letter-spacing: .5px;
+  letter-spacing: 0.5px;
   box-shadow: 2px 2px 2px #424b54;
   border-radius: 10px;
-} 
-.reset-button:hover{
+}
+.reset-button:hover {
   border: 1px solid #424b54;
   box-shadow: 0 0 0;
   letter-spacing: 0px;
@@ -180,24 +179,24 @@
   animation-duration: 2s;
   height: fit-content;
   width: fit-content;
-  padding: .5rem;
-  max-width:120px;
+  padding: 0.5rem;
+  max-width: 120px;
   margin: 0;
   color: black;
   border: transparent 1px solid;
-  border-radius: 7px;   
+  border-radius: 7px;
   box-shadow: 1px 1px 3px;
 }
-.continue-button:hover{
+.continue-button:hover {
   border: transparent 1px solid;
   box-shadow: 0 0 0;
 }
 .play-and-result-wrapper {
   display: flex;
-  justify-content: center;  
+  justify-content: center;
   align-items: center;
   width: 70vw;
-  margin-left:4vw;
+  margin-left: 4vw;
 }
 .play-ground {
   display: flex;
@@ -205,11 +204,11 @@
   justify-content: space-between;
   height: 90vh;
   width: 100%;
-  max-width:792px;
-  padding:0 1.5vw;
-  background-color: #2E3957;
+  max-width: 792px;
+  padding: 0 1.5vw;
+  background-color: #2e3957;
   box-shadow: 7px 7px 14px #1b1f2d;
-  border-radius: 5%;  
+  border-radius: 5%;
 }
 .game-solution {
   display: flex;
@@ -217,46 +216,44 @@
   align-items: center;
   height: 7vh;
   width: 98%;
-  margin:  auto;
-  background-color: #BBB8B2;   /* DE9151 */
-  box-shadow: 4px 4px 4px ;
-  border-radius: 20px; 
+  margin: auto;
+  background-color: #bbb8b2; /* DE9151 */
+  box-shadow: 4px 4px 4px;
+  border-radius: 20px;
 }
-.game-solution.active{
+.game-solution.active {
   animation: colorChange 1s forwards;
 }
 @keyframes colorChange {
   0% {
-    background-color: #BBB8B2;
+    background-color: #bbb8b2;
   }
   100% {
-    background-color: #F34213;
+    background-color: #f34213;
   }
-  
 }
 .play-and-check-container {
   max-height: 90vh;
   display: flex;
   justify-content: space-around;
-  
 }
 .betweenRows {
   display: flex;
   flex-direction: column-reverse;
   justify-content: space-between;
-  width: 50%; 
+  width: 50%;
   height: 65vh;
-  max-height:750px;
+  max-height: 750px;
 }
 .withinRow {
   display: flex;
   justify-content: space-around;
   align-items: center;
   height: 10%;
-  max-height:38px;
+  max-height: 38px;
   margin: 0.5vw;
   border: black 0.5px solid;
-  background-color: #BBB8B2;
+  background-color: #bbb8b2;
   border-radius: 5px;
 }
 .peons-row {
@@ -265,9 +262,9 @@
   align-items: center;
   height: 7vh;
   width: 98%;
-  margin:  auto;
-  background-color: #F34213;
-  border-radius: 20px;  
+  margin: auto;
+  background-color: #f34213;
+  border-radius: 20px;
 }
 .checkRowsContainer {
   display: flex;
@@ -276,20 +273,20 @@
 }
 .checkRow {
   display: flex;
-  justify-content: space-around; 
+  justify-content: space-around;
   align-items: center;
   height: 3vw;
   width: 12vw;
   max-height: 35px;
   max-width: 150px;
-  background-color: #BBB8B2;
+  background-color: #bbb8b2;
   border-radius: 7px;
 }
 .peon-shape {
   height: 4vw;
   width: 4vw;
-  max-height:35px;
-  max-width:35px;
+  max-height: 35px;
+  max-width: 35px;
   border: 0.5px solid black;
   border-radius: 50%;
 }
@@ -299,118 +296,57 @@
 .peon-in-check-row {
   width: 1.3vw;
   height: 1.3vw;
-  max-width:17px;
-  max-height:17px;
+  max-width: 17px;
+  max-height: 17px;
   border-radius: 50%;
 }
 @media screen and (max-width: 759px) {
   #app {
-    
     flex-direction: column-reverse;
-    justify-content: space-around;
-    align-items: center;
-    padding: 0;
-    height:100vh;
-    width:100%;
-    margin: 0;
   }
   .tutorial-button {
-    text-align: center;
-    font-size:.8rem;
-    top: 3vh;
-    width: fit-content;
-    height: fit-content;
-    padding: .5rem;
+    top: 4.5vh;
+    right:4vw;
+    width: 12vw;
+    height: 4vh;
+    font-size: .8em;
+    z-index: 40;
   }
-  .score-infos{
-    width:100%;
-    height:10%;
-    margin:0;
-  }
-  .score-container {
-    top:65%;
-    left:50%;
-    transform: translate(-50%,-50%);
-    font-size: 1rem; 
-    height: 100%;
-    padding:1vh 4vw;
-  }
-  .infos-container {
-   top:65%;
-   left:50%;
-   transform: translate(-50%, -50%);
-   font-size: 1rem; 
-   height: 100%;
-   padding:1vh 4vw;
-  }
-  .continue-button {
-    display: flex;
-    align-items: center;
-    height: 35%;
-    padding:0.2rem;
-    font-size: .7rem;
-  }
-  .reset-button {
-   bottom:-2vh;
-   width: fit-content;
-   letter-spacing: .1px;
-   font-size:.6rem;
-   font-weight:bold;
-  } 
-  .play-and-result-wrapper{
-    margin:0;
-    width:80vw;
-  }
-  .play-ground {
-    display: flex;
-    flex-direction: column;
-    max-height: 78vh;
-    width: 100%;
+
+  /* .tutorial-button {
+  position: absolute;
+  bottom: 1vh;
+  right: 1vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 18vw;
+  max-width: 100px;
+  height: 4vh;
+  padding: 0 1vw;
+  background-color: #424b54;
+  color: white;
+  cursor: default;
+  border-radius: 10px;
+  z-index: 20;
+  box-shadow: 4px 4px 4px;
+} */
+  .play-and-result-wrapper {
+    width: 90vw;
+    height: 90vh;
     margin: auto;
   }
-  .play-and-check-container {
-    height: 60vh;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-  }
-  .betweenRows{
-    justify-content: space-around;
-    height:100%;
-  }
-  .game-solution {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 6vh;
-  }
-  .peons-row {
-    box-shadow: 0 0;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 6vh;
-    width: 100%;
-  }
   .peon-shape {
-    border: 0.5px solid black;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+    height: 30px;
+    width: 30px;
   }
-  .checkRowsContainer{
-    width: 24%;
-  }
-  .checkRow{
-    width:100%;
-    height:3vh;
+  .checkRow {
+    height: 2vh;
+    width: 16vw;
+    border-radius: 7px;
   }
   .peon-in-check-row {
-    width: 11px;
-    height: 11px;
-    border-radius: 50%;
+    height: 8px;
+    width: 8px;
   }
-
 }
-
-
