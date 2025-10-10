@@ -59,21 +59,21 @@
 
 @media (max-width: 768px) {
   .container {
-    box-sizing: content-box;
-    border: 0;
+    box-sizing: border-box;
+    border: 2px solid transparent;
     top: 0;
     right: 0;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    align-items: start;
     flex-wrap: wrap;
-    width: 95%;
+    width: 100%;
     height: 10%;
     padding: 0;
     font-size: 0.9em;
     text-align: center;
     border-radius: 2%;
-    z-index: 30;
+    z-index: 40;
   }
   .dot-reading{
     width:33%

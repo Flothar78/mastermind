@@ -306,20 +306,28 @@
   }
   .score-infos {
     position: relative;
-    border: 3px dashed red;
     width: 100%;
   }
   .score-container {
-    /* position: fixed; */
-    height: 70%;
-     top: 0;
-     left:0;
-    margin: auto;
-     transform: none;
-    /* 
-  top: 0;
+    height: 50%;
+    width: 25%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .infos-container {
+    height: 50%;
+    width: 25%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    /* animation-name: containerSprout;
+  animation-duration: 1s;
+  position: absolute;
+  bottom: 0;
   left: 50%;
- 
+  transform: translate(-47%, -50%);
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -330,8 +338,8 @@
   padding: 2vh 4vw;
   background: white;
   color: #424b54;
-  font-size: 1.2rem;
   font-family: sans-serif;
+  font-size: 1.6rem;
   font-weight: 900;
   text-shadow: 1px 1px 2px;
   letter-spacing: 1px;
@@ -339,37 +347,28 @@
   box-shadow: inset 7px 7px 7px, inset -7px -7px 7px;
   border-radius: 12%; */
   }
-
   .reset-button {
-    left: 4.5vw;
-    top: 5vh;
+    box-sizing: border-box;
+    left: 0;
+    top: 0;
+    /* transform: translateY(50%); */
     width: fit-content;
+    height: 4vh;
     letter-spacing: 0;
     font-size: 0.8em;
-
-    /* position: absolute;
-  right: 1vw;
-  bottom: 0;
-  height: fit-content;
-  width: 8vw;
-  padding: 0.4rem;
-  border: 2px solid #424b54;
-  background-color: transparent;
-  color: #424b54;
-  font-size: 0.8rem;
-  letter-spacing: 0.5px;
-  box-shadow: 2px 2px 2px #424b54;
-  border-radius: 10px; */
+    border-radius: 0;
+    box-shadow: 0 0 0;
   }
   .tutorial-button {
-    top: 5.5vh;
-    right: 4.5vw;
-    width: 8vw;
+    top: 0;
+    right: 0;
+    width: fit-content;
     height: 4vh;
-    font-size: 0.7em;
+    font-size: 0.8em;
     text-align: center;
     z-index: 20;
     box-shadow: 0 0 0;
+    border-radius: 0;
   }
   .tutorial-button.active {
     z-index: 40;
@@ -383,8 +382,8 @@
     box-shadow: 4px 4px 8px;
   }
   .peon-shape {
-    height: 30px;
-    width: 30px;
+    height: 40px;
+    width: 40px;
   }
   .checkRow {
     height: 2vh;
