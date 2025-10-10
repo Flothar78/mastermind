@@ -4,17 +4,18 @@ import RulesInfo from "@/components/RulesInfo.vue";
 import { useColorStore } from "@/stores/ColorStore.js";
 import { useScoreStore } from "@/stores/ScoreStore.js";
 import { storeToRefs } from "pinia";
-import { ref, watch, watchEffect, onMounted, onBeforeUnmount, computed } from "vue";
-
+import { inject, watch, onMounted, onBeforeUnmount, computed } from "vue";
+const gameRules = inject("gameRules");
+console.log(gameRules);
 const color_store = useColorStore();
 const score_store = useScoreStore();
 let { score } = storeToRefs(score_store);
-let { rows, solution, winLooseMessage, numberOfPeons, playRowId } = storeToRefs(
-  color_store
-);
+let { rows, solution, playRowId } = storeToRefs(color_store);
 const isRowFilled = (rowIndex) => rows.value[rowIndex].every((peon) => peon !== "");
 const showRulesInfo = computed(() => {
-  return isRowFilled(0) && !isRowFilled(2) && score.value < 3;
+  if (gameRules.value == false) {
+    return isRowFilled(0) && !isRowFilled(2) && score.value < 3;
+  }
 });
 
 watch(playRowId, (val) => {

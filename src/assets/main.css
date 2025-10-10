@@ -307,13 +307,14 @@
   .score-infos {
     position: relative;
     width: 100%;
+    
   }
   .score-container {
     height: 50%;
     width: 25%;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);border-radius: 20px;
   }
   .infos-container {
     height: 50%;
@@ -389,6 +390,7 @@
   }
   .play-ground {
     box-shadow: 4px 4px 8px;
+    border-radius: 30px;
   }
   .peon-shape {
     height: 40px;
