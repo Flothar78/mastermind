@@ -360,10 +360,10 @@
     box-shadow: 0 0 0;
   }
   .tutorial-button {
-    top: 0;
+    top: 4.7vh;
     right: 0;
     width: fit-content;
-    height: 4vh;
+    height: 2vh;
     font-size: 0.8em;
     text-align: center;
     z-index: 20;
