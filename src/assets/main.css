@@ -38,6 +38,7 @@
   margin: auto;
   background: #bbb8b2;
   overflow: hidden;
+  font-family: sans-serif;
 }
 .tutorial-button {
   position: absolute;
@@ -220,6 +221,11 @@
   background-color: #bbb8b2; /* DE9151 */
   box-shadow: 4px 4px 4px;
   border-radius: 20px;
+}
+.solution-name{
+  font-size: 1.5em;
+  color:#2E3957;
+  letter-spacing: 1px;
 }
 .game-solution.active {
   animation: colorChange 1s forwards;
