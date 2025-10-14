@@ -7,7 +7,7 @@ const { winLooseMessage } = storeToRefs(useColorStore());
 let { score } = storeToRefs(useScoreStore());
 
 watch(winLooseMessage, (newWinLooseMessage) => {
-  newWinLooseMessage === "Gagné !" ? useScoreStore().increment() : "";
+  newWinLooseMessage === "Gagné" ? useScoreStore().increment() : "";
 });
 
 const clickReplay = () => {
