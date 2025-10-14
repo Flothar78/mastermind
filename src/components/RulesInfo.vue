@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="dot-reading"><span class="black-dot"></span> Bonne couleur, bien placée.</div>
-    <div class="dot-reading"><span class="white-dot"></span> Mauvaise couleur, mal placée.</div>
+    <div class="dot-reading"><span class="white-dot"></span> Bonne couleur, mal placée.</div>
     <div class="dot-reading"><span class="empty-dot"></span> N'est pas dans la combinaison.</div>
     <div class="parenthese-style">(ça n'indique pas l'emplacement des pions)</div>
   </div>
