@@ -30,7 +30,7 @@ onMounted(() => {
     boxShadow: "0 4px 10px rgba(0, 0, 0, 0.3)",
     transform: "translate(-50%, -50%) scale(1)",
     zIndex: "9999",
-    transition: "transform 0.08s linear",
+    // transition: "transform 0.08s linear",
   });
   document.body.appendChild(dragIcon);
 });
@@ -38,7 +38,6 @@ onMounted(() => {
 onBeforeUnmount(() => {
   if (dragIcon) document.body.removeChild(dragIcon);
 });
-
 
 const choiceColorFromAvailableColors = (index) => {
   colorStore.addColorToStore(colorsArray.value[index]);
@@ -59,20 +58,23 @@ const touchStart = (event, index) => {
   dragIcon.style.background = color;
   dragIcon.style.top = 0;
   dragIcon.style.left = 0;
+  dragIcon.style.opacity = "0";
   colorStore.isPeonActive = false;
   const touch = event.touches[0];
-  console.log(touch)
+  console.log(touch);
   lastTouch = { x: touch.clientX, y: touch.clientY };
+  console.log(lastTouch);
   dragIcon.style.transform = `translate(${lastTouch.x - 18}px, ${lastTouch.y - 18}px)`;
   moving = true;
   animateIcon();
 };
 const animateIcon = () => {
-  if (!moving && !touchDrag.active) return;
-  const x = moving ? lastTouch.x : touchDrag.x;
-  const y = moving ? lastTouch.y : touchDrag.y;
-  const offsetY = -30;
-  dragIcon.style.transform = `translate(${x - 24}px, ${y - 24 + offsetY}px)`;
+  const x = lastTouch.x;
+  const y = lastTouch.y;
+  dragIcon.style.opacity = "1";  
+  dragIcon.style.width = "36px";
+  dragIcon.style.height = "36px";
+  dragIcon.style.transform = `translate(${x - 24}px, ${y - 24}px)`;
   requestAnimationFrame(animateIcon);
 };
 const touchMove = (event) => {
