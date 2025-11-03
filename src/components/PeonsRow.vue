@@ -230,7 +230,7 @@ const handleDrop = (event, rowIndex) => {
 .drop-target {
   outline: 4px dashed #ffbf3e;
   outline-offset: 4px;
-  transform: scale(1.12);
+  transform: scale(1.1);
   box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.3);
   /* transition: transform 0.1s ease-in-out;  */
 }

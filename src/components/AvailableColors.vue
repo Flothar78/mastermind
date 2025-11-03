@@ -58,7 +58,7 @@ const touchStart = (event, index) => {
   dragIcon.style.background = color;
   dragIcon.style.top = 0;
   dragIcon.style.left = 0;
-  dragIcon.style.opacity = "0";
+  dragIcon.style.opacity = "1";
   colorStore.isPeonActive = false;
   const touch = event.touches[0];
   lastTouch = { x: touch.clientX, y: touch.clientY };
