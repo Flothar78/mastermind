@@ -8,7 +8,7 @@ const { playRowId, numberOfPeons } = storeToRefs(color_store);
 
 <template>
   <div class="game-solution" :class="{ active: playRowId === 10000 }">
-    <div v-if="playRowId < 10000" class="solution-name">SOLUTION</div>
+    <div v-if="playRowId < 10000" class="solution-name">MASTERMIND</div>
     <PeonOccurence
       v-show="playRowId === 10000"
       v-for="number in numberOfPeons"

@@ -5,16 +5,16 @@ import RulesInfo from "./components/RulesInfo.vue";
 import { ref, provide } from "vue";
 const buttonText = ref("Voir Règles");
 const gameRules = ref(false);
-provide('gameRules', gameRules)
+provide("gameRules", gameRules);
 const displayTutorial = () => {
   if (gameRules.value === false) {
     const button = document.querySelector(".tutorial-button");
     gameRules.value = true;
     buttonText.value = "Fermer Règles";
-    button.classList.add('active')
+    button.classList.add("active");
   } else {
     gameRules.value = false;
-    buttonText.value = "Voir Règles";
+    buttonText.value = `Voir Règles`;
   }
 };
 </script>
@@ -32,5 +32,4 @@ const displayTutorial = () => {
 
 <style scoped>
 @import "@/assets/main.css";
-
 </style>
