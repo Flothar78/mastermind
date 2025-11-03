@@ -207,8 +207,8 @@ const handleDrop = (event, rowIndex) => {
       }"
       @dragover="handleDragOver($event, rowIndex)"
       @drop="handleDrop($event, rowIndex)"
-      @touchmove.prevent="handleDragOver($event, rowIndex)"
-      @touchend.prevent="handleDrop($event, rowIndex)"
+      @touchmove.passive="handleDragOver($event, rowIndex)"
+      @touchend.passive="handleDrop($event, rowIndex)"
       class="withinRow"
     >
       <PeonOccurence
@@ -221,9 +221,9 @@ const handleDrop = (event, rowIndex) => {
         draggable="true"
         @dragstart="handleDragStart($event, rowIndex, peonIndex)"
         @dragend="handleDragEnd"
-        @touchstart.prevent="touchStart($event, rowIndex, peonIndex)"
-        @touchmove.prevent="touchMove"
-        @touchend.prevent="touchEnd"
+        @touchstart.passive="touchStart($event, rowIndex, peonIndex)"
+        @touchmove.passive="touchMove"
+        @touchend.passive="touchEnd"
       />
     </div>
   </div>

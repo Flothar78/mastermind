@@ -57,8 +57,11 @@ const touchStart = (event, index) => {
   const color = colorsArray.value[index];
   currentDragColor.value = color;
   dragIcon.style.background = color;
+  dragIcon.style.top = 0;
+  dragIcon.style.left = 0;
   colorStore.isPeonActive = false;
   const touch = event.touches[0];
+  console.log(touch)
   lastTouch = { x: touch.clientX, y: touch.clientY };
   dragIcon.style.transform = `translate(${lastTouch.x - 18}px, ${lastTouch.y - 18}px)`;
   moving = true;
@@ -118,9 +121,9 @@ const touchEnd = (event) => {
       @click="choiceColorFromAvailableColors(index)"
       @dragstart="dragStart($event, index)"
       draggable="true"
-      @touchstart.prevent="touchStart($event, index)"
-      @touchmove.prevent="touchMove"
-      @touchend.prevent="touchEnd"
+      @touchstart.passive="touchStart($event, index)"
+      @touchmove.passive="touchMove"
+      @touchend.passive="touchEnd"
     />
   </div>
 </template>
