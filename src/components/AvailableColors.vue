@@ -61,9 +61,7 @@ const touchStart = (event, index) => {
   dragIcon.style.opacity = "0";
   colorStore.isPeonActive = false;
   const touch = event.touches[0];
-  console.log(touch);
   lastTouch = { x: touch.clientX, y: touch.clientY };
-  console.log(lastTouch);
   dragIcon.style.transform = `translate(${lastTouch.x - 18}px, ${lastTouch.y - 18}px)`;
   moving = true;
   animateIcon();
@@ -71,15 +69,16 @@ const touchStart = (event, index) => {
 const animateIcon = () => {
   const x = lastTouch.x;
   const y = lastTouch.y;
-  dragIcon.style.opacity = "1";  
+  dragIcon.style.opacity = "1";
   dragIcon.style.width = "36px";
   dragIcon.style.height = "36px";
-  dragIcon.style.transform = `translate(${x - 24}px, ${y - 24}px)`;
+  dragIcon.style.transform = `translate(${x-18}px, ${y - 20}px)`;
   requestAnimationFrame(animateIcon);
 };
 const touchMove = (event) => {
   if (!currentDragColor.value) return;
   const touch = event.touches[0];
+
   lastTouch = { x: touch.clientX, y: touch.clientY };
   document
     .querySelectorAll(".drop-target")
@@ -90,9 +89,10 @@ const touchMove = (event) => {
   }
 };
 const touchEnd = (event) => {
-  moving = false;
   const touch = event.changedTouches[0];
+
   const target = document.elementFromPoint(touch.clientX, touch.clientY);
+
   if (target && target.classList.contains("withinRow-peons")) {
     const rowEl = target.closest(".withinRow");
     if (!rowEl) return;
@@ -102,6 +102,7 @@ const touchEnd = (event) => {
     colorStore.getColorFromStore(rowIndex, peonIndex, currentDragColor.value);
   }
   dragIcon.style.background = "transparent";
+  dragIcon.style.boxShadow = "0 0 0 transparent";
   currentDragColor.value = null;
   document
     .querySelectorAll(".drop-target")

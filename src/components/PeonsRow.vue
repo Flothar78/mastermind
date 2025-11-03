@@ -61,23 +61,11 @@ onBeforeUnmount(() => {
 
 const handleDragStart = (event, rowIndex, peonIndex) => {
   const color = rows.value[rowIndex][peonIndex];
-  const tempIcon = document.createElement("div");
-  Object.assign(tempIcon.style, {
-    width: "48px",
-    height: "48px",
-    borderRadius: "50%",
-    background: color,
-    position: "absolute",
-    top: "-9999px",
-    left: "-9999px",
-    boxShadow: "0 4px 10px rgba(0, 0, 0, 0.3)",
-    transform: "translate(-50%, -50%) scale(1)",
-    transition: "transform 0.08s linear",
-  });
-  document.body.appendChild(tempIcon);
+
+  document.body.appendChild(dragIcon);
   event.dataTransfer.setData("color", color);
-  event.dataTransfer.setDragImage(tempIcon, 18, 18);
-  setTimeout(() => document.body.removeChild(tempIcon), 0);
+  event.dataTransfer.setDragImage(dragIcon, 18, 18);
+  setTimeout(() => document.body.removeChild(dragIcon), 0);
 };
 
 const handleDragEnd = () => {
@@ -86,7 +74,6 @@ const handleDragEnd = () => {
     .querySelectorAll(".drop-target")
     .forEach((el) => el.classList.remove("drop-target"));
 };
-
 
 const touchStart = (event, rowIndex, peonIndex) => {
   const color = rows.value[rowIndex][peonIndex];
@@ -102,11 +89,10 @@ const touchStart = (event, rowIndex, peonIndex) => {
 };
 
 const animateIcon = () => {
-  if (!moving && !touchDrag.active) return;
-  const x = moving ? lastTouch.x : touchDrag.x;
-  const y = moving ? lastTouch.y : touchDrag.y;
-  const offsetY = -30;
-  dragIcon.style.transform = `translate(${x - 24}px, ${y - 24 + offsetY}px)`;
+  const x = touchDrag.x;
+  const y = touchDrag.y;
+
+  dragIcon.style.transform = `translate(${x - 24}px, ${y - 24}px)`;
   requestAnimationFrame(animateIcon);
 };
 
@@ -125,7 +111,7 @@ const touchMove = (event) => {
 };
 
 const touchEnd = (event) => {
-  if (!touchDrag.active) return;
+  // if (!touchDrag.active) return;
   touchDrag.active = false;
 
   const touch = event.changedTouches[0];
@@ -145,7 +131,7 @@ const touchEnd = (event) => {
 
 const handleDragOver = (event, rowIndex) => {
   if (rowIndex !== playRowId.value) return;
-  event.preventDefault();
+  // event.preventDefault();
   const { clientX, clientY } = event.touches ? event.touches[0] : event;
   const rowEl = event.currentTarget;
   const peonEls = Array.from(rowEl.querySelectorAll(".withinRow-peons"));
@@ -169,7 +155,7 @@ const handleDragOver = (event, rowIndex) => {
 };
 
 const handleDrop = (event, rowIndex) => {
-  event.preventDefault();
+  // event.preventDefault();
   const color = event.dataTransfer?.getData("color") || "";
   const rowEl = event.currentTarget;
   const peonEls = Array.from(rowEl.querySelectorAll(".withinRow-peons"));
@@ -242,10 +228,11 @@ const handleDrop = (event, rowIndex) => {
   box-sizing: border-box;
 }
 .drop-target {
-  outline: 2px solid #ffbf3e;
+  outline: 4px dashed #ffbf3e;
   outline-offset: 4px;
   transform: scale(1.12);
-  transition: transform 0.08s ease;
+  box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.3);
+  /* transition: transform 0.1s ease-in-out;  */
 }
 .active-row {
   animation: pulse 2s infinite;
