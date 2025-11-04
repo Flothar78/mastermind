@@ -4,7 +4,7 @@ import RulesInfo from "@/components/RulesInfo.vue";
 import { useColorStore } from "@/stores/ColorStore.js";
 import { useScoreStore } from "@/stores/ScoreStore.js";
 import { storeToRefs } from "pinia";
-import { inject, watch, onMounted, onBeforeUnmount, computed } from "vue";
+import {  watch, onMounted, onBeforeUnmount, computed } from "vue";
 
 const gameRules = inject("gameRules");
 const color_store = useColorStore();
