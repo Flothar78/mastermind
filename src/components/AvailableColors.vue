@@ -22,7 +22,7 @@ onMounted(() => {
     width: "48px",
     height: "48px",
     borderRadius: "50%",
-    position: "absolute",
+    position: "fixed",
     top: "-9999px",
     left: "-9999px",
     background: "transparent",
@@ -56,9 +56,9 @@ const touchStart = (event, index) => {
   const color = colorsArray.value[index];
   currentDragColor.value = color;
   dragIcon.style.background = color;
-  dragIcon.style.top = 0;
-  dragIcon.style.left = 0;
   dragIcon.style.opacity = "1";
+ dragIcon.style.top = "0px";
+  dragIcon.style.left = "0px";
   colorStore.isPeonActive = false;
   const touch = event.touches[0];
   lastTouch = { x: touch.clientX, y: touch.clientY };
@@ -67,12 +67,16 @@ const touchStart = (event, index) => {
   animateIcon();
 };
 const animateIcon = () => {
+  if (!moving) return;
   const x = lastTouch.x;
   const y = lastTouch.y;
+  dragIcon.style.background = currentDragColor.value;
   dragIcon.style.opacity = "1";
   dragIcon.style.width = "36px";
   dragIcon.style.height = "36px";
-  dragIcon.style.transform = `translate(${x-18}px, ${y - 20}px)`;
+  dragIcon.style.top = "0px";
+  dragIcon.style.left = "0px";
+  dragIcon.style.transform = `translate(${x - 18}px, ${y - 20}px)`;
   requestAnimationFrame(animateIcon);
 };
 const touchMove = (event) => {

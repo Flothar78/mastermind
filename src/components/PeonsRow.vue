@@ -41,12 +41,12 @@ let touchDrag = { color: null, active: false, x: 0, y: 0 };
 onMounted(() => {
   dragIcon = document.createElement("div");
   Object.assign(dragIcon.style, {
-    width: "48px",
-    height: "48px",
+    width: "32px",
+    height: "32px",
     borderRadius: "50%",
-    position: "fixed",
-    top: "0",
-    left: "0",
+    position: "absolute",
+    top: "-9999px",
+    left: "-9999px",
     background: "transparent",
     pointerEvents: "none",
     zIndex: "9999",
@@ -58,8 +58,8 @@ onMounted(() => {
 
 onBeforeUnmount(() => {
   if (dragIcon && dragIcon.parentNode === document.body) {
-  document.body.removeChild(dragIcon);
-}
+    document.body.removeChild(dragIcon);
+  }
 });
 
 const handleDragStart = (event, rowIndex, peonIndex) => {
@@ -70,17 +70,19 @@ const handleDragStart = (event, rowIndex, peonIndex) => {
   document.body.appendChild(dragIcon);
   try {
     event.dataTransfer.setData("color", color);
-    event.dataTransfer.setDragImage(dragIcon, 18, 18);
+    event.dataTransfer.setDragImage(dragIcon, 10, 10);
   } catch {}
 };
 
 const handleDragEnd = () => {
   currentDraggedColor = null;
   dragIcon.style.background = "transparent";
-  document.querySelectorAll(".drop-target").forEach((el) => el.classList.remove("drop-target"));
- if (dragIcon && dragIcon.parentNode === document.body) {
-  document.body.removeChild(dragIcon);
-}
+  document
+    .querySelectorAll(".drop-target")
+    .forEach((el) => el.classList.remove("drop-target"));
+  if (dragIcon && dragIcon.parentNode === document.body) {
+    document.body.removeChild(dragIcon);
+  }
 };
 
 const touchStart = (event, rowIndex, peonIndex) => {
@@ -97,8 +99,11 @@ const touchStart = (event, rowIndex, peonIndex) => {
 };
 
 const animateIcon = () => {
-  const { x, y } = touchDrag;
-  dragIcon.style.transform = `translate(${x - 24}px, ${y - 24}px)`;
+  if (!touchDrag.active) return;
+  const { x, y, color } = touchDrag;
+  console.log('touchDrag.color' + touchDrag.color);
+  dragIcon.style.backgroundColor = color;
+  dragIcon.style.transform = `translate(${x - 18}px, ${y - 20}px)`;
   requestAnimationFrame(animateIcon);
 };
 
@@ -107,7 +112,9 @@ const touchMove = (event) => {
   const t = event.touches[0];
   touchDrag.x = t.clientX;
   touchDrag.y = t.clientY;
-  document.querySelectorAll(".drop-target").forEach((el) => el.classList.remove("drop-target"));
+  document
+    .querySelectorAll(".drop-target")
+    .forEach((el) => el.classList.remove("drop-target"));
   const target = document.elementFromPoint(t.clientX, t.clientY);
   if (target && target.classList.contains("withinRow-peons"))
     target.classList.add("drop-target");
@@ -126,7 +133,9 @@ const touchEnd = (event) => {
   }
   dragIcon.style.background = "transparent";
   dragIcon.style.boxShadow = "0 0 0 transparent";
-  document.querySelectorAll(".drop-target").forEach((el) => el.classList.remove("drop-target"));
+  document
+    .querySelectorAll(".drop-target")
+    .forEach((el) => el.classList.remove("drop-target"));
 };
 
 const handleDragOver = (event, rowIndex) => {
@@ -209,6 +218,8 @@ const handleDrop = (event, rowIndex) => {
         @touchstart.passive="touchStart($event, rowIndex, peonIndex)"
         @touchmove.passive="touchMove"
         @touchend.passive="touchEnd"
+        @dragover.prevent="handleDragOver"
+        @drop="handleDrop"
       />
     </div>
   </div>
