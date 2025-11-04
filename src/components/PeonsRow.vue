@@ -95,13 +95,15 @@ const touchStart = (event, rowIndex, peonIndex) => {
     y: event.touches[0].clientY,
   };
   dragIcon.style.background = color;
+  dragIcon.style.backgroundColor = color;
+  dragIcon.style.opacity = "1";
   animateIcon();
 };
 
 const animateIcon = () => {
   if (!touchDrag.active) return;
   const { x, y, color } = touchDrag;
-  console.log('touchDrag.color' + touchDrag.color);
+  console.log("touchDrag.color" + touchDrag.color);
   dragIcon.style.backgroundColor = color;
   dragIcon.style.transform = `translate(${x - 18}px, ${y - 20}px)`;
   requestAnimationFrame(animateIcon);
