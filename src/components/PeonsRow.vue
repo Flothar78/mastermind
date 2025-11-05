@@ -66,6 +66,8 @@ const handleDragStart = (event, rowIndex, peonIndex) => {
   const color = rows.value[rowIndex][peonIndex];
   if (!color) return;
   currentDraggedColor = color;
+   dragIcon.style.top = "-999px";
+  dragIcon.style.left = "-999px";
   dragIcon.style.background = color;
   document.body.appendChild(dragIcon);
   try {
@@ -91,10 +93,9 @@ const touchStart = (event, rowIndex, peonIndex) => {
     x: event.touches[0].clientX,
     y: event.touches[0].clientY,
   };
-  dragIcon.style.top = "0px";
-  dragIcon.style.left = "0px";
-  dragIcon.style.width = "40px";
-  dragIcon.style.height = "40px";
+
+  // dragIcon.style.width = "40px";
+  // dragIcon.style.height = "40px";
   dragIcon.style.backgroundColor = color;
   dragIcon.style.opacity = "1";
   animateIcon();
@@ -105,7 +106,8 @@ const animateIcon = () => {
   const { x, y, color } = touchDrag;
   console.log("touchDrag in animateIcon: " + touchDrag.color);
   dragIcon.style.backgroundColor = color;
-
+  dragIcon.style.top = "0px";
+  dragIcon.style.left = "0px";
   dragIcon.style.transform = `translate(${x - 18}px, ${y - 20}px)`;
   requestAnimationFrame(animateIcon);
 };
