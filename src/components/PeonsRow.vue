@@ -4,7 +4,7 @@ import RulesInfo from "@/components/RulesInfo.vue";
 import { useColorStore } from "@/stores/ColorStore.js";
 import { useScoreStore } from "@/stores/ScoreStore.js";
 import { storeToRefs } from "pinia";
-import {  inject, watch, onMounted, onBeforeUnmount, computed } from "vue";
+import { inject, watch, onMounted, onBeforeUnmount, computed } from "vue";
 
 const gameRules = inject("gameRules");
 const color_store = useColorStore();
@@ -44,14 +44,14 @@ onMounted(() => {
     width: "32px",
     height: "32px",
     borderRadius: "50%",
-    position: "absolute",
-    top: "-9999px",
-    left: "-9999px",
+    position: "fixed",
+    top: "-999px",
+    left: "-999px",
     background: "transparent",
     pointerEvents: "none",
     zIndex: "9999",
     boxShadow: "0 4px 10px rgba(0, 0, 0, 0.3)",
-    transform: "translate(-50%, -50%) scale(1)",
+    // transform: "translate(-50%, -50%) scale(1)",
   });
   document.body.appendChild(dragIcon);
 });
@@ -80,9 +80,6 @@ const handleDragEnd = () => {
   document
     .querySelectorAll(".drop-target")
     .forEach((el) => el.classList.remove("drop-target"));
-  if (dragIcon && dragIcon.parentNode === document.body) {
-    document.body.removeChild(dragIcon);
-  }
 };
 
 const touchStart = (event, rowIndex, peonIndex) => {
@@ -94,7 +91,10 @@ const touchStart = (event, rowIndex, peonIndex) => {
     x: event.touches[0].clientX,
     y: event.touches[0].clientY,
   };
-  dragIcon.style.background = color;
+  dragIcon.style.top = "0px";
+  dragIcon.style.left = "0px";
+  dragIcon.style.width = "40px";
+  dragIcon.style.height = "40px";
   dragIcon.style.backgroundColor = color;
   dragIcon.style.opacity = "1";
   animateIcon();
@@ -103,8 +103,9 @@ const touchStart = (event, rowIndex, peonIndex) => {
 const animateIcon = () => {
   if (!touchDrag.active) return;
   const { x, y, color } = touchDrag;
-  console.log("touchDrag.color: " + touchDrag.color);
+  console.log("touchDrag in animateIcon: " + touchDrag.color);
   dragIcon.style.backgroundColor = color;
+
   dragIcon.style.transform = `translate(${x - 18}px, ${y - 20}px)`;
   requestAnimationFrame(animateIcon);
 };
