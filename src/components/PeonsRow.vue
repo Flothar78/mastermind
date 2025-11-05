@@ -4,7 +4,7 @@ import RulesInfo from "@/components/RulesInfo.vue";
 import { useColorStore } from "@/stores/ColorStore.js";
 import { useScoreStore } from "@/stores/ScoreStore.js";
 import { storeToRefs } from "pinia";
-import {  watch, onMounted, onBeforeUnmount, computed } from "vue";
+import {  inject, watch, onMounted, onBeforeUnmount, computed } from "vue";
 
 const gameRules = inject("gameRules");
 const color_store = useColorStore();
@@ -103,7 +103,7 @@ const touchStart = (event, rowIndex, peonIndex) => {
 const animateIcon = () => {
   if (!touchDrag.active) return;
   const { x, y, color } = touchDrag;
-  console.log("touchDrag.color" + touchDrag.color);
+  console.log("touchDrag.color: " + touchDrag.color);
   dragIcon.style.backgroundColor = color;
   dragIcon.style.transform = `translate(${x - 18}px, ${y - 20}px)`;
   requestAnimationFrame(animateIcon);
