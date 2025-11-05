@@ -72,8 +72,7 @@ const animateIcon = () => {
   const y = lastTouch.y;
   dragIcon.style.background = currentDragColor.value;
   dragIcon.style.opacity = "1";
-  dragIcon.style.width = "36px";
-  dragIcon.style.height = "36px";
+
   dragIcon.style.top = "0px";
   dragIcon.style.left = "0px";
   dragIcon.style.transform = `translate(${x - 18}px, ${y - 20}px)`;

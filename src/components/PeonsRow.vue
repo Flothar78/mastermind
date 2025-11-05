@@ -41,8 +41,8 @@ let touchDrag = { color: null, active: false, x: 0, y: 0 };
 onMounted(() => {
   dragIcon = document.createElement("div");
   Object.assign(dragIcon.style, {
-    width: "32px",
-    height: "32px",
+    width: "48px",
+    height: "48px",
     borderRadius: "50%",
     position: "fixed",
     top: "-999px",
@@ -51,7 +51,7 @@ onMounted(() => {
     pointerEvents: "none",
     zIndex: "9999",
     boxShadow: "0 4px 10px rgba(0, 0, 0, 0.3)",
-    // transform: "translate(-50%, -50%) scale(1)",
+    // transition: "all 0.08s linear",
   });
   document.body.appendChild(dragIcon);
 });
@@ -244,8 +244,8 @@ const handleDrop = (event, rowIndex) => {
 }
 .drop-target {
   outline: 4px dashed #ffbf3e;
-  outline-offset: 4px;
-  transform: scale(1.1);
+  outline-offset: 2px;
+  transform: scale(1.5);
   box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.3);
 }
 .active-row {
